@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-My beloved little scripts, fruits of long-term endeavour in dotfiles fans thursday nigth parties, dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
+My beloved little scripts, fruits of long-term endeavour in dotfiles fans thursday night parties, dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
 
 
 Installation
