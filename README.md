@@ -15,6 +15,21 @@ Arriving in a new brand server trough ssh, just run this :
     dotfiles./install.sh
 ```
 
+Preventing privacy & security issues
+------------------------------------
+
+For credentials, tokens & other secret stuff, use local files :
+
+```
+    # ~/.gitconfig.local
+    [user]
+        name = Ronan Guilloux
+        email = ronan.guilloux@gmail.com
+    [github]
+        user = ronanguilloux
+        token = 7788bc06d8ae6e7664dc2193e16971
+```
+
 
 License Information
 -------------------
