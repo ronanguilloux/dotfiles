@@ -25,7 +25,7 @@
     new  = green bold
 [core]
 	editor = vim
-    excludesfile = ~/dotFiles/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [web]
     browser=open
 

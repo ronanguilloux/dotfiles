@@ -87,9 +87,6 @@ fortune /usr/share/games/fortunes/fr/tolkien_fr
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/dotfiles/.bash_aliases ]; then
-    . ~/dotfiles/.bash_aliases
-fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
