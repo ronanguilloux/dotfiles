@@ -23,11 +23,11 @@ For credentials, tokens & other secret stuff, use local files :
 ```
     # ~/.gitconfig.local
     [user]
-        name = Ronan Guilloux
-        email = ronan.guilloux@gmail.com
+        name = John Doe
+        email = john@doe.com
     [github]
-        user = ronanguilloux
-        token = 7788bc06d8ae6e7664dc2193e16971
+        user = johndoe
+        token = 88bc06d8a...
 ```
 
 
