@@ -10,9 +10,9 @@ Installation
 Landing on a new brand server trough ssh, just run this :
 
 ``` bash
-    sudo apt-get install git 
-    git clone git@github.com:ronanguilloux/dotfiles.git
-    dotfiles./install.sh
+    $ sudo apt-get install git 
+    $ git clone git@github.com:ronanguilloux/dotfiles.git
+    $ dotfiles./install.sh
 ```
 
 Preventing privacy & security issues
