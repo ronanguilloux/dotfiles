@@ -60,7 +60,9 @@ alias svim="sudo vim"
 alias c='clear'
 alias vimvim="vim ~/.vimrc"
 alias vimbashrc="vim ~/.bashrc"
+alias vimalias="vim ~/.bash_aliases"
 alias rebashrc=". ~/.bashrc"
+alias realias=". ~/.bash_aliases"
 
 # -------------------- apt-get related aliases --------------------
 
@@ -100,7 +102,6 @@ alias ssms="sudo service mongod start"
 alias semaine='date '+%U''
 alias ifif='sudo ifdown wlan0 && sudo ifup wlan0'
 alias screencast='ffmpeg -f x11grab -r 25 -s wxga -i :0.0 /tmp/outputFile.mpg'
-alias sshlist=". ~/Bin/shell/sshlist.sh"
 alias mybackup="cd /opt/backup/manual/ && php backup.php && cd -"
 alias jsstyle="seed ~/Bin/js/jslint.js"
 alias apache2routes='. ~/Bin/shell/apache2routes.sh'
@@ -122,7 +123,6 @@ alias phpstats=". ~/Bin/shell/phpstats.sh"
 alias semaine='date '+%U''
 alias ifif='sudo ifdown wlan0 && sudo ifup wlan0'
 alias screencast='ffmpeg -f x11grab -r 25 -s wxga -i :0.0 /tmp/outputFile.mpg'
-alias sshlist=". ~/Bin/shell/sshlist.sh"
 alias mybackup="cd /opt/backup/manual/ && php backup.php && cd -"
 alias jsstyle="seed ~/Bin/js/jslint.js"
 alias apache2routes='. ~/Bin/shell/apache2routes.sh'
