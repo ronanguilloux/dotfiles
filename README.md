@@ -15,6 +15,9 @@ Landing on a new brand server trough ssh, just run this :
     $ dotfiles./install.sh
 ```
 
+And that's all you need to do. 
+The install.sh will move the original .bashrc found in $HOME before changing using a symbolic link, in case this file was already modified.
+
 Preventing privacy & security issues
 ------------------------------------
 
