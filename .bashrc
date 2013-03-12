@@ -134,4 +134,11 @@ genpasswd() {
     [ "$l" == "" ] && l=20
     tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${l} | xargs
 }
+function getBatteryDischargingStatus() {
+    bat=$(acpi --battery | awk '{ if ($3 == "Discharging,") print substr($4, 0, length($4))}');
+    if [ "$bat" != "" ];
+    then
+        echo "(⚡$bat) ";
+    fi
+}
 
