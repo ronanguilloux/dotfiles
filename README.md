@@ -36,8 +36,8 @@ which is already mentionned inside the .gitconfig file you'll found here:
 ```
     # ~/dotfiles/.gitconfig
     [include]
-    # For username / creds / etc
-    path = ~/.gitconfig.local
+        # For username / creds / etc
+        path = ~/.gitconfig.local
 ```
 
 
