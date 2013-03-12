@@ -1,24 +1,27 @@
-dotfiles
-========
+.files
+=======
 
-My beloved little scripts, fruits of long-term endeavour in dotfiles fans thursday night parties, dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
+My commented dotfiles (bash, vim, git, etc.), fruits of long-term endeavour in dotfiles fans thursday night parties, dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
 
 
 Installation
 ------------
 
-Arriving in a new brand server trough ssh, just run this :
+Landing on a new brand server trough ssh, just run this :
 
 ``` bash
-    sudo apt-get install git 
-    git clone git@github.com:ronanguilloux/dotfiles.git
-    dotfiles./install.sh
+    $ sudo apt-get install git 
+    $ git clone git@github.com:ronanguilloux/dotfiles.git
+    $ dotfiles./install.sh
 ```
+
+And that's all you need to do. 
+The install.sh will move the original .bashrc found in $HOME before changing using a symbolic link, in case this file was already modified.
 
 Preventing privacy & security issues
 ------------------------------------
 
-For credentials, tokens & other secret stuff, use local files :
+For credentials, tokens & other secret stuff, use .local files :
 
 ```
     # ~/.gitconfig.local
@@ -30,6 +33,16 @@ For credentials, tokens & other secret stuff, use local files :
         token = 88bc06d8a...
 ```
 
+which is already mentionned inside the .gitconfig file you'll found here:
+
+
+```
+    # ~/dotfiles/.gitconfig
+    [include]
+        # For username / creds / etc
+        path = ~/.gitconfig.local
+```
+
 
 License Information
 -------------------
@@ -38,8 +51,8 @@ License Information
 * WTFPL - see LICENSE file
 
 
-Contributing
-------------
+Issues & Contributions
+----------------------
 
 The issue queue can be found at: https://github.com/ronanguilloux/dotfiles/issues
 
