@@ -48,8 +48,8 @@ License Information
 * WTFPL - see LICENSE file
 
 
-Contributing
-------------
+Issues & Contributions
+----------------------
 
 The issue queue can be found at: https://github.com/ronanguilloux/dotfiles/issues
 
