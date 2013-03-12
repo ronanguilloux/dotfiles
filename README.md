@@ -1,13 +1,13 @@
-dotfiles
-========
+.files
+=======
 
-My beloved little scripts, fruits of long-term endeavour in dotfiles fans thursday night parties, dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
+My commented dotfiles (bash, vim, git, etc.), fruits of long-term endeavour in dotfiles fans thursday night parties, dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
 
 
 Installation
 ------------
 
-Arriving in a new brand server trough ssh, just run this :
+Landing on a new brand server trough ssh, just run this :
 
 ``` bash
     sudo apt-get install git 
@@ -18,7 +18,7 @@ Arriving in a new brand server trough ssh, just run this :
 Preventing privacy & security issues
 ------------------------------------
 
-For credentials, tokens & other secret stuff, use local files :
+For credentials, tokens & other secret stuff, use .local files :
 
 ```
     # ~/.gitconfig.local
@@ -28,6 +28,16 @@ For credentials, tokens & other secret stuff, use local files :
     [github]
         user = johndoe
         token = 88bc06d8a...
+```
+
+which is already mentionned inside the .gitconfig file you'll found here:
+
+
+```
+    # ~/dotfiles/.gitconfig
+    [include]
+    # For username / creds / etc
+    path = ~/.gitconfig.local
 ```
 
 
