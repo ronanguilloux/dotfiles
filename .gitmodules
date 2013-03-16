@@ -1,0 +1,3 @@
+[submodule ".vim/bundle/code_complete"]
+	path = .vim/bundle/code_complete
+	url = git://github.com/mbbill/code_complete.git
