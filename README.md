@@ -46,6 +46,8 @@ which is already mentionned inside the .gitconfig file you'll found here:
 Vim bundles as git submodules
 -----------------------------
 
+All [pathogen](http://www.vim.org/scripts/script.php?script_id=2332)-based vim bundles come from git submodules.
+
 Example:
 
 ``` bash
