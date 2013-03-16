@@ -43,6 +43,15 @@ which is already mentionned inside the .gitconfig file you'll found here:
         path = ~/.gitconfig.local
 ```
 
+Vim bundles as git submodules
+-----------------------------
+
+Example:
+
+``` bash
+    $ git submodule add git://github.com/mbbill/code_complete.git .vim/bundle/code_complete
+```
+
 
 License Information
 -------------------
