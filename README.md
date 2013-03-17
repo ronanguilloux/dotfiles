@@ -15,8 +15,30 @@ Landing on a new brand server trough ssh, just run this :
     $ dotfiles/install.sh
 ```
 
-And that's all you need to do. 
-The install.sh will move the original .bashrc found in $HOME before changing using a symbolic link, in case this file was already modified.
+The install.sh will move the original .bashrc file and the .vim directory found in $HOME before changing using symbolic links, in case there were already modified.
+
+
+Vim bundles installation
+------------------------
+
+All [pathogen](http://www.vim.org/scripts/script.php?script_id=2332)-based vim bundles come from git submodules.
+
+
+To install all of them, you must run two commands: 
+* `git submodule init` to initialize your local configuration file, 
+* `git submodule update` to fetch all the data from each project and eventually check out the appropriate commit (see the `.gitmodules` file).
+
+``` bash
+    $ git submodule init
+    $ git submodule update
+```
+
+To add a new submodule:
+
+``` bash
+    $ git submodule add git://github.com/mbbill/code_complete.git .vim/bundle/code_complete
+```
+
 
 Preventing privacy & security issues
 ------------------------------------
@@ -41,17 +63,6 @@ which is already mentionned inside the .gitconfig file you'll found here:
     [include]
         # For username / creds / etc
         path = ~/.gitconfig.local
-```
-
-Vim bundles as git submodules
------------------------------
-
-All [pathogen](http://www.vim.org/scripts/script.php?script_id=2332)-based vim bundles come from git submodules.
-
-Example:
-
-``` bash
-    $ git submodule add git://github.com/mbbill/code_complete.git .vim/bundle/code_complete
 ```
 
 
