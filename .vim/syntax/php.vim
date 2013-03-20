@@ -2,7 +2,7 @@
 " Language: PHP 5.3 & up
 " Maintainer: Paul Garvin <paul@paulgarvin.net>
 " Last Change:  April 2, 2010
-" URL:
+" URL: 
 "
 " Former Maintainer:  Peter Hodge <toomuchphp-vim@yahoo.com>
 " Former URL: http://www.vim.org/scripts/script.php?script_id=1571
@@ -59,6 +59,9 @@ if !exists("main_syntax")
   let main_syntax = 'php'
 endif
 
+runtime syntax/html.vim
+unlet b:current_syntax
+
 " Set sync method if none declared
 if !exists("php_sync_method")
   if exists("php_minlines")
@@ -68,10 +71,23 @@ if !exists("php_sync_method")
   endif
 endif
 
+syn cluster htmlPreproc add=phpRegion
+
+syn include @sqlTop syntax/sql.vim
+
 syn sync clear
+unlet b:current_syntax
+syn cluster sqlTop remove=sqlString,sqlComment
+if exists("php_sql_query")
+  syn cluster phpAddStrings contains=@sqlTop
+endif
+
+if exists("php_html_in_strings")
+  syn cluster phpAddStrings add=@htmlTop
+endif
 
 syn case match
-
+ 
 " Superblobals
 syn keyword phpSuperglobals GLOBALS _GET _POST _REQUEST _FILES _COOKIE _SERVER _SESSION _ENV HTTP_RAW_POST_DATA php_errormsg http_response_header argc argv contained
 
@@ -478,7 +494,7 @@ if exists("php_parent_error_close")
 endif
 
 " Todo
-syn keyword phpTodo todo fixme xxx contained
+syn keyword phpTodo todo fixme xxx note contained
 
 " Comment
 if exists("php_parent_error_open")
@@ -640,5 +656,3 @@ let b:current_syntax = "php"
 if main_syntax == 'php'
   unlet main_syntax
 endif
-
-" vim: ts=8 sts=2 sw=2 expandtab
