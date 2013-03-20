@@ -198,6 +198,7 @@ set shiftwidth=4                " number of spaces to use for each step of (auto
 set expandtab                   " in Insert mode: Use the appropriate number of spaces to insert a <Tab>
 set smarttab
 set softtabstop=4               "softtab value, 4 spaces
+set backspace=indent,eol,start
 
 
 " ------------------------------------------------------------------------------------
