@@ -123,8 +123,6 @@ export PATH=$HOME/local/bin:$PATH
 # Android
 export PATH=/home/ronan/Bin/android-sdk-linux_x86/tools:${PATH}
 export PATH=/home/ronan/Bin/android-sdk-linux_x86/platform-tools:${PATH}
-# Go
-export PATH=$PATH:$GOBIN
 
 # -------------------- Various functions --------------------
 
