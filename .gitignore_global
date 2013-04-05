@@ -31,6 +31,10 @@ tmp/*
 ehthumbs.db
 Icon?
 Thumbs.db
+.tmtags
+tags
+vendor.tags
+tmtagsHistory
 
 # Bundler
 .bundle
@@ -45,3 +49,7 @@ Gemfile.lock
 
 # Node
 node_modules/
+
+# Sublime things
+*.sublime-project
+*.sublime-workspace
