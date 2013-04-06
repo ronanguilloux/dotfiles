@@ -4,6 +4,13 @@
 My commented dotfiles (bash, vim, git, etc.), fruits of long-term endeavour in dotfiles fans thursday night parties, dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
 
 
+Dependencies
+------------
+
+Many shell files (tools, etC.) aliases in the .bash_aliases conf file are in git@github.com:ronanguilloux/Bin.git
+This is why Bin.git is mentionned below in the install procedure.
+
+
 Installation
 ------------
 
@@ -12,6 +19,7 @@ Landing on a new brand server trough ssh, just run this :
 ``` bash
     $ sudo apt-get install git 
     $ git clone git@github.com:ronanguilloux/dotfiles.git
+    $ git clone git@github.com:ronanguilloux/Bin.git
     $ dotfiles/install.sh
 ```
 

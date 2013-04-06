@@ -117,7 +117,10 @@ PS1="$GREEN\u@\h$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 #PS1="\[\033[01;31m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w]\[\033[00m\]\$ "
 
 # -------------------- PATHES --------------------
-
+# set PATH so it includes user's private Bin if it exists
+if [ -d "$HOME/Bin" ] ; then
+    export PATH="$HOME/Bin:$PATH"
+fi
 # Node.js
 export PATH=$HOME/local/bin:$PATH
 # Android
