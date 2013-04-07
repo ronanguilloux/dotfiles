@@ -7,7 +7,7 @@ My commented dotfiles (bash, vim, git, etc.), fruits of long-term endeavour in d
 Dependencies
 ------------
 
-Many shell files (tools, etC.) aliases in the .bash_aliases conf file are in git@github.com:ronanguilloux/Bin.git
+Many shell files (tools, etc.) aliases in the .bash_aliases conf file are in git@github.com:ronanguilloux/Bin.git
 This is why Bin.git is mentionned below in the install procedure.
 
 
