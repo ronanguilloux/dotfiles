@@ -118,6 +118,7 @@ PS1="$GREEN\u@\h$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 
 # -------------------- PATHES --------------------
 # set PATH so it includes user's private Bin if it exists
+# see ~/Bin github repo
 if [ -d "$HOME/Bin" ] ; then
     export PATH="$HOME/Bin:$PATH"
 fi
