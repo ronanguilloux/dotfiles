@@ -78,13 +78,12 @@ alias menageup='sudo apt-get clean && sudo apt-get autoclean && sudo apt-get aut
 # -------------------- GIT / SVN related aliases --------------------
 
 alias git2cl='git log --graph --pretty=medium --color=never > CHANGELOG'
-alias gitinfo='. /home/ronan/Bin/shell/gitinfo.sh'
+alias gitinfo='. /home/ronan/Bin/sh/gitinfo.sh'
 alias gitignore='cat .gitignore'
 alias gap='git add -p'
 alias gpom='git push origin master'
 alias svndifff="svn diff | view -"
 alias svnlogg="svn log -v -r{`date '+%Y-%m-01'`}:{`date '+%Y-%m-31'`} | colordiff"
-alias svn2ch="~/Bin/shell/svn2cl-0.13/svn2cl.sh -o CHANGELOG"
 
 # -------------------- server related aliases --------------------
 
@@ -100,13 +99,17 @@ alias ssms="sudo service mongod start"
 alias semaine='date '+%U''
 alias ifif='sudo ifdown wlan0 && sudo ifup wlan0'
 alias screencast='ffmpeg -f x11grab -r 25 -s wxga -i :0.0 /tmp/outputFile.mpg'
-alias sshlist=". ~/Bin/shell/sshlist.sh"
+alias sshlist=". ~/Bin/local/sshlist.sh"
 alias mybackup="cd /opt/backup/manual/ && php backup.php && cd -"
 alias jsstyle="seed ~/Bin/js/jslint.js"
-alias apache2routes='. ~/Bin/shell/apache2routes.sh'
+alias apache2routes='. ~/Bin/sh/apache2routes.sh'
 alias googleBackup='/opt/backup/googledocs/gdatacopier-2.1.2/gcp.py -o -u rguilloux@toog.fr:/all ~/Documents/GoogleDocs/'
 alias whereisraspberrypi="sudo nmap -sV --open 192.168.0.0/25 -p22" 
 alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $? -eq 0 ] && echo "192.168.1.$ip UP" || : ; done'
+# Add an "alert" alias for long running commands.  Use like so:
+# #   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
 
 # -------------------- PHP/Sf1/Sf2/Behat related aliases --------------------
 
@@ -115,22 +118,8 @@ alias getcomposer='curl -s http://getcomposer.org/installer | php'
 alias sf="symfony"
 alias sfsetset="sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
 alias getbehat='wget https://github.com/downloads/Behat/Behat/behat.phar'
-alias phpstats=". ~/Bin/shell/phpstats.sh"
+alias phpstats=". ~/Bin/sh/phpstats.sh"
 
 # -------------------- other various unclassfied aliases -------------------
 
-alias semaine='date '+%U''
-alias ifif='sudo ifdown wlan0 && sudo ifup wlan0'
-alias screencast='ffmpeg -f x11grab -r 25 -s wxga -i :0.0 /tmp/outputFile.mpg'
-alias sshlist=". ~/Bin/shell/sshlist.sh"
-alias mybackup="cd /opt/backup/manual/ && php backup.php && cd -"
-alias jsstyle="seed ~/Bin/js/jslint.js"
-alias apache2routes='. ~/Bin/shell/apache2routes.sh'
-alias googleBackup='/opt/backup/googledocs/gdatacopier-2.1.2/gcp.py -o -u rguilloux@toog.fr:/all ~/Documents/GoogleDocs/'
-alias whereisraspberrypi="sudo nmap -sV --open 192.168.0.0/25 -p22" 
-alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $? -eq 0 ] && echo "192.168.1.$ip UP" || : ; done'
 
-# Add an "alert" alias for long running commands.  Use like so:
-# #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
