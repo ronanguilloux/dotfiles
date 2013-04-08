@@ -1,0 +1,174 @@
+snippet ns
+	namespace ${1:`Namespace()`};
+snippet cont
+	<?php
+
+	namespace ${1:`Namespace()`};
+
+	use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+	class ${2:`Filename('', 'Controller')`} extends Controller
+	{
+		public function ${3:action}Action()
+		{
+			${4:// your action}
+		}
+	}
+
+snippet type
+	<?php
+
+	namespace ${1:`Namespace()`};
+
+	use Symfony\Component\Form\AbstractType;
+	use Symfony\Component\Form\FormBuilder;
+
+	/**
+	 * ${2:`Filename('', 'myClass')`}.
+	 *
+	 * @author Ronan Guilloux <ronan.guilloux@${3:gmail.com}>
+	 */
+	class $2 extends AbstractType
+	{
+		public function buildForm(FormBuilder $builder, array $options)
+		{
+			${4}
+		}
+
+		public function getName()
+		{
+			return '${3}';
+		}
+	}
+
+snippet bundle
+	<?php
+
+	namespace ${1:`Namespace()`};
+
+	use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+	/**
+	 * ${2:Bundle}Bundle.
+	 *
+	 * @author Ronan Guilloux <ronan.guilloux@${3:gmail.com}>
+	 */
+	class $2Bundle extends Bundle
+	{
+	}
+
+snippet command
+	<?php
+	
+	namespace ${1:`Namespace()`};
+	
+	use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+	use Symfony\Component\Console\Input\InputInterface;
+	use Symfony\Component\Console\Output\OutputInterface;
+	
+	/**
+	 * ${2}.
+	 *
+	 * @author Ronan Guilloux <ronan.guilloux@${3:gmail.com}>
+	 */
+	class ${2:`Filename('', 'Command')`} extends ContainerAwareCommand
+	{
+		protected function configure()
+		{
+			$this
+				->setName('${4}');
+		}
+
+		protected function execute(InputInterface $input, OutputInterface $output)
+		{
+		}
+	}
+snippet testcase
+	<?php
+	
+	namespace ${1:`Namespace()`};
+	
+	/**
+	 * ${2}.
+	 *
+	 * @author Ronan Guilloux <ronan.guilloux@${3:gmail.com}>
+	 */
+	class ${2:`Filename('', 'Command')`} extends ${4:\PHPUnit_Framework_TestCase}
+	{
+		public function test${5}()
+		{
+			$this->assert()
+		}
+	}
+snippet nrequest
+	use Symfony\Component\HttpFoundation\Request;
+snippet nresponse
+	use Symfony\Component\HttpFoundation\Response;
+snippet cgtok
+	$this->get('security.context')->getToken()
+snippet cguser
+	$this->get('security.context')->getToken()->getUser()
+snippet cgform
+	$form = $this->get('form.factory')->create(new ${1:MyType}(), ${2:entity});
+snippet set
+	public function set${1:CamelCase}($${2:property})
+	{
+		$this->$2 = $$2;
+	}
+snippet get
+	public function get${1:Property}()
+	{
+		return $this->${2:property};
+	}
+snippet setget
+	public function set${1:CamelCase}($${2:property})
+	{
+		$this->$2 = $$2;
+	}
+	
+	public function get$1()
+	{
+		return $this->$2;
+	}
+snippet add
+	public function add${1:Item}(${2:Class} $${3:property})
+	{
+		$this->${4:collection}->add($$3);
+	}
+snippet dcol
+	$this->${1:collection} = new \Doctrine\Common\Collections\ArrayCollection();
+snippet action
+	public function ${1:action}Action(${2})
+	{
+		${3}
+		return $this->render('`Bundle()`:`substitute(Filename(), 'Controller', '', 'g')`:$1.html.twig');
+	}
+snippet em
+	${1:$em} = $this->get('doctrine')->getManager();
+	${2}
+snippet rep
+	${1:$em}->getRepository('`Bundle()`:${2:`substitute(Filename(), 'Controller', '', 'g')`}')${3}
+snippet 404
+	throw $this->createNotFoundException('${1}');
+snippet 403
+	throw new AccessDeniedHttpException('${1}');
+snippet class
+	<?php
+	
+	namespace ${1:`Namespace()`};
+	
+	/**
+	 * ${2:`Filename()`}.
+	 *
+	 * @author Ronan Guilloux <ronan.guilloux@${3:gmail.com}>
+	 */
+	class ${2:`Filename()`}
+	{
+		${3}
+	}
+snippet trs
+	$this->client->getResponse()->getStatusCode()
+snippet trc
+	$this->client->getResponse()->getContent()
+snippet vd
+	var_dump(${1});

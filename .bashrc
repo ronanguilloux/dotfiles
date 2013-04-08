@@ -117,14 +117,16 @@ PS1="$GREEN\u@\h$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 #PS1="\[\033[01;31m\][\u@\h\[\033[00m\]:\[\033[01;34m\]\w]\[\033[00m\]\$ "
 
 # -------------------- PATHES --------------------
-
+# set PATH so it includes user's private Bin if it exists
+# see ~/Bin github repo
+if [ -d "$HOME/Bin" ] ; then
+    export PATH="$HOME/Bin:$PATH"
+fi
 # Node.js
 export PATH=$HOME/local/bin:$PATH
 # Android
 export PATH=/home/ronan/Bin/android-sdk-linux_x86/tools:${PATH}
 export PATH=/home/ronan/Bin/android-sdk-linux_x86/platform-tools:${PATH}
-# Go
-export PATH=$PATH:$GOBIN
 
 # -------------------- Various functions --------------------
 
@@ -133,5 +135,12 @@ genpasswd() {
     local l=$1
     [ "$l" == "" ] && l=20
     tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${l} | xargs
+}
+function getBatteryDischargingStatus() {
+    bat=$(acpi --battery | awk '{ if ($3 == "Discharging,") print substr($4, 0, length($4))}');
+    if [ "$bat" != "" ];
+    then
+        echo "(⚡$bat) ";
+    fi
 }
 

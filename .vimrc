@@ -198,6 +198,7 @@ set shiftwidth=4                " number of spaces to use for each step of (auto
 set expandtab                   " in Insert mode: Use the appropriate number of spaces to insert a <Tab>
 set smarttab
 set softtabstop=4               "softtab value, 4 spaces
+set backspace=indent,eol,start
 
 
 " ------------------------------------------------------------------------------------
@@ -224,35 +225,6 @@ set smartcase                   " search becomes case sensitive if expression co
 nmap <silent> <leader>/ :let @/=""<cr>
 
 
-" ------------------------------------------------------------------------------------
-" PHP : Shortcuts & syntax check
-" see http://vim.wikia.com/wiki/Runtime_syntax_check_for_php
-" ------------------------------------------------------------------------------------
-set makeprg=php\ -l\ %          " php syntax check while using make
-let php_sql_query = 1           " sql request colorization
-let php_htmlInStrings = 1       " html tags colorization
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd BufRead,BufNewFile *.phps set filetype=php   " .phps files handled like .php
-" run file with PHP CLI (CTRL-M)
-"autocmd FileType php noremap <C-M> :w!<CR>:!/usr/bin/php %<CR>
-" PHP parser check (CTRL-L)
-autocmd FileType php noremap <C-L> :!/usr/bin/php -l %<CR>
-autocmd FileType php noremap <C-M> :!/usr/bin/phpcs --standard=PEAR %<CR>
-let g:debuggerPort = 9000
-
-
-" ------------------------------------------------------------------------------------
-" VIM-PHP-CS-FIXER : https://github.com/stephpy/vim-php-cs-fixer
-" ------------------------------------------------------------------------------------
-let g:php_cs_fixer_path = "/usr/local/bin/php-cs-fixer" " define the path to the php-cs-fixer.phar
-let g:php_cs_fixer_level = "all"                " which level ?
-let g:php_cs_fixer_config = "default"           " configuration
-let g:php_cs_fixer_php_path = "php"             " Path to PHP
-let g:php_cs_fixer_fixers_list = ""             " List of fixers
-let g:php_cs_fixer_enable_default_mapping = 1   " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run = 0                  " Call command with dry-run option
-let g:php_cs_fixer_verbose = 0                  " Return the output of command if 1, else an inline information.
-
 
 
 " ------------------------------------------------------------------------------------
@@ -261,50 +233,12 @@ let g:php_cs_fixer_verbose = 0                  " Return the output of command i
 autocmd FileType sql set omnifunc=sqlcomplete#Complete
 
 
-" ------------------------------------------------------------------------------------
-" PDV : phpDocumentor for Vim
-" see http://stackoverflow.com/questions/3298820/vim-phpdoc-multiline-comment-autoindent
-" ------------------------------------------------------------------------------------
-let g:pdv_cfg_Version = "$Id$"
-let g:pdv_cfg_Author = "Ronan Guilloux <ronan.guilloux@gmail.com>"
-let g:pdv_cfg_Copyright = "Copyleft (ɔ) 2011 Ronan Guilloux"
-let g:pdv_cfg_License = "{@link http://www.gnu.org/licenses/agpl.txt} GNU AFFERO GPL v3"
-let g:pdv_cfg_php4always = 0 " Ignore PHP4 tags
-nnoremap <leader>d :call PhpDocSingle()<CR>
-vnoremap <leader>d :call PhpDocRange()<CR>
-set formatoptions+=or           " fix <Enter> in /* ...  */ new lines
-
 
 " ------------------------------------------------------------------------------------
 " SnipMate
 " ------------------------------------------------------------------------------------
 ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
-
-
-" ------------------------------------------------------------------------------------
-" Symfony
-" see http://geekblog.over-blog.com/article-21837155.html
-" ------------------------------------------------------------------------------------
-map <F2> :!phptags :set tags=.ctags
-map <F5> :!svn up
-map <F6> :!svn ci
-map <F7> :!svn
-map <F9> :!./symfony cc
-map <F10> :!./symfony propel:build-model
-map <F11> :!./symfony propel:build-all-load
-map <F12> :!./symfony
-let g:symfony_fuf = 1
-" Symfony
-map <leader>sa :Saction <CR>
-map <leader>sv :Sview <CR>
-
-
-" ------------------------------------------------------------------------------------
-" Behat
-" see https://github.com/veloce/vim-behat
-" ------------------------------------------------------------------------------------
-let feature_filetype='behat'
 
 
 " ------------------------------------------------------------------------------------
@@ -318,12 +252,6 @@ au! BufRead,BufNewFile *.md set filetype=mkd
 " ------------------------------------------------------------------------------------
 au! BufRead,BufNewFile *.rst set filetype=rst
 
-" ------------------------------------------------------------------------------------
-" Twig
-" ------------------------------------------------------------------------------------
-au BufNewFile,BufRead *.twig set filetype=twig
-" Twig surrounding
-let g:surround_{char2nr('-')} = "{% \r %}"
 
 " ------------------------------------------------------------------------------------
 " Latex
@@ -343,17 +271,9 @@ syntax on
 
 
 " ------------------------------------------------------------------------------------
-" CODE Folding
-" see http://www.vim.org/scripts/script.php?script_id=1623
-" ------------------------------------------------------------------------------------
-let g:DisableAutoPHPFolding = 1
-
-
-" ------------------------------------------------------------------------------------
 " TEMPLATES
 " ------------------------------------------------------------------------------------
 autocmd bufNewFile *.html 0r ~/.vim/templates/xhtml.html
-autocmd bufNewFile *.php 0r ~/.vim/templates/php.php
 
 
 " ------------------------------------------------------------------------------------
@@ -385,8 +305,6 @@ map <C-h> <C-T>
 map ]t :tnext<CR>
 " Jump to previous tag match
 map [t :tprevious<CR>
-" Rebuild tag index
-nnoremap <silent> <C-F7> :silent !ctags -h ".php" --PHP-kinds=+cf --recurse --exclude=*/cache/* --exclude=*/logs/* --exclude=*/data/* --exclude="\.git" --exclude="\.svn" --languages=PHP &<cr>
 
 
 " ------------------------------------------------------------------------------------

@@ -60,7 +60,9 @@ alias svim="sudo vim"
 alias c='clear'
 alias vimvim="vim ~/.vimrc"
 alias vimbashrc="vim ~/.bashrc"
+alias vimalias="vim ~/.bash_aliases"
 alias rebashrc=". ~/.bashrc"
+alias realias=". ~/.bash_aliases"
 
 # -------------------- apt-get related aliases --------------------
 
@@ -81,6 +83,7 @@ alias git2cl='git log --graph --pretty=medium --color=never > CHANGELOG'
 alias gitinfo='. /home/ronan/Bin/sh/gitinfo.sh'
 alias gitignore='cat .gitignore'
 alias gap='git add -p'
+alias gpo='git push origin '
 alias gpom='git push origin master'
 alias svndifff="svn diff | view -"
 alias svnlogg="svn log -v -r{`date '+%Y-%m-01'`}:{`date '+%Y-%m-31'`} | colordiff"
@@ -121,5 +124,4 @@ alias getbehat='wget https://github.com/downloads/Behat/Behat/behat.phar'
 alias phpstats=". ~/Bin/sh/phpstats.sh"
 
 # -------------------- other various unclassfied aliases -------------------
-
 
