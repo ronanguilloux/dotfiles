@@ -77,8 +77,9 @@ esac
 # colorized man, needs to isntall most
 export PAGER=most
 
-fortune /usr/share/games/fortunes/fr/tolkien_fr
+#fortune /usr/share/games/fortunes/fr/tolkien_fr
 #fortune /usr/share/games/fortunes/fr/haiku
+fortune | cowsay -f stegosaurus
 
 # -------------------- Aliases --------------------
 
