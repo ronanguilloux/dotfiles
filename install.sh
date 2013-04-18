@@ -10,12 +10,15 @@ then
     mv -f ~/.bash_aliases ~/.bash_aliases-dist
 fi
 if [ -d /.vim ]
+then
     mv -f ~/.vim ~/.vim-dist
 fi
 if [ -f /.gitignore_global ]
+then
     mv -f ~/.gitignore_global ~/.gitignore_global-dist
 fi
 if [ -f /.gitconfig ]
+then
     mv -f ~/.gitconfig ~/.gitconfig.local
 fi
 # create symlinks
