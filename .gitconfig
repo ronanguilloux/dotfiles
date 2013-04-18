@@ -29,3 +29,6 @@
 [web]
     browser=open
 
+[user]
+	name = Ronan Guilloux
+	email = ronan.guilloux@gmail.com
