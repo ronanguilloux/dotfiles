@@ -123,6 +123,10 @@ PS1="$GREEN\u@\h$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 if [ -d "$HOME/Bin" ] ; then
     export PATH="$HOME/Bin:$PATH"
 fi
+# local, private bin
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
 # Node.js
 export PATH=$HOME/local/bin:$PATH
 # Android
