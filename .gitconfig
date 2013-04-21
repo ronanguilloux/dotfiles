@@ -13,7 +13,7 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     who = shortlog -s -n --
 [color]
-#	diff = auto
+	diff = auto
     ui = auto
 	status = auto
 	branch = auto

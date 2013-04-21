@@ -79,7 +79,8 @@ export PAGER=most
 
 #fortune /usr/share/games/fortunes/fr/tolkien_fr
 #fortune /usr/share/games/fortunes/fr/haiku
-fortune | cowsay -f stegosaurus
+#fortune | cowsay -f stegosaurus
+fortune /usr/share/games/fortunes/fr/haiku | ponysay
 
 # -------------------- Aliases --------------------
 
