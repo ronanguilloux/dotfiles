@@ -385,6 +385,7 @@ au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 " see http://amix.dk/vim/vimrc.html
 " ------------------------------------------------------------------------------------
 "autocmd FileType javascript call JavaScriptFold()
+au FileType json setlocal equalprg=python\ -m\ json.tool
 autocmd FileType javascript setl fen
 autocmd FileType javascript setl nocindent
 
