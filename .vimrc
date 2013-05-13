@@ -406,6 +406,7 @@ let g:php_cs_fixer_verbose = 0                    " Return the output of command
 " see http://amix.dk/vim/vimrc.html
 " ------------------------------------------------------------------------------------
 "autocmd FileType javascript call JavaScriptFold()
+au FileType json setlocal equalprg=python\ -m\ json.tool
 autocmd FileType javascript setl fen
 autocmd FileType javascript setl nocindent
 

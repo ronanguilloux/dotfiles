@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/vim-golang"]
 	path = .vim/bundle/vim-golang
 	url = git://github.com/AndrewRadev/vim-golang.git
+[submodule ".vim/bundle/mustache"]
+	path = .vim/bundle/mustache
+	url = git://github.com/juvenn/mustache.vim.git

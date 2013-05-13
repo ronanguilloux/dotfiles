@@ -80,7 +80,7 @@ export PAGER=most
 #fortune /usr/share/games/fortunes/fr/tolkien_fr
 #fortune /usr/share/games/fortunes/fr/haiku
 if hash ponysay 2>/dev/null; then
-    fortune | ponysay
+    fortune /usr/share/games/fortunes/fr/haiku | ponysay
 else
     fortune | cowsay -f stegosaurus
 fi
