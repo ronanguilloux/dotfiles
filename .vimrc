@@ -19,6 +19,7 @@ endif
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+
 " ------------------------------------------------------------------------------------
 " Basics
 " ------------------------------------------------------------------------------------
@@ -61,12 +62,14 @@ autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowHidden=1
 
+
 " ------------------------------------------------------------------------------------
 " Gvim conf
 " ------------------------------------------------------------------------------------
 if has('gui_running')
     set guifont=Monaco\ Bold\ 10
 endif
+
 
 " ------------------------------------------------------------------------------------
 " Colorscheme solarized - https://github.com/altercation/vim-colors-solarized
@@ -116,17 +119,20 @@ if has("autocmd")
     filetype plugin indent on
 endif
 
+
 " ------------------------------------------------------------------------------------
 " Invisible character
 " ------------------------------------------------------------------------------------
 nmap <leader>l :set list!<CR>
 set listchars=nbsp:¤,tab:>-,trail:¤,extends:>,precedes:<,eol:¬,trail:·
 
+
 " ------------------------------------------------------------------------------------
 " Highlight current line
 " ------------------------------------------------------------------------------------
 set cursorline
 hi CursorLine term=underline cterm=underline
+
 
 " ------------------------------------------------------------------------------------
 " Highlight & remove trailing whitespaces
@@ -137,6 +143,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
 
 " ------------------------------------------------------------------------------------
 " Automatically remove trailing whitespace before write
@@ -225,13 +232,10 @@ set smartcase                   " search becomes case sensitive if expression co
 nmap <silent> <leader>/ :let @/=""<cr>
 
 
-
-
 " ------------------------------------------------------------------------------------
 " SQL Syntax
 " ------------------------------------------------------------------------------------
 autocmd FileType sql set omnifunc=sqlcomplete#Complete
-
 
 
 " ------------------------------------------------------------------------------------
@@ -332,6 +336,9 @@ map <leader>tm :tabmove
 " Improving tab name readability
 highlight TabLine term=none cterm=none
 highlight TabLineSel ctermbg=darkblue
+
+
+"set rtp+=/home/ronan/dotfiles/.vim/bundle/powerline/powerline/bindings/vim
 
 
 " ------------------------------------------------------------------------------------
