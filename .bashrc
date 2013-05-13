@@ -79,7 +79,11 @@ export PAGER=most
 
 #fortune /usr/share/games/fortunes/fr/tolkien_fr
 #fortune /usr/share/games/fortunes/fr/haiku
-fortune | cowsay -f stegosaurus
+if hash ponysay 2>/dev/null; then
+    fortune | ponysay
+else
+    fortune | cowsay -f stegosaurus
+fi
 
 # -------------------- Aliases --------------------
 
