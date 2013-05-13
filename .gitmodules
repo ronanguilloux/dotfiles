@@ -37,9 +37,12 @@
 [submodule ".vim/bundle/vim-php-cs-fixer"]
 	path = .vim/bundle/vim-php-cs-fixer
 	url = git://github.com/stephpy/vim-php-cs-fixer.git
+[submodule ".vim/bundle/vim-powerline"]
+	path = .vim/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/powerline"]
 	path = .vim/bundle/powerline
-	url = git://github.com/Lokaltog/powerline.git
+    url = git://github.com/Lokaltog/powerline.git
 [submodule ".vim/bundle/vim-symfony"]
 	path = .vim/bundle/vim-symfony
 	url = git://github.com/docteurklein/vim-symfony.git
