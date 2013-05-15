@@ -47,6 +47,11 @@ To add a new submodule:
     $ git submodule add git://github.com/mbbill/code_complete.git .vim/bundle/code_complete
 ```
 
+To update submodules
+``` bash
+    $ git pull --recurse-submodules
+```
+
 
 Preventing privacy & security issues
 ------------------------------------
