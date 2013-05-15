@@ -1,6 +1,10 @@
 #!/bin/bash
 
 # move original dotfiles 
+if [ -f /.zshrc ]
+then
+    mv -f ~/.zshrc ~/.zshrc-dist
+fi
 if [ -f /.bashrc ]
 then
     mv -f ~/.bashrc ~/.bashrc-dist
@@ -22,6 +26,7 @@ then
     mv -f ~/.gitconfig ~/.gitconfig.local
 fi
 # create symlinks
+ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.vim ~/.vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
