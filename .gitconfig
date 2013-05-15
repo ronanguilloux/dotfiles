@@ -6,28 +6,32 @@
     ci = commit -v
     last = log  -v -1 HEAD
     logp="log --pretty=format:'%h %s' --graph"
-	co = checkout
-	br = branch
-	unstage = reset HEAD --
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    co = checkout
+    br = branch
+    unstage = reset HEAD --
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     who = shortlog -s -n --
 [color]
-	diff = auto
+    diff = auto
     ui = auto
-	status = auto
-	branch = auto
-	interactive = auto
+    status = auto
+    branch = auto
+    interactive = auto
+[color "status"]
+    changed = yellow
+    added = green
+    untracked = red
 [color "diff"]
     meta = yellow bold
     frag = magenta bold
     old  = red bold
     new  = green bold
 [core]
-	editor = vim
+    editor = vim
     excludesfile = ~/.gitignore_global
 [web]
     browser=open
 [user]
-	name = Ronan Guilloux
-	email = ronan.guilloux@gmail.com
+    name = Ronan Guilloux
+    email = ronan.guilloux@gmail.com
