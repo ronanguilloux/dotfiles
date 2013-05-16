@@ -402,6 +402,14 @@ let g:php_cs_fixer_verbose = 0                    " Return the output of command
 
 
 " ------------------------------------------------------------------------------------
+" GIT
+" ------------------------------------------------------------------------------------
+" add spell checking and automatic wrapping at the recommended 72 columns to
+" you commit messages - source: http://goo.gl/VGbez
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+
+" ------------------------------------------------------------------------------------
 " Javascript
 " see http://amix.dk/vim/vimrc.html
 " ------------------------------------------------------------------------------------
