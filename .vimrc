@@ -44,6 +44,7 @@ set nobackup                    " do not backup files on overwrite
 set undolevels=1000             " use many levels of undo
 set noundofile                  " don't keep a persistent undofile
 set title                       " display the default title at the top of the window
+set completeopt=longest,menu
 set wildmenu                    " long autocompletion shrowing various solutions
 set wildmode=list:longest       " make it longest
 set wildignore=*.o,*.fasl,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " ignoring this
