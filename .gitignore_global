@@ -36,6 +36,10 @@ tags
 vendor.tags
 tmtagsHistory
 
+.svn
+*~
+.*.swp
+
 # Bundler
 .bundle
 Gemfile.lock
