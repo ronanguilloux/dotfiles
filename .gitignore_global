@@ -57,3 +57,4 @@ node_modules/
 # Sublime things
 *.sublime-project
 *.sublime-workspace
+.vim/.netrwhist
