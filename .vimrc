@@ -322,7 +322,7 @@ set showtabline=2
 
 " Tabs key bindings: movements commands
 " [Ctrl]+T plus a directional arrow
-map ,t :tabnew<cr>
+"map ,t :tabnew<cr>
 map ,w :tabclose<cr>
 " Tab mappings.
 map <leader>tt :tabnew<cr>
