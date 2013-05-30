@@ -19,6 +19,8 @@ endif
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+" All PHP, Js, md, HTML, CSS, Symfony, Golang vim config & enhancements
+" are in .vim/after/ftplugin/*.vim files
 
 " ------------------------------------------------------------------------------------
 " Basics
@@ -234,45 +236,10 @@ nmap <silent> <leader>/ :let @/=""<cr>
 
 
 " ------------------------------------------------------------------------------------
-" SQL Syntax
-" ------------------------------------------------------------------------------------
-autocmd FileType sql set omnifunc=sqlcomplete#Complete
-
-
-" ------------------------------------------------------------------------------------
 " SnipMate
 " ------------------------------------------------------------------------------------
 ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
-
-
-" ------------------------------------------------------------------------------------
-" Markdown
-" ------------------------------------------------------------------------------------
-au! BufRead,BufNewFile *.markdown,*.md set filetype=mkd
-au! BufRead,BufNewFile *.md set filetype=mkd
-
-" ------------------------------------------------------------------------------------
-" reStructuredText
-" ------------------------------------------------------------------------------------
-au! BufRead,BufNewFile *.rst set filetype=rst
-
-
-" ------------------------------------------------------------------------------------
-" Latex
-" ------------------------------------------------------------------------------------
-let g:Tex_ViewRule_pdf = 'okular'
-let g:Tex_MultipleCompileFormats = 'dvi,ps,pdf'
-let g:Tex_DefaultTargetFormat = 'pdf'
-
-
-" ------------------------------------------------------------------------------------
-" GO language Syntax check
-" see http://go-lang.cat-v.org/text-editors/vim/
-" ------------------------------------------------------------------------------------
-autocmd BufRead,BufNewFile *.go set filetype=go
-set rtp+=$GOROOT/misc/vim
-syntax on
 
 
 " ------------------------------------------------------------------------------------
@@ -381,66 +348,6 @@ set nospell
 
 
 " ------------------------------------------------------------------------------------
-" Xml formating
-" usage : vim badFormatted.xml => will open & immediatly format any bad formatted xml file 
-" see http://vim.wikia.com/wiki/Format_your_xml_document_using_xmllint
-" ------------------------------------------------------------------------------------
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
-
-
-" ------------------------------------------------------------------------------------
-" PHP
-" ------------------------------------------------------------------------------------
-" If php-cs-fixer is in $PATH, you don't need to define line below
-let g:php_cs_fixer_path = "/usr/local/bin/php-cs-fixer" " define the path to the php-cs-fixer.phar
-let g:php_cs_fixer_level = "all"                  " which level ?
-let g:php_cs_fixer_config = "default"             " configuration
-let g:php_cs_fixer_php_path = "php"               " Path to PHP
-let g:php_cs_fixer_fixers_list = ""               " List of fixers
-let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
-
-
-" ------------------------------------------------------------------------------------
-" GIT
-" ------------------------------------------------------------------------------------
-" add spell checking and automatic wrapping at the recommended 72 columns to
-" you commit messages - source: http://goo.gl/VGbez
-autocmd Filetype gitcommit setlocal spell textwidth=72
-
-
-" ------------------------------------------------------------------------------------
-" Javascript
-" see http://amix.dk/vim/vimrc.html
-" ------------------------------------------------------------------------------------
-"autocmd FileType javascript call JavaScriptFold()
-au FileType json setlocal equalprg=python\ -m\ json.tool
-autocmd FileType javascript setl fen
-autocmd FileType javascript setl nocindent
-
-autocmd FileType javascript imap <c-t> AJS.log();<esc>hi
-autocmd FileType javascript imap <c-a> console.log();<esc>hi
-
-autocmd FileType javascript inoremap <buffer> $r return
-autocmd FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
-
-function! JavaScriptFold()
-    setl foldmethod=syntax
-    setl foldlevelstart=1
-    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-    function! FoldText()
-        return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    endfunction
-    setl foldtext=FoldText()
-endfunction
-
-"jquery color
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-
-" ------------------------------------------------------------------------------------
 " Vim Templates
 " ------------------------------------------------------------------------------------
 augroup templates
@@ -466,12 +373,6 @@ function! CleanCode()
     echo "Cleaned up this mess."
 endfunction
 nmap <leader>cc :call CleanCode()<cr>
-
-" Indent XML readably
-function! DoPrettyXML()
-    1,$!xmllint --format --recover -
-endfunction
-command! PrettyXML call DoPrettyXML()
 
 function! CurDir()
     let curdir = substitute(getcwd(), '/home/ronan/', "~/", "g")
