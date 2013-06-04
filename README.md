@@ -49,7 +49,7 @@ To add a new submodule:
 
 To update submodules
 ``` bash
-    $ git pull --recurse-submodules
+    $ git submodule foreach git pull origin master
 ```
 
 
