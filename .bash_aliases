@@ -118,7 +118,7 @@ alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
 
 alias work='cd ~/Workspace'
 alias getcomposer='curl -s http://getcomposer.org/installer | php'
-alias sf="symfony"
+alias sfcc='php app/console cache:clear'
 alias sfsetset="sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
 alias getbehat='wget https://github.com/downloads/Behat/Behat/behat.phar'
 alias phpstats=". ~/Bin/sh/phpstats.sh"
