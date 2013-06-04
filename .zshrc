@@ -8,6 +8,12 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+# Colors
+autoload -U colors
+colors
+setopt prompt_subst
+
+
 # completion
 autoload -Uz compinit
 compinit
@@ -58,4 +64,18 @@ autoload -Uz promptinit
 promptinit
 prompt adam1
 
+# Prompt
+local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
 
+PROMPT='
+%~
+${smiley}  %{$reset_color%}'
+
+RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(~/Bin/git-cwd-info)%{$reset_color%}'
+
+# Show completion on first TAB
+setopt menucomplete
+
+# Load completions for Ruby, Git, etc.
+autoload compinit
+compinit
