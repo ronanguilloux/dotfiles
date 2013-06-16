@@ -60,9 +60,9 @@ zstyle ':completion:*:cp:*' ignore-line yes
 export EDITOR=/usr/bin/vim
 source $HOME/.bash_aliases
 
-autoload -Uz promptinit
-promptinit
-prompt adam1
+#autoload -Uz promptinit
+#promptinit
+#prompt adam1
 
 # Prompt
 local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
