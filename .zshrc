@@ -1,5 +1,7 @@
 # Set up the prompt
 
+# See http://peepcode.com/blog/2012/my-command-line-prompt
+
 # Use emacs keybindings even if our EDITOR is set to vi
 #bindkey -e
 
@@ -71,7 +73,7 @@ PROMPT='
 %~
 ${smiley}  %{$reset_color%}'
 
-RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(~/Bin/git-cwd-info)%{$reset_color%}'
+RPROMPT='%{$fg[white]%} $(~/Bin/sh/git-cwd-info)%{$reset_color%}'
 
 # Show completion on first TAB
 setopt menucomplete
