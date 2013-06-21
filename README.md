@@ -26,8 +26,8 @@ Landing on a new brand server trough ssh, just run this :
 The install.sh will move the original .bashrc file and the .vim directory found in $HOME before changing using symbolic links, in case there were already modified.
 
 
-Vim bundles installation
-------------------------
+VIM: bundles installation
+-------------------------
 
 All [pathogen](http://www.vim.org/scripts/script.php?script_id=2332)-based vim bundles come from git submodules.
 
@@ -52,9 +52,22 @@ To update submodules
     $ git submodule foreach git pull origin master
 ```
 
+ZSH: how to mix .zhrc & ho-my-zsh
+---------------------------------
 
-Preventing privacy & security issues
-------------------------------------
+In order to use the current .zshrc with oh-my-zsh, just add a symink in the `~/.oh-my-zsh/custom` directory:
+
+``` bash
+    $ cd .oh-my-zsh/custom/
+    $ ln -s $HOME/dotfiles/.zshrc local.zsh
+```
+
+Binaries dependencies: The `./dotfiles/.zshrc` file depends on some ~/Bin/sh/*.sh files in [ronanguilloux/Bin](https://github.com/ronanguilloux/Bin/tree/master/sh)
+
+([Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) is a community-driven framework for managing your zsh configuration)
+
+GIT: Preventing privacy & security issues
+-----------------------------------------
 
 For credentials, tokens & other secret stuff, use .local files :
 
