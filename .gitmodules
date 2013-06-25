@@ -49,12 +49,6 @@
 [submodule ".vim/bundle/vim-golang"]
 	path = .vim/bundle/vim-golang
 	url = git://github.com/AndrewRadev/vim-golang.git
-[submodule ".vim/bundle/mustache"]
-	path = .vim/bundle/mustache
-	url = git://github.com/juvenn/mustache.vim.git
-[submodule ".vim/bundle/vim-git"]
-	path = .vim/bundle/vim-git
-	url = git://github.com/tpope/vim-git.git
 [submodule ".vim/bundle/vim-twig"]
 	path = .vim/bundle/vim-twig
 	url = git://github.com/evidens/vim-twig.git
@@ -70,3 +64,6 @@
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule ".vim/bundle/zencoding-vim"]
+	path = .vim/bundle/zencoding-vim
+	url = git@github.com:mattn/zencoding-vim.git
