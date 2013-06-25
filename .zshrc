@@ -71,9 +71,7 @@ local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_colo
 
 #setopt PROMPT_SUBST
 
-PROMPT='
-%~
-${smiley}  %{$reset_color%}'
+PROMPT='%~ ${smiley}  %{$reset_color%}'
 #PROMPT='[%F{green}%n@%m:%~%f]>'
 
 RPROMPT='%{$fg[white]%} $(~/Bin/sh/git-cwd-info)%{$reset_color%}'
