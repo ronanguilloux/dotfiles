@@ -250,6 +250,18 @@ snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 
 " ------------------------------------------------------------------------------------
+" Zencoding 
+" ------------------------------------------------------------------------------------
+"autocmd bufNewFile *.html 0r ~/.vim/templates/html
+" See vim-templates bundle
+"let g:user_zen_mode='n'    "only enable normal mode functions.
+"let g:user_zen_mode='inv'  "enable all functions, which is equal to
+"let g:user_zen_mode='a'    "enable all function in all mode.
+"let g:user_zen_expandabbr_key = '<C-e>'
+let g:use_zen_complete_tag = 1
+
+
+" ------------------------------------------------------------------------------------
 " CTAGS
 " ------------------------------------------------------------------------------------
 " Cf. http://goo.gl/P6AAT
