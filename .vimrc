@@ -4,7 +4,7 @@
 " Copyright : 2011, Ronan GUILLOUX
 " Licence : GNU Affero GPL v3 - http://www.gnu.org/licenses/agpl-3.0.txt
 " Provided as is, without warranty of any kind
-" Available on https://github.com/ronanguilloux/VimConfig
+" Available on https://github.com/ronanguilloux/dotfiles
 " ------------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------------
