@@ -107,7 +107,7 @@ alias ssms="sudo service mongod start"
 
 # -------------------- other various unclassfied aliases -------------------
 
-alias semaine='date '+%U''
+alias semaine='date +%V'
 alias ifif='sudo ifdown wlan0 && sudo ifup wlan0'
 alias screencast='ffmpeg -f x11grab -r 25 -s wxga -i :0.0 /tmp/outputFile.mpg'
 alias sshlist=". ~/bin/sshlist.sh"
