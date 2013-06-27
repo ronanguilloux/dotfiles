@@ -125,12 +125,21 @@ alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
 # -------------------- PHP/Sf1/Sf2/Behat related aliases --------------------
 
 alias work='cd ~/Workspace'
-alias getcomposer='curl -s http://getcomposer.org/installer | php'
 alias sfcc='php app/console cache:clear'
 alias sfad='php app/console assetic:dump --env=dev'
 alias sfsetset="sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
-alias getbehat='wget https://github.com/downloads/Behat/Behat/behat.phar'
 alias phpstats=". ~/Bin/sh/phpstats.sh"
+alias getcomposer='curl -s http://getcomposer.org/installer | php'
+alias getphpunit='wget http://pear.phpunit.de/get/phpunit.phar'
+alias getbehat='wget https://github.com/downloads/Behat/Behat/behat.phar'
 
-# -------------------- other various unclassfied aliases -------------------
+# -------------------- network-related aliases -------------------
 
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Enhanced WHOIS lookups
+# alias whois="whois -h whois-servers.net"
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'eth1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i eth1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
