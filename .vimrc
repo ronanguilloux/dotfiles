@@ -45,7 +45,7 @@ set history=1000                " increase history
 set nobackup                    " do not backup files on overwrite
 set undolevels=1000             " use many levels of undo
 set noundofile                  " don't keep a persistent undofile
-set title                       " display the default title at the top of the window
+"set title                       " display the default title at the top of the window
 set completeopt=longest,menu
 set wildmenu                    " long autocompletion shrowing various solutions
 set wildmode=list:longest       " make it longest
@@ -247,6 +247,18 @@ snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 " ------------------------------------------------------------------------------------
 "autocmd bufNewFile *.html 0r ~/.vim/templates/html
 " See vim-templates bundle
+
+
+" ------------------------------------------------------------------------------------
+" Zencoding 
+" ------------------------------------------------------------------------------------
+"autocmd bufNewFile *.html 0r ~/.vim/templates/html
+" See vim-templates bundle
+"let g:user_zen_mode='n'    "only enable normal mode functions.
+"let g:user_zen_mode='inv'  "enable all functions, which is equal to
+"let g:user_zen_mode='a'    "enable all function in all mode.
+"let g:user_zen_expandabbr_key = '<C-e>'
+let g:use_zen_complete_tag = 1
 
 
 " ------------------------------------------------------------------------------------
