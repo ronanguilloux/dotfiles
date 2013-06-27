@@ -1,23 +1,38 @@
 [include]
     # For username / creds / etc
     path = ~/.gitconfig.local
+[branch "master"]
+    # Use `origin` as the default remote on the `master` branch in all cases
+    remote = origin
+    merge = refs/heads/master
 [alias]
     st = status
     ci = commit -v
     last = log  -v -1 HEAD
-    logp="log --pretty=format:'%h %s' --graph"
+    logp="log --pretty=oneline -n 20 --graph --abbrev-commit"
     co = checkout
     br = branch
     unstage = reset HEAD --
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     who = shortlog -s -n --
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+    # Show the diff between the latest commit and the current state
+    d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+    # `git di $number` shows the diff between the state `$number` revisions ago and the current state
+    di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 [color]
     diff = auto
     ui = auto
     status = auto
     branch = auto
     interactive = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
 [color "status"]
     changed = yellow
     added = green
@@ -30,6 +45,22 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+# URL shorthands
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+    insteadOf = "github:"
+[url "git@gist.github.com:"]
+    insteadOf = "gst:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+    insteadOf = "gist:"
+[apply]
+    # Detect whitespace errors when applying a patch
+    whitespace = fix
 [web]
     browser=open
 [user]
