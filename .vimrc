@@ -17,7 +17,8 @@ endif
 " Use pathogen to easily modify the runtime path to include all
 " " plugins under the ~/.vim/bundle directory
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 
 " All PHP, Js, md, HTML, CSS, Symfony, Golang vim config & enhancements
 " are in .vim/after/ftplugin/*.vim files

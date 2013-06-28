@@ -171,7 +171,7 @@ function json() {
     else # pipe
         python -mjson.tool | pygmentize -l javascript
     fi
-}                                }
+}
 
 # Create a git.io short URL
 function gitio() {
