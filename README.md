@@ -1,7 +1,9 @@
 .files
 =======
 
-My commented dotfiles (bash, vim, git, etc.), fruits of long-term endeavour in dotfiles fans thursday night parties, dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
+My commented dotfiles (bash, vim, git, etc.), 
+fruits of long-term endeavour in dotfiles fans thursday night parties, 
+dotfiles related blogposts reading, dotfiles github repositories crawling, etc.
 
 
 Dependencies
@@ -25,6 +27,11 @@ Landing on a new brand server trough ssh, just run this :
 
 The install.sh will move the original .bashrc file and the .vim directory found in $HOME before changing using symbolic links, in case there were already modified.
 
+
+Installation on Microsoft™ Windows®
+-----------------------------------
+
+¯\\\_(ツ)\_/¯
 
 VIM: bundles installation
 -------------------------
