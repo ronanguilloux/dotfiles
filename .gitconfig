@@ -19,6 +19,8 @@
     tags = tag -l
     branches = branch -a
     remotes = remote -v
+    #modified files per commit ; usage : git files [commitID]
+    files = show --pretty="format:" --name-only
     # Show the diff between the latest commit and the current state
     d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
     # `git di $number` shows the diff between the state `$number` revisions ago and the current state
