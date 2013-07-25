@@ -8,7 +8,7 @@
 [alias]
     st = status
     ci = commit -v
-    last = log  -v -1 HEAD
+    last = log --name-status HEAD^..HEAD
     logp="log --pretty=oneline -n 20 --graph --abbrev-commit"
     co = checkout
     br = branch
@@ -47,6 +47,9 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+    autocrlf = false
+    safecrlf = true
+    filemode = false
 # URL shorthands
 [url "git@github.com:"]
     insteadOf = "gh:"
