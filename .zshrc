@@ -1,84 +1,33 @@
-# Set up the prompt
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
 
-# See http://peepcode.com/blog/2012/my-command-line-prompt
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="robbyrussell"
 
-# Use emacs keybindings even if our EDITOR is set to vi
-#bindkey -e
+
+# Brew tab-completion
+#fpath=($HOME/.zsh/func $fpath)
+#typeset -U fpath
+
+# Customize to your needs...
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=${PATH}:~/Workspace/adt/sdk/platform-tools:~/Workspace/adt/sdk/tools
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-
-# Colors
-autoload -U colors
-colors
-setopt prompt_subst
-
-
-# completion
-autoload -Uz compinit
-compinit
-zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-zstyle ':completion:*:warnings' format '%BDésolé, pas de résultats pour : %d%b'
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
-# cache completion
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh_cache
-
-# completion colors
-zmodload zsh/complist
-setopt extendedglob
-setopt histignorealldups sharehistory
-setopt correctall
-
-
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-#zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-zstyle ':completion:*:rm:*' ignore-line yes
-zstyle ':completion:*:mv:*' ignore-line yes
-zstyle ':completion:*:cp:*' ignore-line yes
-
-# Support bash completion
-#autoload -U bashcompinit
-#bashcompinit
-
 export EDITOR=/usr/bin/vim
 source $HOME/.bash_aliases
+if [ -f $HOME/.bash_aliases.local ]
+then
+    source $HOME/.bash_aliases.local
+fi
+source $ZSH/oh-my-zsh.sh
 
-#autoload -Uz promptinit
-#promptinit
-#prompt adam1
+plugins=(git)
+PROMPT='%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[cyan]%}%m%{$fg_bold[green]%}:%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
-# Prompt
-local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
-
-#setopt PROMPT_SUBST
-
-PROMPT='%~ ${smiley}  %{$reset_color%}'
-#PROMPT='[%F{green}%n@%m:%~%f]>'
-
-RPROMPT='%{$fg[white]%} $(~/Bin/sh/git-cwd-info)%{$reset_color%}'
-
-# Show completion on first TAB
-setopt menucomplete
-
-# Load completions for Ruby, Git, etc.
-autoload compinit
-compinit
