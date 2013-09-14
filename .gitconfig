@@ -47,8 +47,8 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
-    autocrlf = false
-    safecrlf = true
+    #autocrlf = false
+    #safecrlf = true
     filemode = false
 # URL shorthands
 [url "git@github.com:"]
