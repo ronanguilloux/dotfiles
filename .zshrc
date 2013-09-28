@@ -13,7 +13,7 @@ ZSH_THEME="robbyrussell"
 #typeset -U fpath
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:~/localBin
 export PATH=${PATH}:~/Workspace/adt/sdk/platform-tools:~/Workspace/adt/sdk/tools
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
