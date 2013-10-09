@@ -9,5 +9,5 @@ autocmd BufRead,BufNewFile *.markdown,*.md,*.mdown,*.mkd,*.mkdn,*.rst
       \ endif
 autocmd BufRead,BufNewFile *.go     set filetype=go
 autocmd BufRead,BufNewFile *.txt    set filetype=txt
-autocmd BufRead,BufNewFile *.twig   set filetype=html
+autocmd BufRead,BufNewFile *.twig   set filetype=twig
 autocmd BufRead,BufNewFile *.json   set filetype=json syntax=javascript
