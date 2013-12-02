@@ -22,7 +22,7 @@ fi
 
 alias la='ls -la'
 alias l='ls -la'
-alias ls='ls -h --color --group-directories-first'
+#alias ls='ls -h --color --group-directories-first'
 alias lsa='ls -A'           # affiche les fichiers cachés
 alias ll='ls -lh'           # affiche en mode liste détail
 alias lla='ls -Al'          # affiche en mode liste détail + fichiers cachés
