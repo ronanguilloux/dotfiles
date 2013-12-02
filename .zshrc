@@ -31,3 +31,8 @@ source $ZSH/oh-my-zsh.sh
 plugins=(git)
 PROMPT='%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[cyan]%}%m%{$fg_bold[green]%}:%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
+
+### Added by the Heroku Toolbelt
+if [ -d "/usr/local/heroku/bin" ] ; then
+    export PATH="/usr/local/heroku/bin:$PATH"
+fi
