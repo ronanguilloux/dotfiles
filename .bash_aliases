@@ -60,7 +60,7 @@ alias untarbz1="tar jxvf"
 alias menage='find . -name "*~" -exec rm {} \;'
 alias menagesvn='find . -name ".svn" -exec rm -rf {} \;'
 alias menagegit='find . -name ".git" -exec rm -rf {} \;'
-alias menagemac='find . -name "._*" -exec rm -rf {} \;'
+alias menagemac='find . -name ".DS_Store" -exec rm -rf {} \;'
 
 # -------------------- dotfiles vim / bash fanatic aliases --------------------
 
