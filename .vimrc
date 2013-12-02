@@ -89,7 +89,7 @@ let g:solarized_visibility = "normal"
 syntax enable
 set background=dark
 "colorscheme solarized
-colorscheme default
+colorscheme slate
 " option name default optional
 " ------------------------------------------------
 

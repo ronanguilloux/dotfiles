@@ -22,7 +22,7 @@ fi
 
 alias la='ls -la'
 alias l='ls -la'
-alias ls='ls -h --color --group-directories-first' 
+alias ls='ls -h --color --group-directories-first'
 alias lsa='ls -A'           # affiche les fichiers cachés
 alias ll='ls -lh'           # affiche en mode liste détail
 alias lla='ls -Al'          # affiche en mode liste détail + fichiers cachés
@@ -45,7 +45,7 @@ alias realtimemodifiedfiles="watch -d -n 2 'df; ls -FlAt;'"
 alias du='du -kh'
 alias taille='du -chs'
 alias combien='ls -l | grep -v ^l | wc -l'
-alias chch='sudo chmod 775 * -R && sudo chown ronan:www-data * -R'
+alias chch='sudo chmod 775 * -R && sudo chown $USER:www-data * -R'
 
 # -------------------- archiver aliases -------------------
 
@@ -88,7 +88,8 @@ alias menageup='sudo apt-get clean && sudo apt-get autoclean && sudo apt-get aut
 # -------------------- GIT / SVN related aliases --------------------
 
 alias git2cl='git log --graph --pretty=medium --color=never > CHANGELOG'
-alias gitinfo='. /home/ronan/Bin/sh/gitinfo.sh'
+alias gitlog='git log --all --color --decorate --graph --oneline'
+alias gitinfo='. /home/$USER/Bin/sh/gitinfo.sh'
 alias gitignore='cat .gitignore'
 alias gap='git add -p'
 alias gpo='git push origin '
@@ -121,6 +122,7 @@ alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $?
 # #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
+alias apps='cd /Apps'
 
 # -------------------- PHP/Sf1/Sf2/Behat related aliases --------------------
 
