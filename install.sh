@@ -25,8 +25,15 @@ if [ -f /.gitconfig ]
 then
     mv -f ~/.gitconfig ~/.gitconfig.local
 fi
+if [ -f ~/.zshrc.pre-oh-my-zsh ]
+then
+    mv ~/.zshrc.pre-oh-my-zsh  ~/.zshrc.pre-oh-my-zsh-dist
+fi
+
 # create symlinks
 ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.zshrc.pre-oh-my-zsh ~/.zshrc.pre-oh-my-zsh
+ln -s ~/dotfiles/.zshrcre- ~/.zshrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.vim ~/.vim
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
