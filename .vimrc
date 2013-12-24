@@ -268,7 +268,7 @@ let g:use_zen_complete_tag = 1
 " Cf. http://goo.gl/P6AAT
 set tags=tags;/ " Look in the current directory for "tags", towards $HOME, until one is found
 let Tlist_Use_Right_Window=1
-let Tlist_Auto_Open=1
+"let Tlist_Auto_Open=1
 let Tlist_Show_One_File=0 " 1 = Only show tags for current buffer
 let Tlist_Enable_Fold_Column=0 " no fold column (only showing one file)
 let Tlist_Compact_Format=0
