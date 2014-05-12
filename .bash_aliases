@@ -122,7 +122,13 @@ alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $?
 # #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
-alias apps='cd /Apps'
+
+if [ -d "/Apps" ] ; then
+    alias apps='cd /Apps'
+fi
+if [ -d "Workspace/Apps" ] ; then
+    alias apps='cd ~/Workspace/Apps'
+fi
 
 # -------------------- PHP/Sf1/Sf2/Behat related aliases --------------------
 
