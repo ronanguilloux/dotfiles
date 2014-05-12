@@ -266,9 +266,10 @@ let g:use_zen_complete_tag = 1
 " CTAGS
 " ------------------------------------------------------------------------------------
 " Cf. http://goo.gl/P6AAT
+" MAC OS X: http://goo.gl/U9AnWq
 set tags=tags;/ " Look in the current directory for "tags", towards $HOME, until one is found
 let Tlist_Use_Right_Window=1
-let Tlist_Auto_Open=1
+"let Tlist_Auto_Open=1
 let Tlist_Show_One_File=0 " 1 = Only show tags for current buffer
 let Tlist_Enable_Fold_Column=0 " no fold column (only showing one file)
 let Tlist_Compact_Format=0
@@ -277,9 +278,9 @@ let Tlist_Exit_OnlyWindow=1
 let Tlist_File_Fold_Auto_Close = 1
 "let Tlist_Process_File_Always = 1
 "let Tlist_GainFocus_On_ToggleOpen = 1  " set focus on Tlist at start
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Ctags_Cmd = "ctags"
 map <F4> :TlistToggle<cr>
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " Alt-right/left to navigate forward/backward in the tags stack
 map <M-Left> <C-T>
 map <M-Right> <C-]>

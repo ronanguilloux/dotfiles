@@ -53,8 +53,9 @@ fi
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:~/localBin
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH"=/usr/local/sbin:/usr/local/bin:~/localBin:$PATH"
+
 if [ -d "$HOME/Workspace/adt/sdk/" ] ; then
     export PATH=$PATH:$HOME/Workspace/adt/sdk/platform-tools:$HOME/Workspace/adt/sdk/tools
 fi
@@ -86,3 +87,10 @@ function git_prompt_info() {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}${ZSH_THEME_GIT_PROMPT_CLEAN}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
 }
+
+if [ -f ~/dotfiles/functions.sh ]; then
+    . ~/dotfiles/functions.sh
+fi
+
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
