@@ -134,6 +134,7 @@ alias sfsetset="sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache ap
 alias phpstats=". ~/Bin/sh/phpstats.sh"
 alias getcomposer='curl -s http://getcomposer.org/installer | php'
 alias getbehat='wget https://github.com/downloads/Behat/Behat/behat.phar'
+#alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 ~/bin/composer"
 
 # -------------------- network-related aliases -------------------
 
