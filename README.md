@@ -20,8 +20,8 @@ Landing on a new brand server trough ssh, just run this :
 
 ``` bash
     $ sudo apt-get install git 
-    $ git clone git@github.com:ronanguilloux/dotfiles.git
-    $ git clone git@github.com:ronanguilloux/Bin.git
+    $ git clone https://github.com/ronanguilloux/dotfiles.git
+    $ git clone https://github.com/ronanguilloux/Bin.git
     $ dotfiles/install.sh
 ```
 
