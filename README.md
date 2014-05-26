@@ -22,6 +22,7 @@ Landing on a new brand server trough ssh, just run this :
     $ sudo apt-get install git 
     $ git clone https://github.com/ronanguilloux/dotfiles.git
     $ git clone https://github.com/ronanguilloux/Bin.git
+    $ git clone https://github.com/zsh-users/antigen.git .antigen
     $ dotfiles/install.sh
 ```
 
