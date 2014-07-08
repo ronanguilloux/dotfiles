@@ -53,6 +53,7 @@ fi
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
+
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH"=/usr/local/sbin:/usr/local/bin:~/localBin:$PATH"
 
@@ -67,6 +68,20 @@ if [ -d "$HOME/bin" ] ; then
 fi
 if [ -d "/usr/local/heroku/bin" ] ; then
     export PATH="/usr/local/heroku/bin:$PATH"
+fi
+if [ -d "/usr/local/php5/bin" ] ; then
+    export PATH="/usr/local/php5/bin:$PATH"
+fi
+if [ -d "/usr/local/sbin" ] ; then
+    export PATH="/usr/local/sbin:$PATH"
+fi
+
+if [ -d "$HOME/.composer/vendor/bin" ] ; then
+    export PATH="$HOME/.composer/vendor/bin:$PATH"
+fi
+
+if [ -d "$HOME/.rvm/bin" ] ; then
+    export PATH="$HOME/.rvm/bin:$PATH"
 fi
 
 # Antigen: cd ~ && git clone https://github.com/zsh-users/antigen.git .antigen 
