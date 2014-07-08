@@ -108,12 +108,13 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ %r%{CurDir()}%h\ \ \ Line:\ %l/%L\
 " set foldmarker={,} " Fold C style code (only use this as default if you use a high foldlevel)
 set nofoldenable                                      " Turn off folding
 "set foldmethod=marker                               " Fold on the marker
-"set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 "set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
 "function SimpleFoldText()
 "    return getline(v:foldstart).' '
 "endfunction
 "set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
+let g:vim_markdown_folding_disabled=1
 
 
 " ------------------------------------------------------------------------------------

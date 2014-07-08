@@ -141,5 +141,14 @@ if [ -f ~/dotfiles/functions.sh ]; then
     . ~/dotfiles/functions.sh
 fi
 
+# Create a data URL from a file
+function dataurl() {
+    local mimeType=$(file -b --mime-type "$1")
+    if [[ $mimeType == text/* ]]; then
+        mimeType="${mimeType};charset=utf-8"
+    fi
+    echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
+source /home/vagrant/oh-my-git/prompt.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

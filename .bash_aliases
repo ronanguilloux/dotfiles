@@ -89,7 +89,7 @@ alias menageup='sudo apt-get clean && sudo apt-get autoclean && sudo apt-get aut
 
 alias git2cl='git log --graph --pretty=medium --color=never > CHANGELOG'
 alias gitlog='git log --all --color --decorate --graph --oneline'
-alias gitinfo='. /home/$USER/Bin/sh/gitinfo.sh'
+alias gitinfo='. /$HOME/Bin/sh/gitinfo.sh'
 alias gitignore='cat .gitignore'
 alias gap='git add -p'
 alias gpo='git push origin '
@@ -136,6 +136,8 @@ alias work='cd ~/Workspace'
 alias pac='php app/console'
 alias paccc='php app/console cache:clear'
 alias pacad='php app/console assetic:dump --env=dev'
+alias bic='php bin/console'
+alias biccc='php bin/console cache:clear'
 alias sfsetset="sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
 alias phpstats=". ~/Bin/sh/phpstats.sh"
 alias getcomposer='curl -s http://getcomposer.org/installer | php'
@@ -152,3 +154,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'eth1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i eth1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+
+# -------------------- Personal aliases -------------------
+alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
