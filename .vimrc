@@ -293,6 +293,8 @@ map <C-h> <C-T>
 map ]t :tnext<CR>
 " Jump to previous tag match
 map [t :tprevious<CR>
+" GUARD file
+set tags+=vendor.tags
 
 
 " ------------------------------------------------------------------------------------
