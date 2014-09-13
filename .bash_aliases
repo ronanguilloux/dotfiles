@@ -136,7 +136,7 @@ alias work='cd ~/Workspace'
 alias pac='php app/console'
 alias paccc='php app/console cache:clear'
 alias pacad='php app/console assetic:dump --env=dev'
-alias bic='php bin/console'
+alias pbc='php bin/console'
 alias biccc='php bin/console cache:clear'
 alias sfsetset="sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
 alias phpstats=". ~/Bin/sh/phpstats.sh"

@@ -62,3 +62,6 @@ node_modules/
 *.sublime-project
 *.sublime-workspace
 .vim/.netrwhist
+
+# IDE (PhpStorm, etc.)
+.idea
