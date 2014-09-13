@@ -53,7 +53,7 @@ fi
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-
+export PATH="/usr/local/php5/bin:$PATH"
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH"=/usr/local/sbin:/usr/local/bin:~/localBin:$PATH"
 

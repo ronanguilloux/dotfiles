@@ -94,6 +94,7 @@ alias gitignore='cat .gitignore'
 alias gap='git add -p'
 alias gpo='git push origin '
 alias gpom='git push origin master'
+alias gpod='git push origin dev'
 alias svndifff="svn diff | view -"
 alias svnlogg="svn log -v -r{`date '+%Y-%m-01'`}:{`date '+%Y-%m-31'`} | colordiff"
 
