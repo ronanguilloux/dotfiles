@@ -57,6 +57,10 @@ export PATH="/usr/local/php5/bin:$PATH"
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH"=/usr/local/sbin:/usr/local/bin:~/localBin:$PATH"
 
+if [ -d "/Applications/Android Studio.app/sdk/" ] ; then
+    export ANDROID_HOME="/Applications/Android Studio.app/sdk/"
+    export PATH="$ANDROID_HOME:$PATH"
+fi
 if [ -d "$HOME/Workspace/adt/sdk/" ] ; then
     export PATH=$PATH:$HOME/Workspace/adt/sdk/platform-tools:$HOME/Workspace/adt/sdk/tools
 fi

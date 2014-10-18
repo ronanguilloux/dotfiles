@@ -93,6 +93,7 @@ alias gitinfo='. /$HOME/Bin/sh/gitinfo.sh'
 alias gitignore='cat .gitignore'
 alias gap='git add -p'
 alias gpo='git push origin '
+alias gs='git status'
 alias gpom='git push origin master'
 alias gpod='git push origin dev'
 alias svndifff="svn diff | view -"
