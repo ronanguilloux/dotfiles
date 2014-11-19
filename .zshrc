@@ -53,12 +53,19 @@ fi
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
-export PATH="/usr/local/php5/bin:$PATH"
+
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH"=/usr/local/sbin:/usr/local/bin:~/localBin:$PATH"
 
-if [ -d "/Applications/Android Studio.app/sdk/" ] ; then
-    export ANDROID_HOME="/Applications/Android Studio.app/sdk/"
+#Warning : liip's php-osx already includes pg_* commands
+if [ -d "/usr/local/php5/bin" ] ; then
+    export PATH="/usr/local/php5/bin:$PATH"
+fi
+if [ -d "/Applications/Postgres.app/Contents/Versions/9.3/bin" ] ; then
+    export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+fi
+if [ -d "/Applications/Android Studio.app/sdk" ] ; then
+    export ANDROID_HOME="/Applications/Android Studio.app/sdk"
     export PATH="$ANDROID_HOME:$PATH"
 fi
 if [ -d "$HOME/Workspace/adt/sdk/" ] ; then
@@ -72,9 +79,6 @@ if [ -d "$HOME/bin" ] ; then
 fi
 if [ -d "/usr/local/heroku/bin" ] ; then
     export PATH="/usr/local/heroku/bin:$PATH"
-fi
-if [ -d "/usr/local/php5/bin" ] ; then
-    export PATH="/usr/local/php5/bin:$PATH"
 fi
 if [ -d "/usr/local/sbin" ] ; then
     export PATH="/usr/local/sbin:$PATH"
