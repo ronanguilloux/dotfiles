@@ -55,6 +55,38 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 source $HOME/.pathes
+fpath=(~/.zsh/completion $fpath)
+
+if [ -d "$HOME/Workspace/adt/sdk/" ] ; then
+    export PATH=$PATH:$HOME/Workspace/adt/sdk/platform-tools:$HOME/Workspace/adt/sdk/tools
+fi
+if [ -d "$HOME/Bin" ] ; then
+    export PATH="$HOME/Bin:$PATH"
+fi
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
+if [ -d "/usr/local/heroku/bin" ] ; then
+    export PATH="/usr/local/heroku/bin:$PATH"
+fi
+if [ -d "/usr/local/php5/bin" ] ; then
+    export PATH="/usr/local/php5/bin:$PATH"
+fi
+if [ -d "/usr/local/sbin" ] ; then
+    export PATH="/usr/local/sbin:$PATH"
+fi
+
+if [ -d "$HOME/.composer/vendor/bin" ] ; then
+    export PATH="$HOME/.composer/vendor/bin:$PATH"
+fi
+
+if [ -d "$HOME/.rvm/bin" ] ; then
+    export PATH="$HOME/.rvm/bin:$PATH"
+fi
+
+if [ -d "/Applications/Postgres.app/Contents/Versions/9.4/bin" ] ; then
+    export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+fi
 
 # Antigen: cd ~ && git clone https://github.com/zsh-users/antigen.git .antigen 
 source "$HOME/.antigen/antigen.zsh"
@@ -68,6 +100,10 @@ antigen-bundle zsh-users/zsh-history-substring-search
 source $ZSH/oh-my-zsh.sh
 #PROMPT='%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[cyan]%}%m%{$fg_bold[green]%}:%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
+# Github's hub command: https://github.com/github/hub
+eval "$(hub alias -s)"
+
+
 # Fix the slowness of zsh prompt, by removing the git status stuff that slows it down...
 #https://gist.github.com/msabramo/2355834
 function git_prompt_info() {
@@ -79,5 +115,10 @@ if [ -f ~/dotfiles/functions.sh ]; then
     . ~/dotfiles/functions.sh
 fi
 
+# Vi mode: http://dougblack.io/words/zsh-vi-mode.html
+#bindkey -v
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+#export KEYTIMEOUT=1
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+

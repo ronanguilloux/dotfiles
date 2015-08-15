@@ -91,6 +91,9 @@ alias git2cl='git log --graph --pretty=medium --color=never > CHANGELOG'
 alias gitlog='git log --all --color --decorate --graph --oneline'
 alias gitinfo='. /$HOME/Bin/sh/gitinfo.sh'
 alias gitignore='cat .gitignore'
+alias gs='git status'
+alias gcm='git ci -m'
+alias gcam='git ci -am'
 alias gap='git add -p'
 alias gpo='git push origin '
 alias gs='git status'
@@ -116,9 +119,9 @@ alias screencast='ffmpeg -f x11grab -r 25 -s wxga -i :0.0 /tmp/outputFile.mpg'
 alias sshlist=". ~/localBin/sshlist.sh"
 alias mybackup="cd /opt/backup/manual/ && php backup.php && cd -"
 alias jsstyle="seed ~/Bin/js/jslint.js"
-alias apache2routes='. ~/Bin/sh/apache2routes.sh'
+alias apache2routes='apachectl -S'
 alias googleBackup='/opt/backup/googledocs/gdatacopier-2.1.2/gcp.py -o -u rguilloux@toog.fr:/all ~/Documents/GoogleDocs/'
-alias whereisraspberrypi="sudo nmap -sV --open 192.168.0.0/25 -p22" 
+alias whereisraspberrypi="sudo nmap -sV --open 192.168.1.0/25 -p22"
 alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $? -eq 0 ] && echo "192.168.1.$ip UP" || : ; done'
 # Add an "alert" alias for long running commands.  Use like so:
 # #   sleep 10; alert
@@ -155,8 +158,14 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # alias whois="whois -h whois-servers.net"
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'eth1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i eth1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias httpdump="sudo tcpdump -i en3 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias httpsniff="sudo tcpdump -A -s0 -ien3 port 80"
+alias httpsniff2="sudo tcpdump -A -s0 -ien0 port 80"
 
 
 # -------------------- Personal aliases -------------------
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+alias dl="docker ps -l -q"
+alias dcp="docker-compose"
+# http://chiefy.github.io/2015/02/24/up-and-running-w-boot2docker-fig-packer.html
+alias dockerboot='boot2docker shellinit && export DOCKER_IP=$(boot2docker ip)'

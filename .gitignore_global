@@ -65,3 +65,6 @@ node_modules/
 
 # IDE (PhpStorm, etc.)
 .idea
+
+#CoverAlls token
+.coveralls.yml
