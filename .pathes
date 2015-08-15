@@ -34,9 +34,10 @@ fi
 #    export PATH="/usr/local/heroku/bin:$PATH"
 #fi
 
-#if [ -d "/usr/local/go/bin" ] ; then
-#export PATH="/usr/local/go/bin:$PATH"
-#fi
+if [ -d "$HOME/Workspace/Go" ] ; then
+    export GOPATH="$HOME/Workspace/Go"
+    export GOROOT="/usr/local/go"
+fi
 
 if [ -d "$HOME/.composer/vendor/bin" ] ; then
     export PATH="$HOME/.composer/vendor/bin:$PATH"

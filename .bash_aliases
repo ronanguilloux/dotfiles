@@ -101,6 +101,7 @@ alias gpom='git push origin master'
 alias gpod='git push origin dev'
 alias svndifff="svn diff | view -"
 alias svnlogg="svn log -v -r{`date '+%Y-%m-01'`}:{`date '+%Y-%m-31'`} | colordiff"
+alias gitmyzsh="antigen theme arialdomartini/oh-my-git-themes oppa-lana-style"
 
 # -------------------- server related aliases --------------------
 
@@ -162,6 +163,10 @@ alias httpdump="sudo tcpdump -i en3 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias httpsniff="sudo tcpdump -A -s0 -ien3 port 80"
 alias httpsniff2="sudo tcpdump -A -s0 -ien0 port 80"
 
+# -------------------- Docker-related aliases -------------------
+
+alias dockerboot='$(boot2docker shellinit 2> /dev/null)'
+alias dl='docker ps -l -q'
 
 # -------------------- Personal aliases -------------------
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"

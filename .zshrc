@@ -90,13 +90,15 @@ fi
 
 # Antigen: cd ~ && git clone https://github.com/zsh-users/antigen.git .antigen 
 source "$HOME/.antigen/antigen.zsh"
-antigen-bundle arialdomartini/oh-my-git
-antigen theme arialdomartini/oh-my-git-themes arialdo-granzestyle
-antigen-apply
 antigen-use oh-my-zsh
 antigen-bundle git
 antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-bundle zsh-users/zsh-history-substring-search
+antigen-bundle arialdomartini/oh-my-git
+antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
+antigen theme arialdomartini/oh-my-git-themes arialdo-granzestyle
+antigen-apply
+# use antigen update to update it all
 source $ZSH/oh-my-zsh.sh
 #PROMPT='%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[cyan]%}%m%{$fg_bold[green]%}:%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
