@@ -117,6 +117,7 @@ if [ -f ~/dotfiles/functions.sh ]; then
     . ~/dotfiles/functions.sh
 fi
 
+# Brew install archey
 if [ -f /usr/local/bin/archey ]; then
     archey
 fi
