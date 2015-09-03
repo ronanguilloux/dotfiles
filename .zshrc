@@ -117,6 +117,10 @@ if [ -f ~/dotfiles/functions.sh ]; then
     . ~/dotfiles/functions.sh
 fi
 
+if [ -f /usr/local/bin/archey ]; then
+    archey
+fi
+
 # Vi mode: http://dougblack.io/words/zsh-vi-mode.html
 #bindkey -v
 #zle -N zle-line-init
