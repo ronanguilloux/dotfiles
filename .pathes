@@ -1,50 +1,48 @@
-export PATH"=/usr/local/sbin:$PATH"
-
-#Warning : liip's php-osx already includes pg_* commands
-if [ -d "/usr/local/php5/bin" ] ; then
-    export PATH="/usr/local/php5/bin:$PATH"
+# Android
+if [ -d "$HOME/Workspace/adt/sdk/" ] ; then
+    export PATH=$PATH:$HOME/Workspace/adt/sdk/platform-tools:$HOME/Workspace/adt/sdk/tools
 fi
-
-if [ -d "/Applications/Postgres.app/Contents/Versions/9.3/bin" ] ; then
-    export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-fi
-
 if [ -d "/Applications/Android Studio.app/sdk" ] ; then
     export ANDROID_HOME="/Applications/Android Studio.app/sdk"
     export PATH="$ANDROID_HOME:$PATH"
 fi
-
-if [ -d "$HOME/Workspace/adt/sdk/" ] ; then
-    export PATH=$PATH:$HOME/Workspace/adt/sdk/platform-tools:$HOME/Workspace/adt/sdk/tools
+# Heroku
+if [ -d "/usr/local/heroku/bin" ] ; then
+    export PATH="/usr/local/heroku/bin:$PATH"
 fi
-
-if [ -d "$HOME/Bin" ] ; then
-   export PATH="$HOME/Bin:$PATH"
-fi
-
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-if [ -d "$HOME/localBin" ] ; then
-    export PATH="$HOME/localBin:$PATH"
-fi
-
-#if [ -d "/usr/local/heroku/bin" ] ; then
-#    export PATH="/usr/local/heroku/bin:$PATH"
-#fi
-
+# Golang
 if [ -d "$HOME/Workspace/Go" ] ; then
     export GOPATH="$HOME/Workspace/Go"
     export GOROOT="/usr/local/go"
 fi
-
+# LIIP's PHP
+if [ -d "/usr/local/php5/bin" ] ; then
+    #Warning : liip's php-osx already includes pg_* commands
+    export PATH="/usr/local/php5/bin:$PATH"
+fi
+# PHP's Composer
 if [ -d "$HOME/.composer/vendor/bin" ] ; then
     export PATH="$HOME/.composer/vendor/bin:$PATH"
 fi
-
+# Ruby
 if [ -d "$HOME/.rvm/bin" ] ; then
-    export PATH="$HOME/.rvm/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$PATH"
 fi
-
+# Postgresql 9.4
+if [ -d "/Applications/Postgres.app/Contents/Versions/9.4/bin" ] ; then
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+fi
+# Bins
+if [ -d "/usr/local/sbin" ] ; then
+    export PATH="/usr/local/sbin:$PATH"
+fi
+if [ -d "$HOME/Bin" ] ; then
+    export PATH="$HOME/Bin:$PATH"
+fi
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
+if [ -d "$HOME/localBin" ] ; then
+    export PATH="$HOME/localBin:$PATH"
+fi
 
