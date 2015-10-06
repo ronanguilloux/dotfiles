@@ -64,7 +64,7 @@ HISTFILE=~/.zsh_history
 fpath=(~/.zsh/completion $fpath)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/Users/ronan/.rvm/bin"
 source $HOME/.pathes
-# Github's hub command: https://github.com/github/hub
+# Github's hub command: https://github.com/github/hub: brew install hub
 eval "$(hub alias -s)"
 # Fix the slowness of zsh prompt, by removing the git status stuff that slows it down...
 #https://gist.github.com/msabramo/2355834
