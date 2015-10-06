@@ -28,6 +28,15 @@ Landing on a new brand server trough ssh, just run this :
 
 The install.sh will move the original .bashrc file and the .vim directory found in $HOME before changing using symbolic links, in case there were already modified.
 
+Suggestions
+-----------
+
+- https://github.com/arzzen/calc.plugin.zsh
+- https://github.com/zsh-users/zsh-syntax-highlighting
+- https://github.com/voronkovich/sf2.plugin.zsh
+- https://github.com/horosgrisa/mysql-colorize
+
+
 
 Installation on Microsoft™ Windows®
 -----------------------------------
