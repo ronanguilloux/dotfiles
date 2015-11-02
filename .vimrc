@@ -55,6 +55,7 @@ set clipboard+=unnamed          " share windows clipboard
 set fileformats=unix,dos,mac    " support all three, in this order
 set shell=/bin/bash
 set scrolloff=3                 " cursor start the scrolling three lines before the bottom border
+set lazyredraw                  " redraw only when we need to.
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
