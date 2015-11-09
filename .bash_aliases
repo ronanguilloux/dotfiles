@@ -129,16 +129,15 @@ alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $?
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
 
-if [ -d "/Apps" ] ; then
-    alias apps='cd /Apps'
-fi
 if [ -d "Workspace/Apps" ] ; then
-    alias apps='cd ~/Workspace/Apps'
+    alias apps='cd ~/Workspace/Apps && ls -la'
+fi
+if [ -d "Workspace" ] ; then
+    alias work='cd ~/Workspace && ls -la'
 fi
 
 # -------------------- PHP/Sf1/Sf2/Behat related aliases --------------------
 
-alias work='cd ~/Workspace'
 alias pac='php app/console'
 alias paccc='php app/console cache:clear'
 alias pacad='php app/console assetic:dump --env=dev'
@@ -177,3 +176,4 @@ alias dockerboot='boot2docker shellinit && export DOCKER_IP=$(boot2docker ip)'
 alias peap='open -a /Applications/PhpStorm\ EAP.app'
 alias lo='/Applications/LibreOffice.app/Contents/MacOS/soffice'
 alias docker-rm='docker rm $(docker ps -a -q)'
+alias composer-update='php -dmemory_limit=-1 /usr/local/bin/composer update -o --prefer-dist'
