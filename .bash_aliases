@@ -176,4 +176,8 @@ alias dockerboot='boot2docker shellinit && export DOCKER_IP=$(boot2docker ip)'
 alias peap='open -a /Applications/PhpStorm\ EAP.app'
 alias lo='/Applications/LibreOffice.app/Contents/MacOS/soffice'
 alias docker-rm='docker rm $(docker ps -a -q)'
+alias composer-require='php -dmemory_limit=-1 /usr/local/bin/composer require -o --prefer-dist'
+alias composer-install='php -dmemory_limit=-1 /usr/local/bin/composer install -o --prefer-dist'
 alias composer-update='php -dmemory_limit=-1 /usr/local/bin/composer update -o --prefer-dist'
+google() { open -a "Google Chrome" "http://www.google.com/search?q=$1"; }
+alias phpconsole='echo "Type pkill php to end process\n"; php -S localhost:1337 -t /Users/ronan/Workspace/TOOLS/php-console &; open "http://localhost:1337"'

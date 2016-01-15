@@ -11,10 +11,9 @@
     last = log --name-status HEAD^..HEAD
     logp="log --pretty=oneline -n 20 --graph --abbrev-commit"
     co = checkout
+    cob = checkout -b
     br = branch -a -vv
     unstage = reset HEAD --
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     who = shortlog -s -n --
     tags = tag -l
     branches = branch -a
@@ -25,6 +24,11 @@
     d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
     # `git di $number` shows the diff between the state `$number` revisions ago and the current state
     di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+    plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    tlog = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+    rank = shortlog -sn --no-merges
 [color]
     diff = auto
     ui = auto
