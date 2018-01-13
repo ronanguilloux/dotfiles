@@ -136,7 +136,10 @@ export PATH=$HOME/local/bin:$PATH
 # Android
 export PATH=/home/ronan/Bin/android-sdk-linux_x86/tools:${PATH}
 export PATH=/home/ronan/Bin/android-sdk-linux_x86/platform-tools:${PATH}
-
+# GOPATH
+if [ -d "/usr/local/go/bin" ] ; then
+    export PATH="/usr/local/go/bin:$PATH"
+fi
 if [ -f ~/dotfiles/functions.sh ]; then
     . ~/dotfiles/functions.sh
 fi

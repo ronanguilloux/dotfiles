@@ -49,7 +49,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx)
+
+# curl -fLo ~/.oh-my-zsh/plugins/docker/_docker https://raw.github.com/felixr/docker-zsh-completion/master/_docker
+plugins=(git github osx docker docker-compose brew composer npm symfony2 vagrant httpie)
 
 # User configuration
 export EDITOR=/usr/bin/vim
@@ -62,6 +64,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/Users/ronan/.rvm/bin"
 source $HOME/.pathes
 # Github's hub command: https://github.com/github/hub: brew install hub
@@ -95,6 +98,13 @@ antigen-apply
 
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
+
+# GOPATH
+if [ -d "/usr/local/go/bin" ] ; then
+    export GOROOT="/usr/local/go"
+    export GOPATH="/usr/local/go/bin"
+    export PATH="$GOPATH:$PATH"
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

@@ -15,23 +15,32 @@ if [ -d "$HOME/Workspace/Go" ] ; then
     export GOPATH="$HOME/Workspace/Go"
     export GOROOT="/usr/local/go"
 fi
-# LIIP's PHP
-if [ -d "/usr/local/php5/bin" ] ; then
-    #Warning : liip's php-osx already includes pg_* commands
-    export PATH="/usr/local/php5/bin:$PATH"
+# HOMEBREW
+if [ -d "/usr/local/bin/php" ] ; then
+    export PATH="/usr/local/bin:$PATH"
 fi
+# LIIP's PHP
+#if [ -d "/usr/local/php5/bin" ] ; then
+#    #Warning : liip's php-osx already includes pg_* commands
+#    export PATH="/usr/local/php5/bin:$PATH"
+#fi
 # PHP's Composer
 if [ -d "$HOME/.composer/vendor/bin" ] ; then
     export PATH="$HOME/.composer/vendor/bin:$PATH"
 fi
 # Ruby
 if [ -d "$HOME/.rvm/bin" ] ; then
-export PATH="$HOME/.rvm/bin:$PATH"
+    export PATH="$HOME/.rvm/bin:$PATH"
 fi
 # Postgresql 9.4
 if [ -d "/Applications/Postgres.app/Contents/Versions/9.4/bin" ] ; then
-export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+    export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 fi
+# Python 2.7 tools
+if [ -d "/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/bin" ] ; then
+    export PATH="/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/bin:$PATH"
+fi
+
 # Bins
 if [ -d "/usr/local/sbin" ] ; then
     export PATH="/usr/local/sbin:$PATH"

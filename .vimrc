@@ -398,3 +398,9 @@ function! HasPaste()
         return ''
     endif
 endfunction
+
+" ------------------------------------------------------------------------------------
+" GIT Messages
+" ------------------------------------------------------------------------------------
+
+autocmd Filetype gitcommit spell textwidth=72
