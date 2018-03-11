@@ -68,7 +68,7 @@ autoload -Uz compinit && compinit -i
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/Users/ronan/.rvm/bin"
 source $HOME/.pathes
 # Github's hub command: https://github.com/github/hub: brew install hub
-eval "$(hub alias -s)"
+#eval "$(hub alias -s)"
 # Fix the slowness of zsh prompt, by removing the git status stuff that slows it down...
 #https://gist.github.com/msabramo/2355834
 function git_prompt_info() {
@@ -84,15 +84,15 @@ if [ -f /usr/local/bin/archey ]; then
 fi
 
 # Antigen: cd ~ && git clone https://github.com/zsh-users/antigen.git .antigen 
-source "$HOME/.antigen/antigen.zsh"
-antigen-use oh-my-zsh
-antigen-bundle git
-antigen-bundle zsh-users/zsh-syntax-highlighting
-antigen-bundle zsh-users/zsh-history-substring-search
-antigen-bundle arialdomartini/oh-my-git
+source "/Users/ronan/dotfiles/antigen.zsh"
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle arialdomartini/oh-my-git
 antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
 antigen theme arialdomartini/oh-my-git-themes arialdo-granzestyle
-antigen-apply
+antigen apply
 # use antigen update to update it all
 
 

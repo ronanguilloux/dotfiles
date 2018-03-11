@@ -136,6 +136,9 @@ if [ -d "Workspace" ] ; then
     alias work='cd ~/Workspace && ls -la'
 fi
 
+if [ -d "Work" ] ; then
+    alias work='cd ~/Work && ls -la'
+fi
 # -------------------- PHP/Sf1/Sf2/Behat related aliases --------------------
 
 alias pbc='php -dmemory_limit=-1 bin/console'

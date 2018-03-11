@@ -29,6 +29,7 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     tlog = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
     rank = shortlog -sn --no-merges
+	up = pull --rebase --autostash
 [color]
     diff = auto
     ui = auto
@@ -84,3 +85,6 @@
 	required = true
 [http]
 	cookiefile = /Users/ronan/.gitcookies
+[user]
+	name = Ronan Guilloux
+	email = ronan.guilloux@gmail.com
