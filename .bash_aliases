@@ -141,8 +141,8 @@ if [ -d "Work" ] ; then
 fi
 # -------------------- PHP/Sf1/Sf2/Behat related aliases --------------------
 
-alias pbc='php -dmemory_limit=-1 bin/console'
-alias pbccw='php -dmemory_limit=-1 bin/console cache:warmup -e=prod'
+alias bbc='php -dmemory_limit=-1 bin/console'
+alias bbccw='php -dmemory_limit=-1 bin/console cache:warmup -e=prod'
 alias sfsetset="sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
 alias phpstats=". ~/Bin/sh/phpstats.sh"
 alias getcomposer='curl -s http://getcomposer.org/installer | php'
@@ -183,6 +183,8 @@ alias composer-install='php -dmemory_limit=-1 /usr/local/bin/composer install --
 alias composer-update='php -dmemory_limit=-1 /usr/local/bin/composer update --optimize-autoloader --prefer-dist'
 google() { open -a "Google Chrome" "http://www.google.com/search?q=$1"; }
 alias phpconsole='echo "Type pkill php to end process\n"; php -S localhost:1337 -t /Users/ronan/Workspace/TOOLS/php-console &; open "http://localhost:1337"'
+alias pim-reset='rm -rf ./var/cache/* && rm -rf ./var/logs/* && bin/console p:f:g  && bin/console pim:install:db -e prod && bin/console pim:fixture-generator:import-all --env=prod'
+alias pim-install='source ~/Bin/pim-install.sh'
 
 transfer() {
     # write to output to tmpfile because of progress bar

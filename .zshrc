@@ -130,3 +130,24 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
+
+# this is the root folder where all globally installed node packages will  go
+export NPM_PACKAGES="/usr/local/npm_packages"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+# add to PATH
+export PATH="$NPM_PACKAGES/bin:$PATH"
+export PATH="$HOME/.npm-packages/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ronan/google-cloud/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ronan/google-cloud/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ronan/google-cloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ronan/google-cloud/google-cloud-sdk/completion.zsh.inc'; fi
+
+# BEGIN SNIPPET: Magento Cloud CLI configuration
+HOME=${HOME:-'/Users/ronan'}
+export PATH="$HOME/"'.magento-cloud/bin':"$PATH"
+if [ -f "$HOME/"'.magento-cloud/shell-config.rc' ]; then . "$HOME/"'.magento-cloud/shell-config.rc'; fi # END SNIPPET
