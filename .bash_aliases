@@ -108,6 +108,7 @@ alias gitmyzsh="antigen theme arialdomartini/oh-my-git-themes oppa-lana-style"
 alias ssarl="sudo service apache2 reload"
 alias ssars="sudo service apache2 restart"
 alias ssms="sudo service mongod start"
+alias pim_dump="mysqldump --extended-insert=FALSE -u akeneo_pim -pakeneo_pim akeneo_pim > dump.sql"
 
 # add alias to get latest version of mongo cheatsheet
  alias mongocheat='curl -s http://cheat.errtheblog.com/s/mongo | groovy -e "@Grab(group=/net.sourceforge.nekohtml/, module=/nekohtml/, version=/1.9.14/)import org.cyberneko.html.parsers.SAXParser;println new XmlSlurper(new SAXParser()).parseText(System.in.text).depthFirst().find{ it.@class == /sheet/}.text()"'
