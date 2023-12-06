@@ -187,11 +187,11 @@ alias phpconsole='echo "Type pkill php to end process\n"; php -S localhost:1337 
 alias pim-reset='rm -rf ./var/cache/* && rm -rf ./var/logs/* && bin/console p:f:g  && bin/console pim:install:db -e prod && bin/console pim:fixture-generator:import-all --env=prod'
 alias pim-install='source ~/Bin/pim-install.sh'
 
-transfer() {
-    # write to output to tmpfile because of progress bar
-    tmpfile=$( mktemp -t transferXXX )
-    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
-    cat $tmpfile;
-    rm -f $tmpfile;
-}
-alias transfer=transfer
+#transfer() {
+#    # write to output to tmpfile because of progress bar
+#    tmpfile=$( mktemp -t transferXXX )
+#    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+#    cat $tmpfile;
+#    rm -f $tmpfile;
+#}
+#alias transfer=transfer

@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 
 # curl -fLo ~/.oh-my-zsh/plugins/docker/_docker https://raw.github.com/felixr/docker-zsh-completion/master/_docker
-plugins=(git github osx docker docker-compose brew composer npm symfony2 vagrant httpie)
+plugins=(git github docker docker-compose brew composer npm symfony2 vagrant httpie)
 
 # User configuration
 export EDITOR=/usr/bin/vim
@@ -84,7 +84,7 @@ if [ -f /usr/local/bin/archey ]; then
 fi
 
 # Antigen: cd ~ && git clone https://github.com/zsh-users/antigen.git .antigen 
-source "/Users/ronan/dotfiles/antigen.zsh"
+source "$HOME/dotfiles/antigen.zsh"
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
