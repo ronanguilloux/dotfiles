@@ -20,6 +20,7 @@ Landing on a new brand server trough ssh, just run this :
 
 ``` bash
     $ sudo apt-get install git 
+    $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     $ git clone https://github.com/ronanguilloux/dotfiles.git
     $ git clone https://github.com/ronanguilloux/Bin.git
     $ git clone https://github.com/zsh-users/antigen.git .antigen
@@ -54,6 +55,7 @@ To install all of them, you must run two commands:
 * `git submodule update` to fetch all the data from each project and eventually check out the appropriate commit (see the `.gitmodules` file).
 
 ``` bash
+    $ git config --global url."https://".insteadOf git://
     $ git submodule init
     $ git submodule update
 ```

@@ -88,3 +88,5 @@
 [user]
 	name = Ronan Guilloux
 	email = ronan.guilloux@gmail.com
+[url "https://"]
+	insteadOf = git://
