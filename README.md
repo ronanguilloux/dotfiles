@@ -19,7 +19,7 @@ Installation
 Landing on a new brand server trough ssh, just run this :
 
 ``` bash
-    $ sudo apt-get install git 
+    $ brew install poneysay fortune
     $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     $ git clone https://github.com/ronanguilloux/dotfiles.git
     $ git clone https://github.com/ronanguilloux/Bin.git

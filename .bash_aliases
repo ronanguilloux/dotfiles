@@ -172,6 +172,7 @@ alias dl='docker ps -l -q'
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias dl="docker ps -l -q"
 alias dcp="docker-compose"
+alias pony="fortune literature science work | ponysay"
 # http://chiefy.github.io/2015/02/24/up-and-running-w-boot2docker-fig-packer.html
 alias dockerboot='boot2docker shellinit && export DOCKER_IP=$(boot2docker ip)'
 alias peap='open -a /Applications/PhpStorm\ EAP.app'

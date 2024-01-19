@@ -151,3 +151,6 @@ if [ -f '/Users/ronan/google-cloud/google-cloud-sdk/completion.zsh.inc' ]; then 
 HOME=${HOME:-'/Users/ronan'}
 export PATH="$HOME/"'.magento-cloud/bin':"$PATH"
 if [ -f "$HOME/"'.magento-cloud/shell-config.rc' ]; then . "$HOME/"'.magento-cloud/shell-config.rc'; fi # END SNIPPET
+
+fortune literature science work | ponysay
+
