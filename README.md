@@ -21,9 +21,9 @@ Landing on a new brand server trough ssh, just run this :
 ``` bash
     $ brew install ponysay fortune
     $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    $ git clone https://github.com/ronanguilloux/dotfiles.git
-    $ git clone https://github.com/ronanguilloux/Bin.git
-    $ git clone https://github.com/zsh-users/antigen.git .antigen
+    $ git clone git://github.com/ronanguilloux/dotfiles.git
+    $ git clone git://github.com/ronanguilloux/Bin.git
+    $ git clone git://github.com/zsh-users/antigen.git .antigen
     $ dotfiles/install.sh
 ```
 
