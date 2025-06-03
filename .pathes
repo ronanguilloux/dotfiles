@@ -104,4 +104,29 @@ if [ -d "/usr/local/go/bin" ] ; then
     export GOPATH="/usr/local/go/bin"
     export PATH="$GOPATH:$PATH"
 fi
-
+if [ -d "$HOME/.opencode/" ] ; then
+    export PATH=$HOME/.opencode/bin:$PATH
+fi
+if [ -d "$HOME/.antigravity-ide/antigravity-ide/" ] ; then
+    export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
+fi
+# this is the root folder where all globally installed node packages will  go
+if [ -d "/usr/local/npm_packages" ] ; then
+    export NPM_PACKAGES="/usr/local/npm_packages"
+fi
+if [ -d "$NPM_PACKAGES/lib/node_modules" ] ; then
+    export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+fi
+if [ -d "$NPM_PACKAGES/bin" ] ; then
+    export PATH="$NPM_PACKAGES/bin:$PATH"
+fi
+if [ -d "$HOME/.npm-packages/bin" ] ; then
+    export PATH="$HOME/.npm-packages/bin:$PATH"
+fi
+if [ -d "$HOME/Library/Python/3.9/bin" ] ; then
+    export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+fi
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/tmp/google-cloud-sdk/path.zsh.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/tmp/google-cloud-sdk/completion.zsh.inc'; fi
