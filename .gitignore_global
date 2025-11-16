@@ -58,11 +58,6 @@ Gemfile.lock
 # Node
 node_modules/
 
-# Sublime things
-*.sublime-project
-*.sublime-workspace
-.vim/.netrwhist
-
 # IDE (PhpStorm, etc.)
 .idea
 
