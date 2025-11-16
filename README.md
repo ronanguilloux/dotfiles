@@ -16,7 +16,7 @@ This is why Bin.git is mentionned below in the install procedure.
 Installation
 ------------
 
-Landing on a new brand server trough ssh, just run this :
+Install [Brew](https://brew.sh/)
 
 ``` bash
     $ brew install ponysay fortune
