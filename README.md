@@ -25,6 +25,11 @@ Install [Brew](https://brew.sh/)
     $ git clone git://github.com/ronanguilloux/Bin.git
     $ git clone git://github.com/zsh-users/antigen.git .antigen
     $ dotfiles/install.sh
+    $ cd dotfiles
+    $ git config --global url."https://".insteadOf git://
+    $ git submodule init
+    $ git submodule update
+    $ git submodule foreach git pull origin master
 ```
 
 The install.sh will move the original .bashrc file and the .vim directory found in $HOME before changing using symbolic links, in case there were already modified.
@@ -37,13 +42,6 @@ Suggestions
 - https://github.com/voronkovich/sf2.plugin.zsh
 - https://github.com/horosgrisa/mysql-colorize
 
-
-
-Installation on Microsoft™ Windows®
------------------------------------
-
-¯\\\_(ツ)\_/¯
-
 VIM: bundles installation
 -------------------------
 
@@ -53,12 +51,6 @@ All [pathogen](http://www.vim.org/scripts/script.php?script_id=2332)-based vim b
 To install all of them, you must run two commands: 
 * `git submodule init` to initialize your local configuration file, 
 * `git submodule update` to fetch all the data from each project and eventually check out the appropriate commit (see the `.gitmodules` file).
-
-``` bash
-    $ git config --global url."https://".insteadOf git://
-    $ git submodule init
-    $ git submodule update
-```
 
 To add a new submodule:
 

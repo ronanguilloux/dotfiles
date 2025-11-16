@@ -152,5 +152,6 @@ HOME=${HOME:-'/Users/ronan'}
 export PATH="$HOME/"'.magento-cloud/bin':"$PATH"
 if [ -f "$HOME/"'.magento-cloud/shell-config.rc' ]; then . "$HOME/"'.magento-cloud/shell-config.rc'; fi # END SNIPPET
 
-fortune literature science work | ponysay
+#fortune literature science work | ponysay
+fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebrew/bin/ponysay  
 
