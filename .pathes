@@ -54,4 +54,7 @@ fi
 if [ -d "$HOME/localBin" ] ; then
     export PATH="$HOME/localBin:$PATH"
 fi
-
+# Python3
+if [ -d "$HOME/Library/Python/3.9/bin" ] ; then
+    export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+fi
