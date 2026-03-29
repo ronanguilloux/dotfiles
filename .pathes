@@ -58,3 +58,50 @@ fi
 if [ -d "$HOME/Library/Python/3.9/bin" ] ; then
     export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 fi
+# Antigravity
+if [ -d "$HOME/.antigravity/antigravity/bin" ] ; then
+    export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+fi
+# BibleCLI
+if [ -d "$HOME/Documents/Code/Gemini/antigravity/ScripturesApp/bin" ] ; then
+    export PATH="$HOME/Documents/Code/Gemini/antigravity/ScripturesApp/bin:$PATH"
+fi
+# Calible
+if [ -d "/Applications/calibre.app/Contents/MacOS/" ] ; then
+    export PATH="/Applications/calibre.app/Contents/MacOS:$PATH"
+fi
+# PHP 7.1
+if [ -d "/usr/local/opt/php@7.1/bin" ] ; then
+    export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+fi
+if [ -d "/usr/local/opt/php@7.1/sbin" ] ; then
+    export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+fi
+# Elasticsearch 5.6
+if [ -d "/usr/local/opt/elasticsearch@5.6/bin" ] ; then
+    export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
+fi
+# NPM global packages
+if [ -d "/usr/local/npm_packages" ] ; then
+    export NPM_PACKAGES="/usr/local/npm_packages"
+    export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+    export PATH="$NPM_PACKAGES/bin:$PATH"
+fi
+if [ -d "$HOME/.npm-packages/bin" ] ; then
+    export PATH="$HOME/.npm-packages/bin:$PATH"
+fi
+# OpenCode
+if [ -d "$HOME/.opencode/bin" ] ; then
+    export PATH="$HOME/.opencode/bin:$PATH"
+fi
+# Local bin
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+# Golang (system install)
+if [ -d "/usr/local/go/bin" ] ; then
+    export GOROOT="/usr/local/go"
+    export GOPATH="/usr/local/go/bin"
+    export PATH="$GOPATH:$PATH"
+fi
+

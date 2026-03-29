@@ -99,13 +99,6 @@ antigen apply
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
-# GOPATH
-if [ -d "/usr/local/go/bin" ] ; then
-    export GOROOT="/usr/local/go"
-    export GOPATH="/usr/local/go/bin"
-    export PATH="$GOPATH:$PATH"
-fi
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -130,28 +123,11 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/usr/local/opt/php@7.1/bin:$PATH"
-export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
-export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
-
-# this is the root folder where all globally installed node packages will  go
-export NPM_PACKAGES="/usr/local/npm_packages"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-# add to PATH
-export PATH="$NPM_PACKAGES/bin:$PATH"
-export PATH="$HOME/.npm-packages/bin:$PATH"
+#fortune literature science work | ponysay
+fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebrew/bin/ponysay
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ronan/google-cloud/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ronan/google-cloud/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/ronan/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ronan/Documents/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ronan/google-cloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ronan/google-cloud/google-cloud-sdk/completion.zsh.inc'; fi
-
-# BEGIN SNIPPET: Magento Cloud CLI configuration
-HOME=${HOME:-'/Users/ronan'}
-export PATH="$HOME/"'.magento-cloud/bin':"$PATH"
-if [ -f "$HOME/"'.magento-cloud/shell-config.rc' ]; then . "$HOME/"'.magento-cloud/shell-config.rc'; fi # END SNIPPET
-
-#fortune literature science work | ponysay
-fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebrew/bin/ponysay  
-
+if [ -f '/Users/ronan/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ronan/Documents/google-cloud-sdk/completion.zsh.inc'; fi
