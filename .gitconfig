@@ -95,3 +95,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[url "https://"]
+	insteadOf = git://
