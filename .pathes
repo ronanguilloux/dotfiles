@@ -63,8 +63,8 @@ if [ -d "$HOME/.antigravity/antigravity/bin" ] ; then
     export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 fi
 # BibleCLI
-if [ -d "$HOME/Documents/Code/Gemini/antigravity/ScripturesApp/bin" ] ; then
-    export PATH="$HOME/Documents/Code/Gemini/antigravity/ScripturesApp/bin:$PATH"
+if [ -d "$HOME/Code/Github/ScripturesApp/bin" ] ; then
+    export PATH="$HOME/Code/Github/ScripturesApp/bin:$PATH"
 fi
 # Calible
 if [ -d "/Applications/calibre.app/Contents/MacOS/" ] ; then
