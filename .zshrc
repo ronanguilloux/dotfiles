@@ -126,6 +126,10 @@ source $ZSH/oh-my-zsh.sh
 #fortune literature science work | ponysay
 fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebrew/bin/ponysay
 
+# Upgrades
+brew upgrade -q
+uv tool upgrade --all -q
+
 # Local tools
 export PATH=/Users/ronan/.opencode/bin:$PATH
 export PATH="/Users/ronan/.antigravity-ide/antigravity-ide/bin:$PATH"
