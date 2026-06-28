@@ -126,8 +126,9 @@ source $ZSH/oh-my-zsh.sh
 #fortune literature science work | ponysay
 fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebrew/bin/ponysay
 
-# opencode
+# Local tools
 export PATH=/Users/ronan/.opencode/bin:$PATH
+export PATH="/Users/ronan/.antigravity-ide/antigravity-ide/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ronan/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ronan/tmp/google-cloud-sdk/path.zsh.inc'; fi
@@ -136,4 +137,3 @@ if [ -f '/Users/ronan/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ronan
 if [ -f '/Users/ronan/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ronan/tmp/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Added by Antigravity IDE
-export PATH="/Users/ronan/.antigravity-ide/antigravity-ide/bin:$PATH"

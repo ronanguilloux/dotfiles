@@ -15,7 +15,7 @@ Installation
 Install [Brew](https://brew.sh/)
 
 ``` bash
-    brew install ponysay fortune
+    brew install ponysay fortune rtk gemini-cli mole ngrok gh uv
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone git://github.com/ronanguilloux/dotfiles.git
     git clone git://github.com/ronanguilloux/Bin.git
