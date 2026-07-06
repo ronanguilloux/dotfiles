@@ -135,7 +135,9 @@ fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebr
 
 # Upgrades
 brew upgrade -q
-uv tool upgrade --all -q
+if [ -f "$HOME/.local/bin/uv" ]; then
+    uv tool upgrade --all -q
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
