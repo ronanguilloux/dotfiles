@@ -155,3 +155,5 @@ function dataurl() {
 source /home/vagrant/oh-my-git/prompt.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+. "$HOME/.local/bin/env"

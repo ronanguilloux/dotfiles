@@ -97,3 +97,5 @@
 	smudge = git-lfs smudge -- %f
 [url "https://"]
 	insteadOf = git://
+[init]
+	defaultBranch = main

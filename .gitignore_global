@@ -70,12 +70,6 @@ node_modules/
 # Vagrant
 .vagrant/
 
-<<<<<<< HEAD
 **/.claude/settings.local.json
-
-**/.claude/settings.local.json
-=======
 # ipython notebook
 .ipynb_checkpoints
-
->>>>>>> fdf919b (adding notebook)

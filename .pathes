@@ -58,6 +58,7 @@ fi
 if [ -d "$HOME/Library/Python/3.9/bin" ] ; then
     export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 fi
+<<<<<<< Updated upstream
 # Antigravity
 if [ -d "$HOME/.antigravity/antigravity/bin" ] ; then
     export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
@@ -130,3 +131,6 @@ fi
 if [ -f '$HOME/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/tmp/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '$HOME/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/tmp/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -d "$HOME/Documents/Ronan/Github/biblecli/bin" ] ; then
+    export PATH="$HOME/Documents/Apps/gmail_shortcuts/bin:$PATH"
+fi
