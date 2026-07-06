@@ -56,10 +56,10 @@ plugins=(git github docker docker-compose brew composer npm symfony2 vagrant htt
 # User configuration
 export EDITOR=/usr/bin/vim
 source $HOME/.bash_aliases
-if [ -f $HOME/.bash_aliases.local ]
+if [ -f $HOME/.bash_aliases.local ]; then
     source $HOME/.bash_aliases.local
 fi
-if [ -f $HOME/.pathes ]
+if [ -f $HOME/.pathes ]; then
     source $HOME/.pathes
 fi
 HISTSIZE=1000
