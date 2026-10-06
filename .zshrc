@@ -133,11 +133,19 @@ if [ -f "$HOME/"'.magento-cloud/shell-config.rc' ]; then . "$HOME/"'.magento-clo
 #fortune literature science work | ponysay
 fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebrew/bin/ponysay
 
-# Upgrades
-brew upgrade -q
-if [ -f "$HOME/.local/bin/uv" ]; then
-    $HOME/.local/bin/uv tool upgrade --all -q
-fi
+# Upgrades: at most once a day, one terminal at a time, in the background
+() {
+  local dir=$HOME/.cache/brew-autoupgrade today=${(%):-%D{%F}}
+  [[ -r $dir/last-run && "$(<$dir/last-run)" == $today ]] && return
+  mkdir -p $dir
+  /usr/bin/lockf -s -t 0 $dir/lock zsh -c '
+    [[ -r $2 && "$(<$2)" == $1 ]] && exit   # another tab just did it
+    print -r -- $1 > $2
+    print -r -- "== $(date)"
+    brew upgrade -q
+    [[ -x ~/.local/bin/uv ]] && ~/.local/bin/uv tool upgrade --all -q
+  ' _ $today $dir/last-run </dev/null >>$HOME/Library/Logs/brew-autoupgrade.log 2>&1 &!
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
