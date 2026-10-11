@@ -104,6 +104,7 @@ if [ -d "/usr/local/go/bin" ] ; then
     export GOPATH="/usr/local/go/bin"
     export PATH="$GOPATH:$PATH"
 fi
+
 if [ -d "$HOME/.opencode/" ] ; then
     export PATH=$HOME/.opencode/bin:$PATH
 fi
@@ -132,4 +133,9 @@ if [ -f '$HOME/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/tmp/google-cl
 if [ -f '$HOME/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/tmp/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -d "$HOME/Documents/Ronan/Github/biblecli/bin" ] ; then
     export PATH="$HOME/Documents/Apps/gmail_shortcuts/bin:$PATH"
+
+# Added by Antigravity IDE
+if [ -d "$HOME/.npm-global/bin:$PATH" ] ; then
+    export PATH="$HOME/.npm-global/bin:$PATH"
 fi
+
