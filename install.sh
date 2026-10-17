@@ -4,7 +4,10 @@
 # Existing symlinks are not backed up, so re-running keeps the first backup.
 for f in .zshrc .pathes .bashrc .bash_aliases .vim .vimrc .gitignore_global .gitconfig; do
     if [ -e ~/$f ] && [ ! -L ~/$f ]; then
-        mv -f ~/$f ~/$f-dist
+        backup=~/$f-dist
+        # never overwrite (file) or nest into (dir) an older backup
+        [ -e "$backup" ] && backup="$backup.$(date +%Y%m%d%H%M%S)"
+        mv ~/$f "$backup"
     fi
     ln -sfn ~/dotfiles/$f ~/$f
 done

@@ -13,16 +13,16 @@ Nothing left.
 
 ## Someday
 
-- [ ] `.bashrc`: Linux-only leftovers (Android SDK paths under `/home/ronan`, `PAGER=most`) → macOS-safe guards or drop
-- [ ] `.bash_aliases`: more dead aliases — `gitmyzsh` (oh-my-git theme, removed), `screencast` (x11grab), `ssarl`/`ssars`/`ssms` (`service`), `sniff` (`eth1`), `chch`/`sfsetset` (`www-data`), `wtf`, `mongocheat` (dead site)
-- [ ] `install.sh`: if `~/.vim-dist` already exists, `mv ~/.vim ~/.vim-dist` nests the dir inside it instead of replacing
-- [ ] Vim: most submodules uninitialized; decide keep (init) vs. drop (vim-powerline, phpfolding, vim-behat, vim-symfony are unmaintained); keeping vim-snipmate may mean re-adding its `tlib_vim` dependency
+- [ ] Vim: most submodules uninitialized; decide keep (init) vs. drop (vim-powerline, phpfolding, vim-behat, vim-symfony are unmaintained); keeping vim-snipmate may mean re-adding its `tlib_vim` dependency. Dropping powerline also drops the commented `/home/ronan/…` rtp line in `.vimrc`
 - [ ] Add `~/.gitconfig.local.example` / `~/.bash_aliases.local.example` templates
 - [ ] `.gitconfig`: SourceTree diff/merge tools and `git media` filter likely unused
 
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 `install.sh`: an existing `X-dist` backup is never overwritten (files) or nested into (dirs); the new backup gets a `X-dist.<timestamp>` name instead
+- [x] 2026-10-17 `.bash_aliases`: dropped `gitmyzsh`, `screencast`, `ssarl`/`ssars`/`ssms`, `sniff`, `chch`, `sfsetset`, `wtf`, `mongocheat` and the emptied "server" section
+- [x] 2026-10-17 `.bashrc`: Android `/home/ronan` paths dropped; `PAGER=most`, `~/local/bin`, RVM guarded; fortune/cowsay → same guarded `fortune | ponysay` as `.zshrc`; duplicate `dataurl` dropped (comes from `functions.sh`)
 - [x] 2026-10-17 `.zshrc.pre-oh-my-zsh` deleted (+ install.sh); `.bash_aliases`: apt-get, `ifif`, `alert` (notify-send), boot2docker, svn, node-webkit aliases dropped, duplicate `dl`/`gs` removed. Dangling `~/.zshrc.pre-oh-my-zsh` symlink removed on home laptop (other laptop still to do)
 - [x] 2026-10-17 gcloud completion never worked: antigen's cache stubs `compdef` and re-runs `compinit` at the first prompt, wiping completions registered after it → `.zshrc` runs `_antigen_compinit` right after `antigen apply`. `.pathes` also picks up `~/Downloads/google-cloud-sdk` (installer's hard-coded `/Users/…` lines dropped). Tested on home laptop
 - [x] 2026-10-17 README: `git://` → `https://` clone URLs; dropped the antigen clone (vendored) and the obsolete omz `local.zsh` symlink section

@@ -45,7 +45,6 @@ alias realtimemodifiedfiles="watch -d -n 2 'df; ls -FlAt;'"
 alias du='du -kh'
 alias taille='du -chs'
 alias combien='ls -l | grep -v ^l | wc -l'
-alias chch='sudo chmod 775 * -R && sudo chown $USER:www-data * -R'
 
 # -------------------- archiver aliases -------------------
 
@@ -85,28 +84,16 @@ alias gap='git add -p'
 alias gpo='git push origin '
 alias gpom='git push origin master'
 alias gpod='git push origin dev'
-alias gitmyzsh="antigen theme arialdomartini/oh-my-git-themes oppa-lana-style"
-
-# -------------------- server related aliases --------------------
-
-alias ssarl="sudo service apache2 reload"
-alias ssars="sudo service apache2 restart"
-alias ssms="sudo service mongod start"
-
-# add alias to get latest version of mongo cheatsheet
- alias mongocheat='curl -s http://cheat.errtheblog.com/s/mongo | groovy -e "@Grab(group=/net.sourceforge.nekohtml/, module=/nekohtml/, version=/1.9.14/)import org.cyberneko.html.parsers.SAXParser;println new XmlSlurper(new SAXParser()).parseText(System.in.text).depthFirst().find{ it.@class == /sheet/}.text()"'
 
 # -------------------- other various unclassfied aliases -------------------
 
 alias semaine='date +%V'
-alias screencast='ffmpeg -f x11grab -r 25 -s wxga -i :0.0 /tmp/outputFile.mpg'
 alias sshlist=". ~/localBin/sshlist.sh"
 alias mybackup="cd /opt/backup/manual/ && php backup.php && cd -"
 alias jsstyle="seed ~/Bin/js/jslint.js"
 alias apache2routes='apachectl -S'
 alias whereisraspberrypi="sudo nmap -sV --open 192.168.1.0/25 -p22"
 alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $? -eq 0 ] && echo "192.168.1.$ip UP" || : ; done'
-alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
 
 if [ -d "Workspace/Apps" ] ; then
     alias apps='cd ~/Workspace/Apps && ls -la'
@@ -122,7 +109,6 @@ fi
 
 alias bbc='php -dmemory_limit=-1 bin/console'
 alias bbccw='php -dmemory_limit=-1 bin/console cache:warmup -e=prod'
-alias sfsetset="sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
 alias phpstats=". ~/Bin/sh/phpstats.sh"
 alias getcomposer='curl -s http://getcomposer.org/installer | php'
 alias getbehat='wget https://github.com/downloads/Behat/Behat/behat.phar'
@@ -136,7 +122,6 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Enhanced WHOIS lookups
 # alias whois="whois -h whois-servers.net"
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'eth1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en3 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias httpsniff="sudo tcpdump -A -s0 -ien3 port 80"
 alias httpsniff2="sudo tcpdump -A -s0 -ien0 port 80"

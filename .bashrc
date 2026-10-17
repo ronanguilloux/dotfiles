@@ -74,15 +74,13 @@ xterm*|rxvt*)
     ;;
 esac
 
-# colorized man, needs to isntall most
-export PAGER=most
+# colorized man
+if command -v most >/dev/null; then
+    export PAGER=most
+fi
 
-#fortune /usr/share/games/fortunes/fr/tolkien_fr
-#fortune /usr/share/games/fortunes/fr/haiku
-if hash ponysay 2>/dev/null; then
-    fortune /usr/share/games/fortunes/fr/haiku | ponysay
-else
-    fortune | cowsay -f stegosaurus
+if command -v fortune >/dev/null && command -v ponysay >/dev/null; then
+    fortune literature science work | python3 -W "ignore::SyntaxWarning" "$(command -v ponysay)"
 fi
 
 # -------------------- Aliases --------------------
@@ -132,10 +130,9 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 # Node.js
-export PATH=$HOME/local/bin:$PATH
-# Android
-export PATH=/home/ronan/Bin/android-sdk-linux_x86/tools:${PATH}
-export PATH=/home/ronan/Bin/android-sdk-linux_x86/platform-tools:${PATH}
+if [ -d "$HOME/local/bin" ] ; then
+    export PATH="$HOME/local/bin:$PATH"
+fi
 # GOPATH
 if [ -d "/usr/local/go/bin" ] ; then
     export PATH="/usr/local/go/bin:$PATH"
@@ -144,15 +141,8 @@ if [ -f ~/dotfiles/functions.sh ]; then
     . ~/dotfiles/functions.sh
 fi
 
-# Create a data URL from a file
-function dataurl() {
-    local mimeType=$(file -b --mime-type "$1")
-    if [[ $mimeType == text/* ]]; then
-        mimeType="${mimeType};charset=utf-8"
-    fi
-    echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
-}
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+if [ -d "$HOME/.rvm/bin" ] ; then
+    export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+fi
 
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
