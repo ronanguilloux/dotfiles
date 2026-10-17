@@ -72,20 +72,7 @@ alias vimalias="vim ~/.bash_aliases"
 alias rebashrc=". ~/.bashrc"
 alias realias=". ~/.bash_aliases"
 
-# -------------------- apt-get related aliases --------------------
-
-alias upup='sudo apt-get update && sudo apt-get upgrade && sudo apt-get autoremove && sudo apt-get autoclean'
-alias upupg='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo apt-get autoclean'
-alias sagi='sudo apt-get install'
-alias sacs='sudo apt-cache search'
-alias ppa='sudo add-apt-repository'
-alias autoremove='sudo apt-get autoremove && sudo apt-get autoclean'
-# cf. aussi : sudo dpkg -P `dpkg -l | grep "^rc" | tr -s ' ' | cut -d ' ' -f 2`
-alias purge='sudo apt-get remove --purge `deborphan`'
-alias purgeall='sudo apt-get --purge remove `deborphan -n --guess-all`'
-alias menageup='sudo apt-get clean && sudo apt-get autoclean && sudo apt-get autoremove'
-
-# -------------------- GIT / SVN related aliases --------------------
+# -------------------- GIT related aliases --------------------
 
 alias git2cl='git log --graph --pretty=medium --color=never > CHANGELOG'
 alias gitlog='git log --all --color --decorate --graph --oneline'
@@ -96,11 +83,8 @@ alias gcm='git ci -m'
 alias gcam='git ci -am'
 alias gap='git add -p'
 alias gpo='git push origin '
-alias gs='git status'
 alias gpom='git push origin master'
 alias gpod='git push origin dev'
-alias svndifff="svn diff | view -"
-alias svnlogg="svn log -v -r{`date '+%Y-%m-01'`}:{`date '+%Y-%m-31'`} | colordiff"
 alias gitmyzsh="antigen theme arialdomartini/oh-my-git-themes oppa-lana-style"
 
 # -------------------- server related aliases --------------------
@@ -115,7 +99,6 @@ alias ssms="sudo service mongod start"
 # -------------------- other various unclassfied aliases -------------------
 
 alias semaine='date +%V'
-alias ifif='sudo ifdown wlan0 && sudo ifup wlan0'
 alias screencast='ffmpeg -f x11grab -r 25 -s wxga -i :0.0 /tmp/outputFile.mpg'
 alias sshlist=". ~/localBin/sshlist.sh"
 alias mybackup="cd /opt/backup/manual/ && php backup.php && cd -"
@@ -123,9 +106,6 @@ alias jsstyle="seed ~/Bin/js/jslint.js"
 alias apache2routes='apachectl -S'
 alias whereisraspberrypi="sudo nmap -sV --open 192.168.1.0/25 -p22"
 alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $? -eq 0 ] && echo "192.168.1.$ip UP" || : ; done'
-# Add an "alert" alias for long running commands.  Use like so:
-# #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias wtf='tail -f /var/log/{dmesg,messages,*{,/*}{log,err}}'
 
 if [ -d "Workspace/Apps" ] ; then
@@ -163,16 +143,11 @@ alias httpsniff2="sudo tcpdump -A -s0 -ien0 port 80"
 
 # -------------------- Docker-related aliases -------------------
 
-alias dockerboot='$(boot2docker shellinit 2> /dev/null)'
 alias dl='docker ps -l -q'
 
 # -------------------- Personal aliases -------------------
-alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
-alias dl="docker ps -l -q"
 alias dcp="docker-compose"
 alias pony="fortune literature science work | ponysay"
-# http://chiefy.github.io/2015/02/24/up-and-running-w-boot2docker-fig-packer.html
-alias dockerboot='boot2docker shellinit && export DOCKER_IP=$(boot2docker ip)'
 alias peap='open -a /Applications/PhpStorm\ EAP.app'
 alias p='open -a /Applications/PhpStorm.app'
 alias s='open -a /Applications/Sublime\ Text.app'

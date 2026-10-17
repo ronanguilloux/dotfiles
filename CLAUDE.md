@@ -25,7 +25,7 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 - **Every report ends with "On the other laptop:"**: what to do there (`git pull`, `antigen reset`,
   create/edit a `.local` file, install a tool, re-run `install.sh`…), or "just `git pull`" if nothing else.
   Machine-local actions (cache resets, `.local` edits) also go in the BACKLOG Done entry as "(other laptop still to do)".
-  `.bashrc`, apt/`notify-send`/`ifdown` aliases, `.zshrc.pre-oh-my-zsh` are Linux/Vagrant leftovers.
+  `.bashrc` is a Linux/Vagrant leftover.
 - **No longer used** (don't add or maintain support): Vagrant, Magento Cloud.
 
 ## Files
