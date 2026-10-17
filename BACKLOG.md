@@ -24,6 +24,7 @@ Nothing left.
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 gcloud completion never worked: antigen's cache stubs `compdef` and re-runs `compinit` at the first prompt, wiping completions registered after it → `.zshrc` runs `_antigen_compinit` right after `antigen apply`. `.pathes` also picks up `~/Downloads/google-cloud-sdk` (installer's hard-coded `/Users/…` lines dropped). Tested on home laptop
 - [x] 2026-10-17 README: `git://` → `https://` clone URLs; dropped the antigen clone (vendored) and the obsolete omz `local.zsh` symlink section
 - [x] 2026-10-17 `.zshrc` gcloud completion: `'$HOME/…'` → `"$HOME/…"`; duplicate completion line dropped from `.pathes` (ran before compinit) — untested, no gcloud on home laptop
 - [x] 2026-10-17 `.gitmodules`: dropped `snipmate` (superseded by `vim-snipmate`) and `tlib_vim`, both declared but never in the index

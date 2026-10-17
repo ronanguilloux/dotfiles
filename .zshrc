@@ -84,6 +84,9 @@ source "$HOME/dotfiles/antigen.zsh"
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
+# antigen's cache stubs compdef and re-runs compinit at the first prompt, wiping completions
+# registered below (gcloud, nvm): run its compinit now instead
+(( $+functions[_antigen_compinit] )) && _antigen_compinit
 # ↑/↓: substring search (both the normal and application-mode key codes)
 bindkey '^[[A' history-substring-search-up; [[ -n ${terminfo[kcuu1]} ]] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
 bindkey '^[[B' history-substring-search-down; [[ -n ${terminfo[kcud1]} ]] && bindkey "${terminfo[kcud1]}" history-substring-search-down
