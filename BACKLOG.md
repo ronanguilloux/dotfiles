@@ -15,11 +15,11 @@ Nothing left.
 
 - [ ] Vim: most submodules uninitialized; decide keep (init) vs. drop (vim-powerline, phpfolding, vim-behat, vim-symfony are unmaintained); keeping vim-snipmate may mean re-adding its `tlib_vim` dependency. Dropping powerline also drops the commented `/home/ronan/…` rtp line in `.vimrc`
 - [ ] Add `~/.gitconfig.local.example` / `~/.bash_aliases.local.example` templates
-- [ ] `.gitconfig`: SourceTree diff/merge tools and `git media` filter likely unused
 
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 `.gitconfig`: dropped SourceTree difftool/mergetool (app gone, never selected as `diff.tool`/`merge.tool`) and the `git media` filter (abandoned tool, superseded by LFS)
 - [x] 2026-10-17 `install.sh`: an existing `X-dist` backup is never overwritten (files) or nested into (dirs); the new backup gets a `X-dist.<timestamp>` name instead
 - [x] 2026-10-17 `.bash_aliases`: dropped `gitmyzsh`, `screencast`, `ssarl`/`ssars`/`ssms`, `sniff`, `chch`, `sfsetset`, `wtf`, `mongocheat` and the emptied "server" section
 - [x] 2026-10-17 `.bashrc`: Android `/home/ronan` paths dropped; `PAGER=most`, `~/local/bin`, RVM guarded; fortune/cowsay → same guarded `fortune | ponysay` as `.zshrc`; duplicate `dataurl` dropped (comes from `functions.sh`)
