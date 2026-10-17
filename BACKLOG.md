@@ -9,14 +9,8 @@ Nothing urgent.
 
 ## Soon
 
-- [ ] `.bashrc:158`: `. "$HOME/.local/bin/env"` (uv) unguarded → errors where uv is absent; guard with `[ -f … ]`
-- [ ] `.zshrc`: custom fast `git_prompt_info` is defined before oh-my-zsh loads → overwritten by `lib/git.zsh` (omz's async prompt is in use); move it after `source $ZSH/oh-my-zsh.sh` or drop it + update CLAUDE.md
-- [ ] `.zshrc`: `zsh-history-substring-search` loaded but no `bindkey` for it → bind ↑/↓ or drop the bundle
-- [ ] `.zshrc`: `archey` check uses Intel path `/usr/local/bin` → use `command -v archey`
-- [ ] `.zshrc`: ponysay line hard-codes `/opt/homebrew/bin/ponysay` (Apple Silicon prefix) → resolve with `command -v ponysay`, guard if absent
-- [ ] `.zshrc`: `compinit` runs twice (explicit `compinit -i` + oh-my-zsh's own) → drop the explicit one, keep `fpath` before omz
-- [ ] `.zshrc`: `EDITOR=/usr/bin/vim` → `vim` (respect Homebrew vim)
 - [ ] `.gitmodules`: `snipmate` and `tlib_vim` declared but not in index → remove entries or re-add submodules
+- [ ] `.zshrc` gcloud completion lines: single-quoted `'$HOME/…'` never expands → tests always false (same fix as `.pathes`)
 - [ ] README: `git://` clone URLs fail on a fresh machine (no gitconfig rewrite yet) → use `https://`
 - [ ] README: oh-my-zsh `local.zsh` symlink instructions no longer match how `.zshrc` is installed
 
@@ -33,6 +27,8 @@ Nothing urgent.
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 `.zshrc` startup quirks: dropped the custom `git_prompt_info` (omz redefined it anyway; its async prompt is already non-blocking) and the duplicate `compinit -i`; ↑/↓ bound to history-substring-search; `archey`/`ponysay` found via `command -v` and guarded; `EDITOR=vim`
+- [x] 2026-10-17 `.bashrc`: uv's `~/.local/bin/env` sourced only if present
 - [x] 2026-10-17 `.pathes`: dropped dead blocks (Heroku, PHP 7.1, Elasticsearch 5.6, Postgres 9.4, Python 2.7 Cellar, LIIP comment, always-false `/usr/local/bin/php` test) and the first copy of the duplicated npm / Python 3.9 blocks — resulting PATH unchanged (home laptop)
 - [x] 2026-10-17 Public exposure: dead `googleBackup` (work email) and `pim_dump` (DB password) aliases deleted. `[user]` and `http.cookiefile` stay tracked on purpose: the name/email already appear in every public commit, the cookiefile path is just `~/`, and `~/.gitconfig.local` (included last) overrides both
 - [x] 2026-10-17 antigen: stale `~/.antigen/init.zsh` (July) kept loading the removed oh-my-git `oppa-lana-style` prompt → `antigen reset` + `cleanup` (work laptop; home laptop still to do), note in CLAUDE.md

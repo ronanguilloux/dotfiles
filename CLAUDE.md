@@ -46,7 +46,6 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 - **Daily auto-upgrade block** in `.zshrc`: date stamp in `~/.cache/brew-autoupgrade/last-run` plus
   `/usr/bin/lockf -s -t 0` (macOS-only) so only one tab per day runs `brew upgrade` + `uv tool upgrade --all`,
   detached (`&!`), logged to `~/Library/Logs/brew-autoupgrade.log`. Must never block shell startup.
-- Custom `git_prompt_info` override = fast prompt (skips git status).
 - `if [ -d … ]` / `if [ -f … ]` guards everywhere: one config must load on machines with different tools.
 - Machine-specific or secret stuff goes in **untracked** `~/.gitconfig.local` and `~/.bash_aliases.local`.
 

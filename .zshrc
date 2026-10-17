@@ -54,7 +54,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git gh docker docker-compose brew composer npm symfony2 httpie)
 
 # User configuration
-export EDITOR=/usr/bin/vim
+export EDITOR=vim
 source $HOME/.bash_aliases
 if [ -f $HOME/.bash_aliases.local ]; then
     source $HOME/.bash_aliases.local
@@ -66,20 +66,13 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
 # Github's hub command: https://github.com/github/hub: brew install hub
 #eval "$(hub alias -s)"
-# Fix the slowness of zsh prompt, by removing the git status stuff that slows it down...
-#https://gist.github.com/msabramo/2355834
-function git_prompt_info() {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}${ZSH_THEME_GIT_PROMPT_CLEAN}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
-}
 if [ -f ~/dotfiles/functions.sh ]; then
     . ~/dotfiles/functions.sh
 fi
 # Brew install archey
-if [ -f /usr/local/bin/archey ]; then
+if command -v archey >/dev/null; then
     archey
 fi
 
@@ -91,6 +84,9 @@ source "$HOME/dotfiles/antigen.zsh"
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
+# ↑/↓: substring search (both the normal and application-mode key codes)
+bindkey '^[[A' history-substring-search-up; [[ -n ${terminfo[kcuu1]} ]] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
+bindkey '^[[B' history-substring-search-down; [[ -n ${terminfo[kcud1]} ]] && bindkey "${terminfo[kcud1]}" history-substring-search-down
 # use antigen update to update it all
 
 # You may need to manually set your language environment
@@ -119,7 +115,9 @@ antigen apply
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #fortune literature science work | ponysay
-fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebrew/bin/ponysay
+if command -v fortune >/dev/null && command -v ponysay >/dev/null; then
+    fortune literature science work | python3 -W "ignore::SyntaxWarning" "$(command -v ponysay)"
+fi
 
 # Upgrades: at most once a day, one terminal at a time, in the background
 () {
