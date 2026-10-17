@@ -108,7 +108,6 @@ alias gitmyzsh="antigen theme arialdomartini/oh-my-git-themes oppa-lana-style"
 alias ssarl="sudo service apache2 reload"
 alias ssars="sudo service apache2 restart"
 alias ssms="sudo service mongod start"
-alias pim_dump="mysqldump --extended-insert=FALSE -u akeneo_pim -pakeneo_pim akeneo_pim > dump.sql"
 
 # add alias to get latest version of mongo cheatsheet
  alias mongocheat='curl -s http://cheat.errtheblog.com/s/mongo | groovy -e "@Grab(group=/net.sourceforge.nekohtml/, module=/nekohtml/, version=/1.9.14/)import org.cyberneko.html.parsers.SAXParser;println new XmlSlurper(new SAXParser()).parseText(System.in.text).depthFirst().find{ it.@class == /sheet/}.text()"'
@@ -122,7 +121,6 @@ alias sshlist=". ~/localBin/sshlist.sh"
 alias mybackup="cd /opt/backup/manual/ && php backup.php && cd -"
 alias jsstyle="seed ~/Bin/js/jslint.js"
 alias apache2routes='apachectl -S'
-alias googleBackup='/opt/backup/googledocs/gdatacopier-2.1.2/gcp.py -o -u rguilloux@toog.fr:/all ~/Documents/GoogleDocs/'
 alias whereisraspberrypi="sudo nmap -sV --open 192.168.1.0/25 -p22"
 alias allIps='for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; [ $? -eq 0 ] && echo "192.168.1.$ip UP" || : ; done'
 # Add an "alert" alias for long running commands.  Use like so:

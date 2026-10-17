@@ -5,7 +5,7 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 
 ## Now
 
-- [ ] Public exposure: move `[user]` + `http.cookiefile` from `.gitconfig` to `~/.gitconfig.local`; drop/move `googleBackup` (work email) and `pim_dump` (DB password) aliases to `~/.bash_aliases.local`
+Nothing urgent.
 
 ## Soon
 
@@ -36,6 +36,7 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 Public exposure: dead `googleBackup` (work email) and `pim_dump` (DB password) aliases deleted. `[user]` and `http.cookiefile` stay tracked on purpose: the name/email already appear in every public commit, the cookiefile path is just `~/`, and `~/.gitconfig.local` (included last) overrides both
 - [x] 2026-10-17 antigen: stale `~/.antigen/init.zsh` (July) kept loading the removed oh-my-git `oppa-lana-style` prompt → `antigen reset` + `cleanup` (work laptop; home laptop still to do), note in CLAUDE.md
 - [x] 2026-10-17 `.zshrc`: Magento Cloud snippet deleted (also removed its hard-coded `/Users/ronan` fallback)
 - [x] 2026-10-17 Vagrant dropped: `.zshrc` plugin, `.bashrc` oh-my-git source, `functions.sh` comment

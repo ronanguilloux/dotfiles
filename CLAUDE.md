@@ -22,6 +22,9 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
   `~/.bash_aliases.local`, never the tracked files.
 - Don't assume the Homebrew prefix (`/opt/homebrew` vs `/usr/local`); guard it or use `command -v`.
 - A change tested on one laptop is only half-tested: say so when reporting.
+- **Every report ends with "On the other laptop:"**: what to do there (`git pull`, `antigen reset`,
+  create/edit a `.local` file, install a tool, re-run `install.sh`…), or "just `git pull`" if nothing else.
+  Machine-local actions (cache resets, `.local` edits) also go in the BACKLOG Done entry as "(other laptop still to do)".
   `.bashrc`, apt/`notify-send`/`ifdown` aliases, `.zshrc.pre-oh-my-zsh` are Linux/Vagrant leftovers.
 - **No longer used** (don't add or maintain support): Vagrant, Magento Cloud.
 
@@ -51,8 +54,8 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 
 - Never commit tokens, passwords, hostnames, internal IPs, client names, or personal paths beyond `$HOME`.
   Put them in the `.local` files instead. Check `git diff --staged` for these before every commit.
-- Known legacy exposure (already in history, don't spread further): `[user]` in `.gitconfig`;
-  a work email and a DB password in `.bash_aliases` (see BACKLOG **Now**).
+- `[user]` in `.gitconfig` stays tracked on purpose (public in every commit anyway); `~/.gitconfig.local` overrides it.
+- Git history still holds a work email and a DB password (aliases deleted 2026-10-17).
   Rewriting history is the owner's call. Don't do it without asking.
 
 ## Editing conventions
