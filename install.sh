@@ -2,7 +2,7 @@
 
 # Back up original dotfiles in $HOME as X-dist, then symlink ~/dotfiles/X → ~/X.
 # Existing symlinks are not backed up, so re-running keeps the first backup.
-for f in .zshrc .pathes .bashrc .bash_aliases .vim .vimrc .gitignore_global .gitconfig; do
+for f in .zshrc .pathes .bashrc .bash_aliases .vim .vimrc .gitignore_global .gitconfig .Brewfile; do
     if [ -e ~/$f ] && [ ! -L ~/$f ]; then
         backup=~/$f-dist
         # never overwrite (file) or nest into (dir) an older backup

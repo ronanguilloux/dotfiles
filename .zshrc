@@ -120,6 +120,8 @@ fi
 # Upgrades: at most once a day, one terminal at a time, in the background
 () {
   local dir=$HOME/.cache/brew-autoupgrade today=${(%):-%D{%F}}
+  # Brewfile drift found by the last run (hidden once ~/.Brewfile is edited)
+  [[ -s $dir/brewfile-drift && ! ~/.Brewfile -nt $dir/brewfile-drift ]] && print -r -- "$(<$dir/brewfile-drift)"
   [[ -r $dir/last-run && "$(<$dir/last-run)" == $today ]] && return
   mkdir -p $dir
   /usr/bin/lockf -s -t 0 $dir/lock zsh -c '
@@ -128,7 +130,12 @@ fi
     print -r -- "== $(date)"
     brew upgrade -q
     [[ -x ~/.local/bin/uv ]] && ~/.local/bin/uv tool upgrade --all -q
-  ' _ $today $dir/last-run </dev/null >>$HOME/Library/Logs/brew-autoupgrade.log 2>&1 &!
+    [[ -f ~/.Brewfile ]] || exit
+    extras=$(brew bundle cleanup --global 2>/dev/null | awk "/^Would uninstall/{f=1;next} /^(Would|Run)/{f=0} f" | xargs)
+    { [[ -n $extras ]] && print -r -- "brew: not in ~/.Brewfile: $extras (brew bundle add --global …, or uninstall)"
+      brew bundle check --global >/dev/null 2>&1 || print -r -- "brew: ~/.Brewfile not satisfied → brew bundle --global"
+    } > $3
+  ' _ $today $dir/last-run $dir/brewfile-drift </dev/null >>$HOME/Library/Logs/brew-autoupgrade.log 2>&1 &!
 }
 
 export NVM_DIR="$HOME/.nvm"

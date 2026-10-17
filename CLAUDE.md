@@ -18,8 +18,8 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 - Never hard-code `/Users/<name>` or `/home/<name>`: use `$HOME` / `~` (shell), `~/` (gitconfig pathnames),
   `expand('~')` (vim). Check before committing: `git grep -nE '/Users/|/home/'`.
 - Anything that exists on one machine only gets an `if [ -d … ]` / `[ -f … ]` guard (tools, apps, work dirs).
-- Per-machine identity/settings (git `user.email`, work aliases, proxies) → `~/.gitconfig.local`,
-  `~/.bash_aliases.local`, never the tracked files.
+- Per-machine identity/settings (git `user.email`, work aliases, proxies, tools) → `~/.gitconfig.local`,
+  `~/.bash_aliases.local`, `~/.Brewfile.local`, never the tracked files.
 - Don't assume the Homebrew prefix (`/opt/homebrew` vs `/usr/local`); guard it or use `command -v`.
 - A change tested on one laptop is only half-tested: say so when reporting.
 - **Every report ends with "On the other laptop:"**: what to do there (`git pull`, `brew install`,
@@ -37,6 +37,7 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 | `.bash_aliases` | Aliases shared by bash and zsh (French comments). Many depend on `~/Bin` = [ronanguilloux/Bin](https://github.com/ronanguilloux/Bin). |
 | `functions.sh` | Small shell functions (json, dataurl, phpserver…). |
 | `.gitconfig` | Aliases, colors, `gh:`/`gist:` URL shorthands, `git://`→`https://` rewrite, LFS, GCM. Includes `~/.gitconfig.local`. |
+| `.Brewfile` | Brew formulae/casks, uv tools, npm globals for both laptops (`brew bundle --global`). Includes untracked `~/.Brewfile.local`. |
 | `.gitignore_global` | Global excludes (also ignores `**/.claude/settings.local.json`). |
 | `.vimrc`, `.vim/` | vim-plug (`.vim/autoload/plug.vim`, vendored); plugins = `Plug` lines in `.vimrc`, installed to untracked `.vim/plugged/` (`vim +PlugInstall +qa` per machine). |
 
@@ -45,8 +46,10 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 - **Daily auto-upgrade block** in `.zshrc`: date stamp in `~/.cache/brew-autoupgrade/last-run` plus
   `/usr/bin/lockf -s -t 0` (macOS-only) so only one tab per day runs `brew upgrade` + `uv tool upgrade --all`,
   detached (`&!`), logged to `~/Library/Logs/brew-autoupgrade.log`. Must never block shell startup.
+  It then writes Brewfile drift (`brew bundle cleanup`/`check`) to `~/.cache/brew-autoupgrade/brewfile-drift`,
+  which new shells print (a file read only) until `~/.Brewfile` is newer.
 - `if [ -d … ]` / `if [ -f … ]` guards everywhere: one config must load on machines with different tools.
-- Machine-specific or secret stuff goes in **untracked** `~/.gitconfig.local` and `~/.bash_aliases.local`.
+- Machine-specific or secret stuff goes in **untracked** `~/.gitconfig.local`, `~/.bash_aliases.local` and `~/.Brewfile.local`.
 
 ## Public-repo rules (important)
 
@@ -60,6 +63,7 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 
 - Match existing style: `if [ -d "…" ] ; then export PATH="…:$PATH"; fi` in `.pathes`.
 - New PATH entries → `.pathes`, not `.zshrc`. New aliases → `.bash_aliases` (must stay bash-compatible).
+- New brew/uv/npm tool → `.Brewfile` if both laptops want it, else `~/.Brewfile.local`. Work tools never in the tracked file.
 - Keep shell startup fast: nothing synchronous that hits the network.
 - Commits: conventional prefix (`fix:`, `feat:`, `chore:`), branch `master`.
 

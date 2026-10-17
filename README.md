@@ -12,18 +12,35 @@ This is why Bin.git is mentionned below in the install procedure.
 Installation
 ------------
 
-Install [Brew](https://brew.sh/)
+Install [Brew](https://brew.sh/) and [Node](https://nodejs.org/) (the Brewfile has an npm entry), then:
 
 ``` bash
-    brew install ponysay fortune rtk gemini-cli mole ngrok gh uv zsh-history-substring-search zsh-syntax-highlighting
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone https://github.com/ronanguilloux/dotfiles.git
     git clone https://github.com/ronanguilloux/Bin.git
     dotfiles/install.sh
+    brew bundle --global
     vim +PlugInstall +qa
 ```
 
 The install.sh will move the original .bashrc file and the .vim directory found in $HOME before changing using symbolic links, in case there were already modified.
+
+Brew packages: .Brewfile
+------------------------
+
+`.Brewfile` (symlinked to `~/.Brewfile`) lists the brew formulae, casks, uv tools and npm globals shared by every laptop;
+`brew bundle --global` installs them. Tools for one machine only go in an untracked `~/.Brewfile.local`, same syntax, included automatically.
+
+When you install something new, record it: `brew bundle add --global <formula>` (`--cask`, `--uv`, `--npm` for other kinds),
+or edit the file. The daily background upgrade in `.zshrc` also compares the Brewfile with what's installed, and new shells print
+a `brew: …` line when they differ, until you fix it (editing the Brewfile hides it right away).
+
+VS Code
+-------
+
+Not in this repo: settings, keybindings, snippets and extensions travel with VS Code's built-in Settings Sync.
+On each new laptop: Accounts menu (bottom-left) → *Backup and Sync Settings…* → sign in with GitHub.
+If work policy blocks it there, use *Profiles → Export Profile…* on the old laptop and import it on the new one.
 
 Suggestions
 -----------
