@@ -184,7 +184,6 @@ alias composer-require='php -dmemory_limit=-1 /usr/local/bin/composer require --
 alias composer-install='php -dmemory_limit=-1 /usr/local/bin/composer install --optimize-autoloader --prefer-dist'
 alias composer-update='php -dmemory_limit=-1 /usr/local/bin/composer update --optimize-autoloader --prefer-dist'
 google() { open -a "Google Chrome" "http://www.google.com/search?q=$1"; }
-alias phpconsole='echo "Type pkill php to end process\n"; php -S localhost:1337 -t $HOME/Workspace/TOOLS/php-console &; open "http://localhost:1337"'
 alias pim-reset='rm -rf ./var/cache/* && rm -rf ./var/logs/* && bin/console p:f:g  && bin/console pim:install:db -e prod && bin/console pim:fixture-generator:import-all --env=prod'
 alias pim-install='source ~/Bin/pim-install.sh'
 

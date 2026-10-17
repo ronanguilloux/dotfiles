@@ -37,5 +37,5 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 <!-- - [x] 2026-10-17 short description -->
 - [x] 2026-10-17 `.gitconfig`: `http.cookiefile = /Users/ronan/.gitcookies` → `~/.gitcookies` (breaks on the other laptop)
 - [x] 2026-10-17 `.gitconfig`: `[include] path = ~/.gitconfig.local` is at the top, so the tracked `[user]` below overrides it → move `[include]` to the end so each laptop's `.local` wins (e.g. work email)
-- [x] 2026-10-17 `.bash_aliases`: `phpconsole` hard-codes `/Users/ronan/Workspace/…` → `$HOME/Workspace/…`
+- [x] 2026-10-17 `.bash_aliases`: `phpconsole` hard-coded `/Users/ronan/Workspace/…` → alias removed (php-console + php gone)
 - [x] 2026-10-17 `.vimrc:390`: `substitute(getcwd(), '/home/ronan/', …)` → `expand('~') . '/'`
