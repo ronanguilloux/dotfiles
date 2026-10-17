@@ -14,14 +14,11 @@ if filereadable("~/.vimlocalrc")
     source ~/.vimlocalrc
 endif
 
-" Use pathogen to easily modify the runtime path to include all
-" " plugins under the ~/.vim/bundle directory
-call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
-call pathogen#incubate()
-
-" All PHP, Js, md, HTML, CSS, Symfony, Golang vim config & enhancements
-" are in .vim/after/ftplugin/*.vim files
+" Plugins: vim-plug. New machine: vim +PlugInstall +qa
+call plug#begin('~/.vim/plugged')
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+call plug#end()
 
 " ------------------------------------------------------------------------------------
 " Basics
@@ -38,7 +35,7 @@ set visualbell                  " use the visual bell
 set number                      " precede each line with its line number
 set mouse=a                     " normal+visual+insert+command-line modes for mouse
 set showcmd                     " show the command being typed
-set showmode                    " show the mode we are in
+set noshowmode                  " airline shows the mode
 set omnifunc=syntaxcomplete#Complete
 set ruler                       " display current mouse position
 set ttyfast                     " we use a rapid terminal
@@ -61,10 +58,10 @@ set lazyredraw                  " redraw only when we need to.
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 
-" Run NERDTree on load
-autocmd vimenter * NERDTree
-" How can I close vim if the only window left open is a NERDTree?
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Run NERDTree on load (not in git commit/rebase messages)
+autocmd VimEnter * if exists(':NERDTree') && &filetype !~# '^git' | NERDTree | endif
+" Close vim if the only window left open is a NERDTree
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let NERDTreeShowHidden=1
 
 
@@ -77,30 +74,17 @@ endif
 
 
 " ------------------------------------------------------------------------------------
-" Colorscheme solarized - https://github.com/altercation/vim-colors-solarized
+" Colorscheme
 " ------------------------------------------------------------------------------------
-"let g:solarized_termcolors = 256
-let g:solarized_termtrans = 0
-let g:solarized_degrade = 0
-let g:solarized_bold = 0
-let g:solarized_underline = 1
-let g:solarized_italic = 1
-let g:solarized_contrast = "normal"
-let g:solarized_visibility = "normal"
 syntax enable
 set background=dark
-"colorscheme solarized
 colorscheme slate
-" option name default optional
-" ------------------------------------------------
 
 
 " ------------------------------------------------------------------------------------
 " Status line
 " ------------------------------------------------------------------------------------
-set laststatus=2                              " status bar : only if there are at least two windows
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ %r%{CurDir()}%h\ \ \ Line:\ %l/%L\ \ Col:%c%V\ \ Doc:%P\ (%{&encoding})
-"set statusline=%<%F%h%m%r%h%w%y[%{CurDir()}%h]\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ line:%l\/%L\ col:%c%V\ pos:%o\ %P
+set laststatus=2                              " always show the status bar (vim-airline)
 
 
 " ------------------------------------------------------------------------------------
@@ -115,7 +99,6 @@ set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 "    return getline(v:foldstart).' '
 "endfunction
 "set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
-let g:vim_markdown_folding_disabled=1
 
 
 " ------------------------------------------------------------------------------------
@@ -239,29 +222,10 @@ nmap <silent> <leader>/ :let @/=""<cr>
 
 
 " ------------------------------------------------------------------------------------
-" SnipMate
-" ------------------------------------------------------------------------------------
-ino <c-j> <c-r>=TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
-
-
-" ------------------------------------------------------------------------------------
 " TEMPLATES
 " ------------------------------------------------------------------------------------
 "autocmd bufNewFile *.html 0r ~/.vim/templates/html
 " See vim-templates bundle
-
-
-" ------------------------------------------------------------------------------------
-" Zencoding 
-" ------------------------------------------------------------------------------------
-"autocmd bufNewFile *.html 0r ~/.vim/templates/html
-" See vim-templates bundle
-"let g:user_zen_mode='n'    "only enable normal mode functions.
-"let g:user_zen_mode='inv'  "enable all functions, which is equal to
-"let g:user_zen_mode='a'    "enable all function in all mode.
-"let g:user_zen_expandabbr_key = '<C-e>'
-let g:use_zen_complete_tag = 1
 
 
 " ------------------------------------------------------------------------------------
@@ -270,18 +234,6 @@ let g:use_zen_complete_tag = 1
 " Cf. http://goo.gl/P6AAT
 " MAC OS X: http://goo.gl/U9AnWq
 set tags=tags;/ " Look in the current directory for "tags", towards $HOME, until one is found
-let Tlist_Use_Right_Window=1
-"let Tlist_Auto_Open=1
-let Tlist_Show_One_File=0 " 1 = Only show tags for current buffer
-let Tlist_Enable_Fold_Column=0 " no fold column (only showing one file)
-let Tlist_Compact_Format=0
-let Tlist_WinWidth=28
-let Tlist_Exit_OnlyWindow=1
-let Tlist_File_Fold_Auto_Close = 1
-"let Tlist_Process_File_Always = 1
-"let Tlist_GainFocus_On_ToggleOpen = 1  " set focus on Tlist at start
-let Tlist_Ctags_Cmd = "ctags"
-map <F4> :TlistToggle<cr>
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " Alt-right/left to navigate forward/backward in the tags stack
 map <M-Left> <C-T>
@@ -322,9 +274,6 @@ map <leader>tm :tabmove
 " Improving tab name readability
 highlight TabLine term=none cterm=none
 highlight TabLineSel ctermbg=darkblue
-
-
-"set rtp+=/home/ronan/dotfiles/.vim/bundle/powerline/powerline/bindings/vim
 
 
 " ------------------------------------------------------------------------------------
@@ -385,19 +334,6 @@ function! CleanCode()
     echo "Cleaned up this mess."
 endfunction
 nmap <leader>cc :call CleanCode()<cr>
-
-function! CurDir()
-    let curdir = substitute(getcwd(), '^' . expand('~') . '/', "~/", "")
-    return curdir
-endfunction
-
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    else
-        return ''
-    endif
-endfunction
 
 " ------------------------------------------------------------------------------------
 " GIT Messages

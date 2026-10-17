@@ -38,7 +38,7 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 | `functions.sh` | Small shell functions (json, dataurl, phpserver…). |
 | `.gitconfig` | Aliases, colors, `gh:`/`gist:` URL shorthands, `git://`→`https://` rewrite, LFS, GCM. Includes `~/.gitconfig.local`. |
 | `.gitignore_global` | Global excludes (also ignores `**/.claude/settings.local.json`). |
-| `.vimrc`, `.vim/` | Pathogen; plugins are git submodules in `.vim/bundle/`. |
+| `.vimrc`, `.vim/` | vim-plug (`.vim/autoload/plug.vim`, vendored); plugins = `Plug` lines in `.vimrc`, installed to untracked `.vim/plugged/` (`vim +PlugInstall +qa` per machine). |
 | `antigen.zsh` | **Vendored, generated** — never edit; replace wholesale to upgrade. |
 
 ## Deliberate choices — keep them

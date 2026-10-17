@@ -13,12 +13,16 @@ Nothing left.
 
 ## Someday
 
-- [ ] Vim: most submodules uninitialized; decide keep (init) vs. drop (vim-powerline, phpfolding, vim-behat, vim-symfony are unmaintained); keeping vim-snipmate may mean re-adding its `tlib_vim` dependency. Dropping powerline also drops the commented `/home/ronan/…` rtp line in `.vimrc`
+- [ ] Vim `.vim/plugin/comments.vim` maps `<C-c>`/`<C-x>` (comment/uncomment), silently overriding the `.vimrc` copy/cut maps on the same keys
+- [ ] Vim `after/ftplugin/go.vim`: `rtp+=$GOROOT/misc/vim` is dead (removed from Go in 1.4); Vim 9 ships Go support
+- [ ] Vim `after/ftplugin/xml.vim`: every XML file is reformatted through `xmllint` on open (and marked modified)
+- [ ] Vim `after/ftplugin/latex.vim`: `Tex_ViewRule_pdf = 'okular'` (Linux viewer, LaTeX-Suite not installed)
 - [ ] Add `~/.gitconfig.local.example` / `~/.bash_aliases.local.example` templates
 
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 Vim: 18 git submodules (only 3 ever checked out) + pathogen → vim-plug with nerdtree + vim-airline (replaces the hand-made statusline). NERDTree no longer opens in git commit messages; its auto-close uses the current `b:NERDTree` API. Dropped all PHP/Symfony/Twig support, the snippetsEmu `*_snippets.vim` files and dead `.vimrc` config (SnipMate, Tlist, solarized, zencoding, powerline). `comments.vim` kept in `.vim/plugin/`. Tested on home laptop (other laptop still to do: `vim +PlugInstall +qa`)
 - [x] 2026-10-17 `.gitconfig`: dropped SourceTree difftool/mergetool (app gone, never selected as `diff.tool`/`merge.tool`) and the `git media` filter (abandoned tool, superseded by LFS)
 - [x] 2026-10-17 `install.sh`: an existing `X-dist` backup is never overwritten (files) or nested into (dirs); the new backup gets a `X-dist.<timestamp>` name instead
 - [x] 2026-10-17 `.bash_aliases`: dropped `gitmyzsh`, `screencast`, `ssarl`/`ssars`/`ssms`, `sniff`, `chch`, `sfsetset`, `wtf`, `mongocheat` and the emptied "server" section

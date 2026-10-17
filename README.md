@@ -20,15 +20,7 @@ Install [Brew](https://brew.sh/)
     git clone https://github.com/ronanguilloux/dotfiles.git
     git clone https://github.com/ronanguilloux/Bin.git
     dotfiles/install.sh
-    cd dotfiles
-    git submodule init
-    git submodule update
-```
-
-To update submodules, run:
-
-```bash
-    git submodule foreach git pull 
+    vim +PlugInstall +qa
 ```
 
 The install.sh will move the original .bashrc file and the .vim directory found in $HOME before changing using symbolic links, in case there were already modified.
@@ -41,26 +33,15 @@ Suggestions
 - https://github.com/voronkovich/sf2.plugin.zsh
 - https://github.com/horosgrisa/mysql-colorize
 
-VIM: bundles installation
--------------------------
+VIM: plugins
+------------
 
-All [pathogen](http://www.vim.org/scripts/script.php?script_id=2332)-based vim bundles come from git submodules.
+Plugins are managed by [vim-plug](https://github.com/junegunn/vim-plug) (vendored in `.vim/autoload/plug.vim`).
+They are the `Plug '…'` lines in `.vimrc`, installed into the untracked `.vim/plugged/`.
 
-To install all of them, you must run two commands:
-
-- `git submodule init` to initialize your local configuration file, 
-- `git submodule update` to fetch all the data from each project and eventually check out the appropriate commit (see the `.gitmodules` file).
-
-To add a new submodule:
-
-```bash
-    git submodule add https://github.com/mbbill/code_complete.git .vim/bundle/code_complete
-```
-
-To update submodules
-```bash
-    git submodule foreach git pull origin master
-```
+- `vim +PlugInstall +qa`: install them (once per machine, and after adding a `Plug` line)
+- `:PlugUpdate`: update them
+- `:PlugClean`: remove the ones whose `Plug` line was deleted
 
 ZSH: .zshrc & oh-my-zsh
 -----------------------
