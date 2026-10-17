@@ -9,7 +9,6 @@ Nothing urgent.
 
 ## Soon
 
-- [ ] `.gitmodules`: `snipmate` and `tlib_vim` declared but not in index → remove entries or re-add submodules
 - [ ] `.zshrc` gcloud completion lines: single-quoted `'$HOME/…'` never expands → tests always false (same fix as `.pathes`)
 - [ ] README: `git://` clone URLs fail on a fresh machine (no gitconfig rewrite yet) → use `https://`
 - [ ] README: oh-my-zsh `local.zsh` symlink instructions no longer match how `.zshrc` is installed
@@ -20,13 +19,14 @@ Nothing urgent.
 - [ ] `.bash_aliases`: prune apt-get, `ifdown`, `notify-send`, boot2docker, svn, node-webkit aliases; `dl`/`dockerboot`/`gs` defined twice
 - [ ] `.zshrc.pre-oh-my-zsh`: probably obsolete → delete + remove from install.sh
 - [ ] `install.sh`: if `~/.vim-dist` already exists, `mv ~/.vim ~/.vim-dist` nests the dir inside it instead of replacing
-- [ ] Vim: most submodules uninitialized; decide keep (init) vs. drop (vim-powerline, phpfolding, vim-behat, vim-symfony are unmaintained)
+- [ ] Vim: most submodules uninitialized; decide keep (init) vs. drop (vim-powerline, phpfolding, vim-behat, vim-symfony are unmaintained); keeping vim-snipmate may mean re-adding its `tlib_vim` dependency
 - [ ] Add `~/.gitconfig.local.example` / `~/.bash_aliases.local.example` templates
 - [ ] `.gitconfig`: SourceTree diff/merge tools and `git media` filter likely unused
 
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 `.gitmodules`: dropped `snipmate` (superseded by `vim-snipmate`) and `tlib_vim`, both declared but never in the index
 - [x] 2026-10-17 `.zshrc` startup quirks: dropped the custom `git_prompt_info` (omz redefined it anyway; its async prompt is already non-blocking) and the duplicate `compinit -i`; ↑/↓ bound to history-substring-search; `archey`/`ponysay` found via `command -v` and guarded; `EDITOR=vim`
 - [x] 2026-10-17 `.bashrc`: uv's `~/.local/bin/env` sourced only if present
 - [x] 2026-10-17 `.pathes`: dropped dead blocks (Heroku, PHP 7.1, Elasticsearch 5.6, Postgres 9.4, Python 2.7 Cellar, LIIP comment, always-false `/usr/local/bin/php` test) and the first copy of the duplicated npm / Python 3.9 blocks — resulting PATH unchanged (home laptop)
