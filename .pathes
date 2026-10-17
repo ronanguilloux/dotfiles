@@ -101,8 +101,7 @@ fi
 # Golang (system install)
 if [ -d "/usr/local/go/bin" ] ; then
     export GOROOT="/usr/local/go"
-    export GOPATH="/usr/local/go/bin"
-    export PATH="$GOPATH:$PATH"
+    export PATH="$GOROOT/bin:$PATH"
 fi
 
 if [ -d "$HOME/.antigravity-ide/antigravity-ide/" ] ; then
