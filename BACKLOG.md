@@ -13,11 +13,12 @@ Nothing left.
 
 ## Someday
 
-- [ ] Add `~/.gitconfig.local.example` / `~/.bash_aliases.local.example` templates
+Nothing left.
 
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 `.local` example templates: dropped, not needed (README already shows a `~/.gitconfig.local` example; both `.local` includes are optional)
 - [x] 2026-10-17 Vim `after/ftplugin`: `go.vim` (dead `$GOROOT/misc/vim`, Vim ships Go support) and `latex.vim` (okular, LaTeX-Suite not installed) deleted; `xml.vim` no longer pipes every XML file through `xmllint` on open, `:PrettyXML` kept. Tested on home laptop
 - [x] 2026-10-17 Vim: `.vim/plugin/comments.vim` deleted (unused); its Ctrl-C/Ctrl-X comment maps were overriding the `.vimrc` clipboard copy/cut maps, which now work. Tested on home laptop
 - [x] 2026-10-17 Vim: 18 git submodules (only 3 ever checked out) + pathogen → vim-plug with nerdtree + vim-airline (replaces the hand-made statusline). NERDTree no longer opens in git commit messages; its auto-close uses the current `b:NERDTree` API. Dropped all PHP/Symfony/Twig support, the snippetsEmu `*_snippets.vim` files and dead `.vimrc` config (SnipMate, Tlist, solarized, zencoding, powerline). `comments.vim` kept in `.vim/plugin/`. Tested on home laptop (other laptop still to do: `vim +PlugInstall +qa`)
