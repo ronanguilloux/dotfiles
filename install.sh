@@ -1,51 +1,11 @@
 #!/bin/bash
 
-# move original dotfiles in $HOME
-if [ -f ~/.zshrc ]
-then
-    mv -f ~/.zshrc ~/.zshrc-dist
-fi
-
-if [ -f ~/.pathes ]
-then
-    mv -f ~/.pathes ~/.pathes-dist
-fi
-
-if [ -f ~/.bashrc ]
-then
-    mv -f ~/.bashrc ~/.bashrc-dist
-fi
-if [ -f ~/.bash_aliases ]
-then
-    mv -f ~/.bash_aliases ~/.bash_aliases-dist
-fi
-if [ -d ~/.vim ]
-then
-    mv -f ~/.vim ~/.vim-dist
-fi
-if [ -f ~/.gitignore_global ]
-then
-    mv -f ~/.gitignore_global ~/.gitignore_global-dist
-fi
-if [ -f ~/.gitconfig ]
-then
-    mv -f ~/.gitconfig ~/.gitconfig-dist
-fi
-if [ -f ~/.zshrc.pre-oh-my-zsh ]
-then
-    mv ~/.zshrc.pre-oh-my-zsh  ~/.zshrc.pre-oh-my-zsh-dist
-fi
-
-# create symlinks
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/.pathes ~/.pathes
-ln -s ~/dotfiles/.zshrc.pre-oh-my-zsh ~/.zshrc.pre-oh-my-zsh
-#ln -s ~/dotfiles/.zshrcre- ~/.zshrc
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.vim ~/.vim
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/.bash_aliases ~/.bash_aliases
+# Back up original dotfiles in $HOME as X-dist, then symlink ~/dotfiles/X → ~/X.
+# Existing symlinks are not backed up, so re-running keeps the first backup.
+for f in .zshrc .pathes .zshrc.pre-oh-my-zsh .bashrc .bash_aliases .vim .vimrc .gitignore_global .gitconfig; do
+    if [ -e ~/$f ] && [ ! -L ~/$f ]; then
+        mv -f ~/$f ~/$f-dist
+    fi
+    ln -sfn ~/dotfiles/$f ~/$f
+done
 echo "done."
-

@@ -5,7 +5,7 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 
 ## Now
 
-- [ ] `install.sh`: `ln -s` without `-f` on `.zshrc`, `.pathes`, `.bashrc`, `.vim`, `.zshrc.pre-oh-my-zsh` → fails on re-run
+- [ ] `.vim/.vim`: tracked symlink to the work laptop's absolute path (leaks work email; made by the old `install.sh` re-run bug) → `git rm .vim/.vim`
 - [ ] Public exposure: move `[user]` + `http.cookiefile` from `.gitconfig` to `~/.gitconfig.local`; drop/move `googleBackup` (work email) and `pim_dump` (DB password) aliases to `~/.bash_aliases.local`
 
 ## Soon
@@ -28,6 +28,7 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 - [ ] `.bashrc`: Linux-only leftovers (Android SDK paths under `/home/ronan`, `PAGER=most`) → macOS-safe guards or drop
 - [ ] `.bash_aliases`: prune apt-get, `ifdown`, `notify-send`, boot2docker, svn, node-webkit aliases; `dl`/`dockerboot`/`gs` defined twice
 - [ ] `.zshrc.pre-oh-my-zsh`: probably obsolete → delete + remove from install.sh
+- [ ] `install.sh`: if `~/.vim-dist` already exists, `mv ~/.vim ~/.vim-dist` nests the dir inside it instead of replacing
 - [ ] Vim: most submodules uninitialized; decide keep (init) vs. drop (vim-powerline, phpfolding, vim-behat, vim-symfony are unmaintained)
 - [ ] Add `~/.gitconfig.local.example` / `~/.bash_aliases.local.example` templates
 - [ ] `.gitconfig`: SourceTree diff/merge tools and `git media` filter likely unused
@@ -40,6 +41,7 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 - [x] 2026-10-17 `.gitconfig`: `http.cookiefile = /Users/ronan/.gitcookies` → `~/.gitcookies` (breaks on the other laptop)
 - [x] 2026-10-17 `.gitconfig`: `[include] path = ~/.gitconfig.local` is at the top, so the tracked `[user]` below overrides it → move `[include]` to the end so each laptop's `.local` wins (e.g. work email)
 - [x] 2026-10-17 `.bash_aliases`: `phpconsole` hard-coded `/Users/ronan/Workspace/…` → alias removed (php-console + php gone)
+- [x] 2026-10-17 `install.sh`: one loop, `ln -sfn`; skips backup when `~/X` is already a symlink (re-runs used to overwrite `X-dist` with the symlink); `.vimrc` now backed up too
 - [x] 2026-10-17 `.zshrc`: oh-my-zsh loaded once (dropped `antigen use oh-my-zsh`, `bundle git`, overridden oh-my-git themes); antigen now after omz, syntax-highlighting last — 0.17s → 0.14s
 - [x] 2026-10-17 `.pathes` Golang: dropped bogus `GOPATH=/usr/local/go/bin`, PATH gets `$GOROOT/bin` (GOPATH defaults to `~/go`)
 - [x] 2026-10-17 `.pathes` gcloud lines: single quotes → double quotes so `$HOME` expands
