@@ -105,9 +105,6 @@ if [ -d "/usr/local/go/bin" ] ; then
     export PATH="$GOPATH:$PATH"
 fi
 
-if [ -d "$HOME/.opencode/" ] ; then
-    export PATH=$HOME/.opencode/bin:$PATH
-fi
 if [ -d "$HOME/.antigravity-ide/antigravity-ide/" ] ; then
     export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
 fi
@@ -131,11 +128,12 @@ fi
 if [ -f '$HOME/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/tmp/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '$HOME/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/tmp/google-cloud-sdk/completion.zsh.inc'; fi
-if [ -d "$HOME/Documents/Ronan/Github/biblecli/bin" ] ; then
+if [ -d "$HOME/Documents/Apps/gmail_shortcuts/bin" ] ; then
     export PATH="$HOME/Documents/Apps/gmail_shortcuts/bin:$PATH"
+fi
 
 # Added by Antigravity IDE
-if [ -d "$HOME/.npm-global/bin:$PATH" ] ; then
+if [ -d "$HOME/.npm-global/bin" ] ; then
     export PATH="$HOME/.npm-global/bin:$PATH"
 fi
 

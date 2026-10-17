@@ -67,7 +67,6 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/Users/ronan/.rvm/bin"
 # Github's hub command: https://github.com/github/hub: brew install hub
 #eval "$(hub alias -s)"
 # Fix the slowness of zsh prompt, by removing the git status stuff that slows it down...
@@ -150,9 +149,6 @@ fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebr
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Added by Antigravity
-export PATH="/Users/ronan.guilloux@akeneo.com/.antigravity/antigravity/bin:$PATH"
 
 . "$HOME/.local/bin/env"
 
