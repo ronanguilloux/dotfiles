@@ -9,8 +9,7 @@ Nothing urgent.
 
 ## Soon
 
-- [ ] README: `git://` clone URLs fail on a fresh machine (no gitconfig rewrite yet) → use `https://`
-- [ ] README: oh-my-zsh `local.zsh` symlink instructions no longer match how `.zshrc` is installed
+Nothing left.
 
 ## Someday
 
@@ -25,6 +24,7 @@ Nothing urgent.
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 README: `git://` → `https://` clone URLs; dropped the antigen clone (vendored) and the obsolete omz `local.zsh` symlink section
 - [x] 2026-10-17 `.zshrc` gcloud completion: `'$HOME/…'` → `"$HOME/…"`; duplicate completion line dropped from `.pathes` (ran before compinit) — untested, no gcloud on home laptop
 - [x] 2026-10-17 `.gitmodules`: dropped `snipmate` (superseded by `vim-snipmate`) and `tlib_vim`, both declared but never in the index
 - [x] 2026-10-17 `.zshrc` startup quirks: dropped the custom `git_prompt_info` (omz redefined it anyway; its async prompt is already non-blocking) and the duplicate `compinit -i`; ↑/↓ bound to history-substring-search; `archey`/`ponysay` found via `command -v` and guarded; `EDITOR=vim`

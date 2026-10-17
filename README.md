@@ -17,9 +17,8 @@ Install [Brew](https://brew.sh/)
 ``` bash
     brew install ponysay fortune rtk gemini-cli mole ngrok gh uv
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone git://github.com/ronanguilloux/dotfiles.git
-    git clone git://github.com/ronanguilloux/Bin.git
-    $ git clone git://github.com/zsh-users/antigen.git .antigen
+    git clone https://github.com/ronanguilloux/dotfiles.git
+    git clone https://github.com/ronanguilloux/Bin.git
     dotfiles/install.sh
     cd dotfiles
     git submodule init
@@ -55,7 +54,7 @@ To install all of them, you must run two commands:
 To add a new submodule:
 
 ```bash
-    git submodule add git://github.com/mbbill/code_complete.git .vim/bundle/code_complete
+    git submodule add https://github.com/mbbill/code_complete.git .vim/bundle/code_complete
 ```
 
 To update submodules
@@ -63,15 +62,10 @@ To update submodules
     git submodule foreach git pull origin master
 ```
 
-ZSH: how to mix .zhrc & ho-my-zsh
----------------------------------
+ZSH: .zshrc & oh-my-zsh
+-----------------------
 
-In order to use the current .zshrc with oh-my-zsh, just add a symink in the `~/.oh-my-zsh/custom` directory:
-
-``` bash
-    cd .oh-my-zsh/custom/
-    ln -s $HOME/dotfiles/.zshrc local.zsh
-```
+`install.sh` symlinks `~/.zshrc`, which loads oh-my-zsh itself (and the vendored `antigen.zsh`): no `~/.oh-my-zsh/custom/local.zsh` symlink needed.
 
 Binaries dependencies: The `./dotfiles/.zshrc` file depends on some ~/Bin/sh/*.sh files in [ronanguilloux/Bin](https://github.com/ronanguilloux/Bin/tree/master/sh)
 
