@@ -103,6 +103,8 @@ if [ -d "/usr/local/go/bin" ] ; then
     export GOROOT="/usr/local/go"
     export PATH="$GOROOT/bin:$PATH"
 fi
+# Rust (rustup)
+if [ -d "$HOME/.cargo/bin" ] ; then export PATH="$HOME/.cargo/bin:$PATH"; fi
 
 if [ -d "$HOME/.antigravity-ide/antigravity-ide/" ] ; then
     export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
