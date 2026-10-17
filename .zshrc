@@ -83,21 +83,15 @@ if [ -f /usr/local/bin/archey ]; then
     archey
 fi
 
-# Antigen: cd ~ && git clone https://github.com/zsh-users/antigen.git .antigen 
-source "$HOME/dotfiles/antigen.zsh"
-antigen use oh-my-zsh
-antigen bundle git
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle arialdomartini/oh-my-git
-antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
-antigen theme arialdomartini/oh-my-git-themes arialdo-granzestyle
-antigen apply
-# use antigen update to update it all
-
-
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
+
+# Antigen: extra plugins only (oh-my-zsh is loaded above). Syntax highlighting must load last.
+source "$HOME/dotfiles/antigen.zsh"
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
+# use antigen update to update it all
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

@@ -29,7 +29,7 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 
 | File | Role |
 | --- | --- |
-| `.zshrc` | Main entry. Load order: oh-my-zsh vars → `.bash_aliases` → `~/.bash_aliases.local` → `.pathes` → `functions.sh` → antigen (oh-my-git themes) → oh-my-zsh → ponysay → daily auto-upgrade → nvm |
+| `.zshrc` | Main entry. Load order: oh-my-zsh vars → `.bash_aliases` → `~/.bash_aliases.local` → `.pathes` → `functions.sh` → oh-my-zsh → antigen (history-substring-search, syntax-highlighting) → ponysay → daily auto-upgrade → nvm |
 | `.pathes` | All PATH tweaks, each wrapped in `if [ -d … ]` so absent tools are skipped. Later blocks prepend → win. |
 | `.bash_aliases` | Aliases shared by bash and zsh (French comments). Many depend on `~/Bin` = [ronanguilloux/Bin](https://github.com/ronanguilloux/Bin). |
 | `functions.sh` | Small shell functions (json, dataurl, phpserver…). |
