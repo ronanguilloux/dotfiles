@@ -1,1 +1,0 @@
-/Users/ronan.guilloux@akeneo.com/dotfiles/.vim

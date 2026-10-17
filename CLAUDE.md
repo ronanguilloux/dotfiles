@@ -51,8 +51,8 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 
 - Never commit tokens, passwords, hostnames, internal IPs, client names, or personal paths beyond `$HOME`.
   Put them in the `.local` files instead. Check `git diff --staged` for these before every commit.
-- Known legacy exposure (already in history, don't spread further): `user.email` + `/Users/ronan/.gitcookies`
-  in `.gitconfig`; work email and Akeneo default DB password in `.bash_aliases` (`googleBackup`, `pim_dump`).
+- Known legacy exposure (already in history, don't spread further): `[user]` in `.gitconfig`;
+  a work email and a DB password in `.bash_aliases` (see BACKLOG **Now**).
   Rewriting history is the owner's call. Don't do it without asking.
 
 ## Editing conventions
