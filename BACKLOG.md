@@ -5,8 +5,6 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 
 ## Now
 
-- [ ] `.zshrc`: delete the Magento Cloud snippet (`BEGIN/END SNIPPET` block) — Magento Cloud no longer used, not installed; its `HOME=${HOME:-'/Users/ronan'}` also hard-codes a home path
-- [ ] Vagrant no longer used, not installed: drop `vagrant` from `.zshrc` `plugins=(…)`, `source /home/vagrant/oh-my-git/prompt.sh` in `.bashrc`, the commented line in `functions.sh`
 - [ ] `.pathes` gcloud lines: `'$HOME/…'` is single-quoted → never expands; use double quotes (or delete if gcloud unused)
 - [ ] `.pathes` Golang: `GOPATH=/usr/local/go/bin` is wrong (GOPATH ≠ Go bin dir); set `GOPATH=$HOME/go`, add `$GOROOT/bin` to PATH
 - [ ] `.zshrc`: oh-my-zsh loaded twice (`antigen use oh-my-zsh` + `source $ZSH/oh-my-zsh.sh`) → slower startup; keep one
@@ -18,6 +16,7 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 - [ ] `.pathes`: remove duplicate npm (`/usr/local/npm_packages`, `~/.npm-packages`) and Python 3.9 blocks
 - [ ] `.pathes`: remove dead entries — PHP 7.1, Elasticsearch 5.6, Postgres 9.4, Python 2.7 Cellar, Heroku, LIIP PHP comment
 - [ ] `.zshrc`: `archey` check uses Intel path `/usr/local/bin` → use `command -v archey`
+- [ ] `.zshrc`: ponysay line hard-codes `/opt/homebrew/bin/ponysay` (Apple Silicon prefix) → resolve with `command -v ponysay`, guard if absent
 - [ ] `.zshrc`: `EDITOR=/usr/bin/vim` → `vim` (respect Homebrew vim)
 - [ ] `.gitmodules`: `snipmate` and `tlib_vim` declared but not in index → remove entries or re-add submodules
 - [ ] README: `git://` clone URLs fail on a fresh machine (no gitconfig rewrite yet) → use `https://`
@@ -35,6 +34,8 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 `.zshrc`: Magento Cloud snippet deleted (also removed its hard-coded `/Users/ronan` fallback)
+- [x] 2026-10-17 Vagrant dropped: `.zshrc` plugin, `.bashrc` oh-my-git source, `functions.sh` comment
 - [x] 2026-10-17 `.gitconfig`: `http.cookiefile = /Users/ronan/.gitcookies` → `~/.gitcookies` (breaks on the other laptop)
 - [x] 2026-10-17 `.gitconfig`: `[include] path = ~/.gitconfig.local` is at the top, so the tracked `[user]` below overrides it → move `[include]` to the end so each laptop's `.local` wins (e.g. work email)
 - [x] 2026-10-17 `.bash_aliases`: `phpconsole` hard-coded `/Users/ronan/Workspace/…` → alias removed (php-console + php gone)

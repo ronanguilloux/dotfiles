@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 
 # curl -fLo ~/.oh-my-zsh/plugins/docker/_docker https://raw.github.com/felixr/docker-zsh-completion/master/_docker
-plugins=(git gh docker docker-compose brew composer npm symfony2 vagrant httpie)
+plugins=(git gh docker docker-compose brew composer npm symfony2 httpie)
 
 # User configuration
 export EDITOR=/usr/bin/vim
@@ -123,11 +123,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# BEGIN SNIPPET: Magento Cloud CLI configuration
-HOME=${HOME:-'/Users/ronan'}
-export PATH="$HOME/"'.magento-cloud/bin':"$PATH"
-if [ -f "$HOME/"'.magento-cloud/shell-config.rc' ]; then . "$HOME/"'.magento-cloud/shell-config.rc'; fi # END SNIPPET
 
 #fortune literature science work | ponysay
 fortune literature science work | python3 -W "ignore::SyntaxWarning" /opt/homebrew/bin/ponysay

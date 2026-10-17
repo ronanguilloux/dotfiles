@@ -55,7 +55,6 @@ function dataurl() {
     fi
     echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
 }
-#source /home/vagrant/oh-my-git/prompt.sh
 
 #
 # Defines transfer alias and provides easy command line file and folder sharing.
