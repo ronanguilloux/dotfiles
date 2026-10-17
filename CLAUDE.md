@@ -55,8 +55,8 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 - Never commit tokens, passwords, hostnames, internal IPs, client names, or personal paths beyond `$HOME`.
   Put them in the `.local` files instead. Check `git diff --staged` for these before every commit.
 - `[user]` in `.gitconfig` stays tracked on purpose (public in every commit anyway); `~/.gitconfig.local` overrides it.
-- Git history still holds a work email and a DB password (aliases deleted 2026-10-17).
-  Rewriting history is the owner's call. Don't do it without asking.
+- Git history still holds a work email and a DB password (aliases deleted 2026-10-17): both are dead
+  (DB and mailbox gone), so no history rewrite needed. Rewriting history is the owner's call anyway.
 
 ## Editing conventions
 
