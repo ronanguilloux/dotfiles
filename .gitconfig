@@ -78,6 +78,16 @@
 	insteadOf = git://
 [init]
 	defaultBranch = main
+[fetch]
+	prune = true
+[push]
+	autoSetupRemote = true
+[rerere]
+	enabled = true
+[diff]
+	algorithm = histogram
+[branch]
+	sort = -committerdate
 [include]
     # For username / creds / etc — last, so each laptop's values win
     path = ~/.gitconfig.local

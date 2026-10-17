@@ -13,11 +13,12 @@ Nothing left.
 
 ## Someday
 
-- [ ] `.gitconfig`: optional low-risk defaults from core git devs (`fetch.prune`, `push.autoSetupRemote`, `rerere.enabled`, `diff.algorithm = histogram`, `branch.sort = -committerdate`)
+Nothing left.
 
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 `.gitconfig`: low-risk defaults from core git devs: `fetch.prune`, `push.autoSetupRemote`, `rerere.enabled`, `diff.algorithm = histogram`, `branch.sort = -committerdate` (before `[include]`, so `~/.gitconfig.local` can override). Tested on home laptop
 - [x] 2026-10-17 `.Brewfile` (symlinked by `install.sh`, `brew bundle --global`): brew/cask/uv/npm tools for both laptops, + untracked `~/.Brewfile.local`. The daily upgrade job writes drift (extras / missing) to `~/.cache/brew-autoupgrade/brewfile-drift`, printed by new shells until `~/.Brewfile` changes. README: install steps + VS Code Settings Sync. Tested on home laptop (other laptop still to do: `git pull`, `./install.sh`, `brew bundle --global`, put work-only tools in `~/.Brewfile.local`, turn on VS Code Settings Sync)
 - [x] 2026-10-17 antigen dropped: `zsh-history-substring-search` + `zsh-syntax-highlighting` now come from Homebrew (updated by the daily `brew upgrade`), sourced from `$HOMEBREW_PREFIX/share` (guarded; ↑/↓ bindings only if the plugin loaded). `antigen.zsh`, the `_antigen_compinit` workaround and the dead `HISTSIZE`/`SAVEHIST`/`HISTFILE` lines deleted (omz sets 50000/10000/`~/.zsh_history`). 0.14s → 0.12s. Tested on home laptop (other laptop still to do: `brew install zsh-history-substring-search zsh-syntax-highlighting`, `rm -rf ~/.antigen`)
 - [x] 2026-10-17 `.gitconfig`: `[credential]` blocks (GCM, `dev.azure.com`) removed — GCM binary absent on the home laptop and `helper =` was wiping `osxkeychain`, now back as the helper (other laptop still to do: re-add both blocks to `~/.gitconfig.local` if GCM is used there)
