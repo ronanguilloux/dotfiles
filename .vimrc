@@ -387,7 +387,7 @@ endfunction
 nmap <leader>cc :call CleanCode()<cr>
 
 function! CurDir()
-    let curdir = substitute(getcwd(), '/home/ronan/', "~/", "g")
+    let curdir = substitute(getcwd(), '^' . expand('~') . '/', "~/", "")
     return curdir
 endfunction
 

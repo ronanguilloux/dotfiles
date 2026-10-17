@@ -1,6 +1,3 @@
-[include]
-    # For username / creds / etc
-    path = ~/.gitconfig.local
 [branch "master"]
     # Use `origin` as the default remote on the `master` branch in all cases
     remote = origin
@@ -84,7 +81,7 @@
 	smudge = git media smudge %f
 	required = true
 [http]
-	cookiefile = /Users/ronan/.gitcookies
+	cookiefile = ~/.gitcookies
 [user]
 	name = Ronan Guilloux
 	email = ronan.guilloux@gmail.com
@@ -104,3 +101,6 @@
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[include]
+    # For username / creds / etc — last, so each laptop's values win
+    path = ~/.gitconfig.local
