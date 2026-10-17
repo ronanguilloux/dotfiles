@@ -70,6 +70,9 @@ time zsh -i -c exit          # startup must succeed and stay fast
 git config -f ~/dotfiles/.gitconfig --list >/dev/null   # gitconfig parses
 ```
 
+Changed an `antigen bundle`/`theme` line? Antigen keeps loading its cache `~/.antigen/init.zsh` and
+doesn't notice the edit: run `antigen reset` (then `antigen cleanup`) on **each** laptop.
+
 ## Backlog
 
 Known quirks and maintenance tasks are listed in [BACKLOG.md](BACKLOG.md). When you fix one,

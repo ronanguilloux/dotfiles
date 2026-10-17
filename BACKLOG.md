@@ -17,6 +17,7 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 - [ ] `.zshrc`: `zsh-history-substring-search` loaded but no `bindkey` for it → bind ↑/↓ or drop the bundle
 - [ ] `.zshrc`: `archey` check uses Intel path `/usr/local/bin` → use `command -v archey`
 - [ ] `.zshrc`: ponysay line hard-codes `/opt/homebrew/bin/ponysay` (Apple Silicon prefix) → resolve with `command -v ponysay`, guard if absent
+- [ ] `.zshrc`: `compinit` runs twice (explicit `compinit -i` + oh-my-zsh's own) → drop the explicit one, keep `fpath` before omz
 - [ ] `.zshrc`: `EDITOR=/usr/bin/vim` → `vim` (respect Homebrew vim)
 - [ ] `.gitmodules`: `snipmate` and `tlib_vim` declared but not in index → remove entries or re-add submodules
 - [ ] README: `git://` clone URLs fail on a fresh machine (no gitconfig rewrite yet) → use `https://`
@@ -35,6 +36,7 @@ Priority: **Now** = broken or risky · **Soon** = cleanup that pays off · **Som
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 antigen: stale `~/.antigen/init.zsh` (July) kept loading the removed oh-my-git `oppa-lana-style` prompt → `antigen reset` + `cleanup` (work laptop; home laptop still to do), note in CLAUDE.md
 - [x] 2026-10-17 `.zshrc`: Magento Cloud snippet deleted (also removed its hard-coded `/Users/ronan` fallback)
 - [x] 2026-10-17 Vagrant dropped: `.zshrc` plugin, `.bashrc` oh-my-git source, `functions.sh` comment
 - [x] 2026-10-17 `.gitconfig`: `http.cookiefile = /Users/ronan/.gitcookies` → `~/.gitcookies` (breaks on the other laptop)
