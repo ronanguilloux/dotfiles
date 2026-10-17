@@ -13,11 +13,15 @@ Nothing left.
 
 ## Someday
 
-Nothing left.
+- [ ] `.gitconfig`: optional low-risk defaults from core git devs (`fetch.prune`, `push.autoSetupRemote`, `rerere.enabled`, `diff.algorithm = histogram`, `branch.sort = -committerdate`)
 
 ## Done
 
 <!-- - [x] 2026-10-17 short description -->
+- [x] 2026-10-17 antigen dropped: `zsh-history-substring-search` + `zsh-syntax-highlighting` now come from Homebrew (updated by the daily `brew upgrade`), sourced from `$HOMEBREW_PREFIX/share` (guarded; ↑/↓ bindings only if the plugin loaded). `antigen.zsh`, the `_antigen_compinit` workaround and the dead `HISTSIZE`/`SAVEHIST`/`HISTFILE` lines deleted (omz sets 50000/10000/`~/.zsh_history`). 0.14s → 0.12s. Tested on home laptop (other laptop still to do: `brew install zsh-history-substring-search zsh-syntax-highlighting`, `rm -rf ~/.antigen`)
+- [x] 2026-10-17 `.gitconfig`: `[credential]` blocks (GCM, `dev.azure.com`) removed — GCM binary absent on the home laptop and `helper =` was wiping `osxkeychain`, now back as the helper (other laptop still to do: re-add both blocks to `~/.gitconfig.local` if GCM is used there)
+- [x] 2026-10-17 `.gitconfig`: `github:`/`gist:` now fetch over `https://` (`git://` is off at GitHub, `insteadOf` doesn't chain); push still goes over SSH. Dropped the `pushInsteadOf = git://…` lines and the commented-out `[url "https://"]` duplicate
+- [x] 2026-10-17 `.gitconfig`: global `[branch "master"]` (origin/master merge config forced on every repo) dropped
 - [x] 2026-10-17 `.local` example templates: dropped, not needed (README already shows a `~/.gitconfig.local` example; both `.local` includes are optional)
 - [x] 2026-10-17 Vim `after/ftplugin`: `go.vim` (dead `$GOROOT/misc/vim`, Vim ships Go support) and `latex.vim` (okular, LaTeX-Suite not installed) deleted; `xml.vim` no longer pipes every XML file through `xmllint` on open, `:PrettyXML` kept. Tested on home laptop
 - [x] 2026-10-17 Vim: `.vim/plugin/comments.vim` deleted (unused); its Ctrl-C/Ctrl-X comment maps were overriding the `.vimrc` clipboard copy/cut maps, which now work. Tested on home laptop

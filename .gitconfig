@@ -1,7 +1,3 @@
-[branch "master"]
-    # Use `origin` as the default remote on the `master` branch in all cases
-    remote = origin
-    merge = refs/heads/master
 [alias]
     st = status
     ci = commit -v
@@ -56,14 +52,12 @@
 [url "git@github.com:"]
     insteadOf = "gh:"
     pushInsteadOf = "github:"
-    pushInsteadOf = "git://github.com/"
-[url "git://github.com/"]
+[url "https://github.com/"]
     insteadOf = "github:"
 [url "git@gist.github.com:"]
     insteadOf = "gst:"
     pushInsteadOf = "gist:"
-    pushInsteadOf = "git://gist.github.com/"
-[url "git://gist.github.com/"]
+[url "https://gist.github.com/"]
     insteadOf = "gist:"
 [apply]
     # Detect whitespace errors when applying a patch
@@ -75,8 +69,6 @@
 [user]
 	name = Ronan Guilloux
 	email = ronan.guilloux@gmail.com
-#[url "https://"]
-#	insteadOf = git://
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -86,11 +78,6 @@
 	insteadOf = git://
 [init]
 	defaultBranch = main
-[credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [include]
     # For username / creds / etc — last, so each laptop's values win
     path = ~/.gitconfig.local

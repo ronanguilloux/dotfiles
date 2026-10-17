@@ -7,7 +7,7 @@ Personal shell/vim/git config of Ronan Guilloux, maintained since 2014.
 
 - `install.sh` backs up `~/.X` → `~/.X-dist`, then symlinks `~/dotfiles/.X` → `~/.X`.
   **Edits here are live** in every new shell, so a syntax error breaks the next terminal.
-- Repo path `~/dotfiles` is hard-coded (install.sh, .zshrc `functions.sh`/`antigen.zsh` sources).
+- Repo path `~/dotfiles` is hard-coded (install.sh, .zshrc `functions.sh` source).
   That's fine: it's relative to `$HOME`.
 - Primary target: **macOS, zsh**.
 
@@ -16,13 +16,13 @@ Personal shell/vim/git config of Ronan Guilloux, maintained since 2014.
 The same checkout runs on a **home laptop and a work laptop with different `$HOME` paths**.
 
 - Never hard-code `/Users/<name>` or `/home/<name>`: use `$HOME` / `~` (shell), `~/` (gitconfig pathnames),
-  `expand('~')` (vim). Check before committing: `git grep -nE '/Users/|/home/' -- . ':!antigen.zsh'`.
+  `expand('~')` (vim). Check before committing: `git grep -nE '/Users/|/home/'`.
 - Anything that exists on one machine only gets an `if [ -d … ]` / `[ -f … ]` guard (tools, apps, work dirs).
 - Per-machine identity/settings (git `user.email`, work aliases, proxies) → `~/.gitconfig.local`,
   `~/.bash_aliases.local`, never the tracked files.
 - Don't assume the Homebrew prefix (`/opt/homebrew` vs `/usr/local`); guard it or use `command -v`.
 - A change tested on one laptop is only half-tested: say so when reporting.
-- **Every report ends with "On the other laptop:"**: what to do there (`git pull`, `antigen reset`,
+- **Every report ends with "On the other laptop:"**: what to do there (`git pull`, `brew install`,
   create/edit a `.local` file, install a tool, re-run `install.sh`…), or "just `git pull`" if nothing else.
   Machine-local actions (cache resets, `.local` edits) also go in the BACKLOG Done entry as "(other laptop still to do)".
   `.bashrc` is a Linux/Vagrant leftover.
@@ -32,14 +32,13 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 
 | File | Role |
 | --- | --- |
-| `.zshrc` | Main entry. Load order: oh-my-zsh vars → `.bash_aliases` → `~/.bash_aliases.local` → `.pathes` → `functions.sh` → oh-my-zsh → antigen (history-substring-search, syntax-highlighting) → ponysay → daily auto-upgrade → nvm |
+| `.zshrc` | Main entry. Load order: oh-my-zsh vars → `.bash_aliases` → `~/.bash_aliases.local` → `.pathes` → `functions.sh` → oh-my-zsh → Homebrew plugins (history-substring-search, syntax-highlighting last) → ponysay → daily auto-upgrade → nvm |
 | `.pathes` | All PATH tweaks, each wrapped in `if [ -d … ]` so absent tools are skipped. Later blocks prepend → win. |
 | `.bash_aliases` | Aliases shared by bash and zsh (French comments). Many depend on `~/Bin` = [ronanguilloux/Bin](https://github.com/ronanguilloux/Bin). |
 | `functions.sh` | Small shell functions (json, dataurl, phpserver…). |
 | `.gitconfig` | Aliases, colors, `gh:`/`gist:` URL shorthands, `git://`→`https://` rewrite, LFS, GCM. Includes `~/.gitconfig.local`. |
 | `.gitignore_global` | Global excludes (also ignores `**/.claude/settings.local.json`). |
 | `.vimrc`, `.vim/` | vim-plug (`.vim/autoload/plug.vim`, vendored); plugins = `Plug` lines in `.vimrc`, installed to untracked `.vim/plugged/` (`vim +PlugInstall +qa` per machine). |
-| `antigen.zsh` | **Vendored, generated** — never edit; replace wholesale to upgrade. |
 
 ## Deliberate choices — keep them
 
@@ -71,9 +70,6 @@ zsh -n ~/dotfiles/.zshrc && for f in .bash_aliases functions.sh .pathes install.
 time zsh -i -c exit          # startup must succeed and stay fast
 git config -f ~/dotfiles/.gitconfig --list >/dev/null   # gitconfig parses
 ```
-
-Changed an `antigen bundle`/`theme` line? Antigen keeps loading its cache `~/.antigen/init.zsh` and
-doesn't notice the edit: run `antigen reset` (then `antigen cleanup`) on **each** laptop.
 
 ## Backlog
 

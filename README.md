@@ -15,7 +15,7 @@ Installation
 Install [Brew](https://brew.sh/)
 
 ``` bash
-    brew install ponysay fortune rtk gemini-cli mole ngrok gh uv
+    brew install ponysay fortune rtk gemini-cli mole ngrok gh uv zsh-history-substring-search zsh-syntax-highlighting
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone https://github.com/ronanguilloux/dotfiles.git
     git clone https://github.com/ronanguilloux/Bin.git
@@ -29,7 +29,6 @@ Suggestions
 -----------
 
 - https://github.com/arzzen/calc.plugin.zsh
-- https://github.com/zsh-users/zsh-syntax-highlighting
 - https://github.com/voronkovich/sf2.plugin.zsh
 - https://github.com/horosgrisa/mysql-colorize
 
@@ -46,7 +45,7 @@ They are the `Plug '…'` lines in `.vimrc`, installed into the untracked `.vim/
 ZSH: .zshrc & oh-my-zsh
 -----------------------
 
-`install.sh` symlinks `~/.zshrc`, which loads oh-my-zsh itself (and the vendored `antigen.zsh`): no `~/.oh-my-zsh/custom/local.zsh` symlink needed.
+`install.sh` symlinks `~/.zshrc`, which loads oh-my-zsh itself, then the Homebrew `zsh-history-substring-search` and `zsh-syntax-highlighting` plugins: no `~/.oh-my-zsh/custom/local.zsh` symlink needed.
 
 Binaries dependencies: The `./dotfiles/.zshrc` file depends on some ~/Bin/sh/*.sh files in [ronanguilloux/Bin](https://github.com/ronanguilloux/Bin/tree/master/sh)
 

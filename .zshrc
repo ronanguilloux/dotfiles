@@ -62,9 +62,6 @@ fi
 if [ -f $HOME/.pathes ]; then
     source $HOME/.pathes
 fi
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
 fpath=(~/.zsh/completion $fpath)
 # Github's hub command: https://github.com/github/hub: brew install hub
 #eval "$(hub alias -s)"
@@ -79,18 +76,16 @@ fi
 # export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
-# Antigen: extra plugins only (oh-my-zsh is loaded above). Syntax highlighting must load last.
-source "$HOME/dotfiles/antigen.zsh"
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
-# antigen's cache stubs compdef and re-runs compinit at the first prompt, wiping completions
-# registered below (gcloud, nvm): run its compinit now instead
-(( $+functions[_antigen_compinit] )) && _antigen_compinit
+# Extra plugins from Homebrew (brew install zsh-history-substring-search zsh-syntax-highlighting;
+# the omz brew plugin sets $HOMEBREW_PREFIX). Syntax highlighting must load last.
+for p in zsh-history-substring-search zsh-syntax-highlighting; do
+    [ -f "$HOMEBREW_PREFIX/share/$p/$p.zsh" ] && source "$HOMEBREW_PREFIX/share/$p/$p.zsh"
+done; unset p
 # ↑/↓: substring search (both the normal and application-mode key codes)
-bindkey '^[[A' history-substring-search-up; [[ -n ${terminfo[kcuu1]} ]] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
-bindkey '^[[B' history-substring-search-down; [[ -n ${terminfo[kcud1]} ]] && bindkey "${terminfo[kcud1]}" history-substring-search-down
-# use antigen update to update it all
+(( $+functions[history-substring-search-up] )) && {
+    bindkey '^[[A' history-substring-search-up; [[ -n ${terminfo[kcuu1]} ]] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
+    bindkey '^[[B' history-substring-search-down; [[ -n ${terminfo[kcud1]} ]] && bindkey "${terminfo[kcud1]}" history-substring-search-down
+}
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
