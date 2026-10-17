@@ -4,10 +4,22 @@ brew "ffmpeg"
 brew "fortune"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
+# Git extension for versioning large files
+brew "git-lfs"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Deep clean and optimize your Mac
 brew "mole"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# PNG file optimizer
+brew "optipng"
+# PNG image optimizing utility
+brew "pngquant"
 # Cowsay but with ponies
 brew "ponysay"
 # PDF rendering library (based on the xpdf-3.0 code base)
@@ -20,6 +32,8 @@ brew "tig"
 brew "tree"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
 # Zsh port of Fish shell's history search
 brew "zsh-history-substring-search"
 # Fish shell like syntax highlighting for zsh
