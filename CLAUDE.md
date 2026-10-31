@@ -44,7 +44,7 @@ The same checkout runs on a **home laptop and a work laptop with different `$HOM
 ## Deliberate choices — keep them
 
 - **Daily auto-upgrade block** in `.zshrc`: date stamp in `~/.cache/brew-autoupgrade/last-run` plus
-  `/usr/bin/lockf -s -t 0` (macOS-only) so only one tab per day runs `brew upgrade` + `uv tool upgrade --all`,
+  `/usr/bin/lockf -s -t 0` (macOS-only) so only one tab per day runs `brew upgrade` + `uv tool upgrade --all` + `npm update -g`,
   detached (`&!`), logged to `~/Library/Logs/brew-autoupgrade.log`. Must never block shell startup.
   It then writes Brewfile drift (`brew bundle cleanup`/`check`) to `~/.cache/brew-autoupgrade/brewfile-drift`,
   which new shells print (a file read only) until `~/.Brewfile` is newer.

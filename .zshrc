@@ -130,6 +130,7 @@ fi
     print -r -- "== $(date)"
     brew upgrade -q
     [[ -x ~/.local/bin/uv ]] && ~/.local/bin/uv tool upgrade --all -q
+    command -v npm >/dev/null && npm update -g --silent
     [[ -f ~/.Brewfile ]] || exit
     extras=$(brew bundle cleanup --global 2>/dev/null | awk "/^Would uninstall/{f=1;next} /^(Would|Run)/{f=0} f" | xargs)
     { [[ -n $extras ]] && print -r -- "brew: not in ~/.Brewfile: $extras (brew bundle add --global …, or uninstall)"
